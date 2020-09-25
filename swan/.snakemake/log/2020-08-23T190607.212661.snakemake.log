@@ -1,0 +1,51 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 12
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	6	fastqc2
+	6	filter_uncorrected
+	6	htseq
+	6	rcorrector
+	6	rmbadreads
+	6	star
+	6	stringtie01
+	6	stringtie02
+	6	stringtie_merge
+	6	trimming
+	61
+
+[Sun Aug 23 19:06:07 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swancontrol03_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swancontrol03_2.fastq.gz
+    output: results/rcorrector/swancontrol03/swancontrol03_1.cor.fq.gz, results/rcorrector/swancontrol03/swancontrol03_2.cor.fq.gz
+    jobid: 59
+    wildcards: smp=swancontrol03
+    threads: 12
+
+ run_rcorrector.pl -od results/rcorrector/swancontrol03 -t 12 -1 /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swancontrol03_1.fastq.gz -2 /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swancontrol03_2.fastq.gz 
+[Mon Aug 24 03:16:54 2020]
+Finished job 59.
+1 of 61 steps (2%) done
+
+[Mon Aug 24 03:16:54 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/swancontrol03/swancontrol03_1.cor.fq.gz, results/rcorrector/swancontrol03/swancontrol03_2.cor.fq.gz
+    output: results/swancontrol03_filter/unfixrm_swancontrol03_1.cor.fq, results/swancontrol03_filter/unfixrm_swancontrol03_2.cor.fq
+    jobid: 53
+    wildcards: smp=swancontrol03
+
+ mkdir -p results/swancontrol03_filter && FilterUncorrectabledPEfastq.py -1 results/rcorrector/swancontrol03/swancontrol03_1.cor.fq.gz -2 results/rcorrector/swancontrol03/swancontrol03_2.cor.fq.gz && mv unfixrm_swancontrol03_1.cor.fq unfixrm_swancontrol03_2.cor.fq results/swancontrol03_filter
+[Mon Aug 24 03:16:55 2020]
+Error in rule filter_uncorrected:
+    jobid: 53
+    output: results/swancontrol03_filter/unfixrm_swancontrol03_1.cor.fq, results/swancontrol03_filter/unfixrm_swancontrol03_2.cor.fq
+    shell:
+         mkdir -p results/swancontrol03_filter && FilterUncorrectabledPEfastq.py -1 results/rcorrector/swancontrol03/swancontrol03_1.cor.fq.gz -2 results/rcorrector/swancontrol03/swancontrol03_2.cor.fq.gz && mv unfixrm_swancontrol03_1.cor.fq unfixrm_swancontrol03_2.cor.fq results/swancontrol03_filter
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/swan/.snakemake/log/2020-08-23T190607.212661.snakemake.log

@@ -1,0 +1,31 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	htseq
+	2
+
+[Wed Jun 10 12:36:04 2020]
+rule htseq:
+    input: results/STAR_bam/swancontrol03Aligned.sortedByCoord.out.bam, /30days/uqakaraw/swan/blackswan_isoseq.gtf
+    output: htseq/swancontrol03.tsv, htseq/log/swancontrol03.err
+    jobid: 5
+    wildcards: smp=swancontrol03
+
+Activating conda environment: /30days/uqakaraw/snakemake_envs/f9a6e946
+[Wed Jun 10 14:24:09 2020]
+Finished job 5.
+1 of 2 steps (50%) done
+
+[Wed Jun 10 14:24:09 2020]
+localrule all:
+    input: htseq/swancontrol01.tsv, htseq/swaninfected01.tsv, htseq/swaninfected03.tsv, htseq/swancontrol02.tsv, htseq/swancontrol03.tsv, htseq/swaninfected02.tsv
+    jobid: 0
+
+[Wed Jun 10 14:24:09 2020]
+Finished job 0.
+2 of 2 steps (100%) done
+Complete log: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/swan/.snakemake/log/2020-06-10T123604.752190.snakemake.log

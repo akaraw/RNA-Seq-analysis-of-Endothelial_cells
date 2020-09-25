@@ -1,0 +1,50 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 2
+Job counts:
+	count	jobs
+	1	all
+	1	busco
+	1	fastqc2
+	1	filter_uncorrected
+	1	rcorrector
+	1	star
+	1	stats
+	1	trimming
+	1	trinity
+	9
+
+[Wed Mar 11 13:49:51 2020]
+rule rcorrector:
+    input: fastq_files/swancontrol01_1.fastq.gz, fastq_files/swancontrol01_2.fastq.gz, fastq_files/fastqc/swancontrol01/swancontrol01_1_fastqc.zip, fastq_files/fastqc/swancontrol01/swancontrol01_2_fastqc.zip
+    output: results/rcorrector/swancontrol01/swancontrol01_1.cor.fq.gz, results/rcorrector/swancontrol01/swancontrol01_2.cor.fq.gz
+    jobid: 8
+    wildcards: smp=swancontrol01
+    threads: 20
+
+Submitted job 8 with external jobid '173251.tinmgr2'.
+[Wed Mar 11 19:07:00 2020]
+Finished job 8.
+1 of 9 steps (11%) done
+
+[Wed Mar 11 19:07:00 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/swancontrol01/swancontrol01_1.cor.fq.gz, results/rcorrector/swancontrol01/swancontrol01_2.cor.fq.gz
+    output: results/swancontrol01_filter/unfixrm_swancontrol01_1.cor.fq, results/swancontrol01_filter/unfixrm_swancontrol01_2.cor.fq, results/rcorrector/swancontrol01.log
+    jobid: 6
+    wildcards: smp=swancontrol01
+
+Submitted job 6 with external jobid '173511.tinmgr2'.
+[Wed Mar 11 19:33:01 2020]
+Error in rule filter_uncorrected:
+    jobid: 6
+    output: results/swancontrol01_filter/unfixrm_swancontrol01_1.cor.fq, results/swancontrol01_filter/unfixrm_swancontrol01_2.cor.fq, results/rcorrector/swancontrol01.log
+    shell:
+         mkdir -p results/swancontrol01_filter && FilterUncorrectabledPEfastq.py -1 results/rcorrector/swancontrol01/swancontrol01_1.cor.fq.gz -2 results/rcorrector/swancontrol01/swancontrol01_2.cor.fq.gz -s results/rcorrector/swancontrol01.log && mv unfix* results/swancontrol01_filter
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: 173511.tinmgr2
+
+Error executing rule filter_uncorrected on cluster (jobid: 6, external: 173511.tinmgr2, jobscript: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/swan/.snakemake/tmp.7kpc__3j/snakejob.filter_uncorrected.6.sh). For error details see the cluster log and the log files of the involved rule(s).
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/swan/.snakemake/log/2020-03-11T134950.687183.snakemake.log

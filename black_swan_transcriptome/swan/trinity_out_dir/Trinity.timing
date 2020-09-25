@@ -1,0 +1,5 @@
+Statistics:
+===========
+Trinity Version:      Trinity-v2.9.1
+Compiler:             GCC
+Trinity Parameters:   --genome_guided_bam results/STAR_bam/swancontrol01Aligned.sortedByCoord.out.bam --max_memory 50G --genome_guided_max_intron 10000 --CPU 6

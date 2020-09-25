@@ -1,0 +1,17 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Conda environments: ignored
+Job counts:
+	count	jobs
+	1	clean
+	1
+
+[Mon Apr 20 05:02:54 2020]
+Job 0: -- Removing results/rcorrector fastqc fastqc_dir stringtie_gtf star_input --
+
+[Mon Apr 20 05:02:54 2020]
+Finished job 0.
+1 of 1 steps (100%) done
+Complete log: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/duck/.snakemake/log/2020-04-20T050254.326560.snakemake.log

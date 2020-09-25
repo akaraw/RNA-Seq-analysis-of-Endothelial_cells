@@ -1,0 +1,238 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cluster nodes: 6
+Job counts:
+	count	jobs
+	1	all
+	6	filter_uncorrected
+	6	rcorrector
+	6	trimming
+	19
+
+[Wed Jun 24 16:26:04 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickinfected02_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickinfected02_2.fastq.gz
+    output: results/rcorrector/chickinfected02/chickinfected02_1.cor.fq.gz, results/rcorrector/chickinfected02/chickinfected02_2.cor.fq.gz
+    jobid: 18
+    wildcards: smp=chickinfected02
+    threads: 20
+
+ run_rcorrector.pl -od results/rcorrector/chickinfected02 -t 20 -1 /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickinfected02_1.fastq.gz -2 /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickinfected02_2.fastq.gz 
+Submitted job 18 with external jobid '244204.tinmgr2'.
+
+[Wed Jun 24 16:26:04 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickinfected01_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickinfected01_2.fastq.gz
+    output: results/rcorrector/chickinfected01/chickinfected01_1.cor.fq.gz, results/rcorrector/chickinfected01/chickinfected01_2.cor.fq.gz
+    jobid: 13
+    wildcards: smp=chickinfected01
+    threads: 20
+
+ run_rcorrector.pl -od results/rcorrector/chickinfected01 -t 20 -1 /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickinfected01_1.fastq.gz -2 /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickinfected01_2.fastq.gz 
+Submitted job 13 with external jobid '244205.tinmgr2'.
+
+[Wed Jun 24 16:26:04 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol02_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol02_2.fastq.gz
+    output: results/rcorrector/chickcontrol02/chickcontrol02_1.cor.fq.gz, results/rcorrector/chickcontrol02/chickcontrol02_2.cor.fq.gz
+    jobid: 17
+    wildcards: smp=chickcontrol02
+    threads: 20
+
+ run_rcorrector.pl -od results/rcorrector/chickcontrol02 -t 20 -1 /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol02_1.fastq.gz -2 /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol02_2.fastq.gz 
+Submitted job 17 with external jobid '244206.tinmgr2'.
+
+[Wed Jun 24 16:26:04 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickinfected03_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickinfected03_2.fastq.gz
+    output: results/rcorrector/chickinfected03/chickinfected03_1.cor.fq.gz, results/rcorrector/chickinfected03/chickinfected03_2.cor.fq.gz
+    jobid: 16
+    wildcards: smp=chickinfected03
+    threads: 20
+
+ run_rcorrector.pl -od results/rcorrector/chickinfected03 -t 20 -1 /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickinfected03_1.fastq.gz -2 /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickinfected03_2.fastq.gz 
+Submitted job 16 with external jobid '244207.tinmgr2'.
+
+[Wed Jun 24 16:26:04 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol03_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol03_2.fastq.gz
+    output: results/rcorrector/chickcontrol03/chickcontrol03_1.cor.fq.gz, results/rcorrector/chickcontrol03/chickcontrol03_2.cor.fq.gz
+    jobid: 15
+    wildcards: smp=chickcontrol03
+    threads: 20
+
+ run_rcorrector.pl -od results/rcorrector/chickcontrol03 -t 20 -1 /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol03_1.fastq.gz -2 /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol03_2.fastq.gz 
+Submitted job 15 with external jobid '244208.tinmgr2'.
+
+[Wed Jun 24 16:26:05 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol01_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol01_2.fastq.gz
+    output: results/rcorrector/chickcontrol01/chickcontrol01_1.cor.fq.gz, results/rcorrector/chickcontrol01/chickcontrol01_2.cor.fq.gz
+    jobid: 14
+    wildcards: smp=chickcontrol01
+    threads: 20
+
+ run_rcorrector.pl -od results/rcorrector/chickcontrol01 -t 20 -1 /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol01_1.fastq.gz -2 /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol01_2.fastq.gz 
+Submitted job 14 with external jobid '244209.tinmgr2'.
+[Wed Jun 24 21:28:02 2020]
+Finished job 18.
+1 of 19 steps (5%) done
+
+[Wed Jun 24 21:28:02 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/chickinfected02/chickinfected02_1.cor.fq.gz, results/rcorrector/chickinfected02/chickinfected02_2.cor.fq.gz
+    output: results/chickinfected02_filter/unfixrm_chickinfected02_1.cor.fq, results/chickinfected02_filter/unfixrm_chickinfected02_2.cor.fq
+    jobid: 12
+    wildcards: smp=chickinfected02
+
+ mkdir -p results/chickinfected02_filter && FilterUncorrectabledPEfastq.py -1 results/rcorrector/chickinfected02/chickinfected02_1.cor.fq.gz -2 results/rcorrector/chickinfected02/chickinfected02_2.cor.fq.gz && mv unfixrm_chickinfected02_1.cor.fq unfixrm_chickinfected02_2.cor.fq results/chickinfected02_filter
+Submitted job 12 with external jobid '244878.tinmgr2'.
+[Wed Jun 24 22:29:46 2020]
+Finished job 12.
+2 of 19 steps (11%) done
+
+[Wed Jun 24 22:29:46 2020]
+Job 6: --- Trimming.
+
+trim_galore --paired --retain_unpaired --phred33 --basename chickinfected02 -j 20 --output_dir results/trimmed/chickinfected02 --length 36 -q 5 --stringency 1 -e 0.1 results/chickinfected02_filter/unfixrm_chickinfected02_1.cor.fq results/chickinfected02_filter/unfixrm_chickinfected02_2.cor.fq > output.out 2>&1
+Submitted job 6 with external jobid '244895.tinmgr2'.
+[Thu Jun 25 00:12:42 2020]
+Finished job 15.
+3 of 19 steps (16%) done
+
+[Thu Jun 25 00:12:42 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/chickcontrol03/chickcontrol03_1.cor.fq.gz, results/rcorrector/chickcontrol03/chickcontrol03_2.cor.fq.gz
+    output: results/chickcontrol03_filter/unfixrm_chickcontrol03_1.cor.fq, results/chickcontrol03_filter/unfixrm_chickcontrol03_2.cor.fq
+    jobid: 9
+    wildcards: smp=chickcontrol03
+
+ mkdir -p results/chickcontrol03_filter && FilterUncorrectabledPEfastq.py -1 results/rcorrector/chickcontrol03/chickcontrol03_1.cor.fq.gz -2 results/rcorrector/chickcontrol03/chickcontrol03_2.cor.fq.gz && mv unfixrm_chickcontrol03_1.cor.fq unfixrm_chickcontrol03_2.cor.fq results/chickcontrol03_filter
+Submitted job 9 with external jobid '244907.tinmgr2'.
+Removing temporary output file results/chickinfected02_filter/unfixrm_chickinfected02_1.cor.fq.
+Removing temporary output file results/chickinfected02_filter/unfixrm_chickinfected02_2.cor.fq.
+[Thu Jun 25 00:20:33 2020]
+Finished job 6.
+4 of 19 steps (21%) done
+[Thu Jun 25 00:21:43 2020]
+Finished job 14.
+5 of 19 steps (26%) done
+
+[Thu Jun 25 00:21:43 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/chickcontrol01/chickcontrol01_1.cor.fq.gz, results/rcorrector/chickcontrol01/chickcontrol01_2.cor.fq.gz
+    output: results/chickcontrol01_filter/unfixrm_chickcontrol01_1.cor.fq, results/chickcontrol01_filter/unfixrm_chickcontrol01_2.cor.fq
+    jobid: 8
+    wildcards: smp=chickcontrol01
+
+ mkdir -p results/chickcontrol01_filter && FilterUncorrectabledPEfastq.py -1 results/rcorrector/chickcontrol01/chickcontrol01_1.cor.fq.gz -2 results/rcorrector/chickcontrol01/chickcontrol01_2.cor.fq.gz && mv unfixrm_chickcontrol01_1.cor.fq unfixrm_chickcontrol01_2.cor.fq results/chickcontrol01_filter
+Submitted job 8 with external jobid '244912.tinmgr2'.
+[Thu Jun 25 00:36:44 2020]
+Finished job 9.
+6 of 19 steps (32%) done
+
+[Thu Jun 25 00:36:44 2020]
+Job 3: --- Trimming.
+
+trim_galore --paired --retain_unpaired --phred33 --basename chickcontrol03 -j 20 --output_dir results/trimmed/chickcontrol03 --length 36 -q 5 --stringency 1 -e 0.1 results/chickcontrol03_filter/unfixrm_chickcontrol03_1.cor.fq results/chickcontrol03_filter/unfixrm_chickcontrol03_2.cor.fq > output.out 2>&1
+Submitted job 3 with external jobid '244916.tinmgr2'.
+[Thu Jun 25 00:53:06 2020]
+Finished job 8.
+7 of 19 steps (37%) done
+
+[Thu Jun 25 00:53:06 2020]
+Job 2: --- Trimming.
+
+trim_galore --paired --retain_unpaired --phred33 --basename chickcontrol01 -j 20 --output_dir results/trimmed/chickcontrol01 --length 36 -q 5 --stringency 1 -e 0.1 results/chickcontrol01_filter/unfixrm_chickcontrol01_1.cor.fq results/chickcontrol01_filter/unfixrm_chickcontrol01_2.cor.fq > output.out 2>&1
+Submitted job 2 with external jobid '244926.tinmgr2'.
+Removing temporary output file results/chickcontrol03_filter/unfixrm_chickcontrol03_2.cor.fq.
+Removing temporary output file results/chickcontrol03_filter/unfixrm_chickcontrol03_1.cor.fq.
+[Thu Jun 25 00:53:16 2020]
+Finished job 3.
+8 of 19 steps (42%) done
+Removing temporary output file results/chickcontrol01_filter/unfixrm_chickcontrol01_1.cor.fq.
+Removing temporary output file results/chickcontrol01_filter/unfixrm_chickcontrol01_2.cor.fq.
+[Thu Jun 25 00:58:56 2020]
+Finished job 2.
+9 of 19 steps (47%) done
+[Thu Jun 25 01:06:06 2020]
+Finished job 16.
+10 of 19 steps (53%) done
+
+[Thu Jun 25 01:06:06 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/chickinfected03/chickinfected03_1.cor.fq.gz, results/rcorrector/chickinfected03/chickinfected03_2.cor.fq.gz
+    output: results/chickinfected03_filter/unfixrm_chickinfected03_1.cor.fq, results/chickinfected03_filter/unfixrm_chickinfected03_2.cor.fq
+    jobid: 10
+    wildcards: smp=chickinfected03
+
+ mkdir -p results/chickinfected03_filter && FilterUncorrectabledPEfastq.py -1 results/rcorrector/chickinfected03/chickinfected03_1.cor.fq.gz -2 results/rcorrector/chickinfected03/chickinfected03_2.cor.fq.gz && mv unfixrm_chickinfected03_1.cor.fq unfixrm_chickinfected03_2.cor.fq results/chickinfected03_filter
+Submitted job 10 with external jobid '244944.tinmgr2'.
+[Thu Jun 25 01:28:08 2020]
+Finished job 13.
+11 of 19 steps (58%) done
+
+[Thu Jun 25 01:28:08 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/chickinfected01/chickinfected01_1.cor.fq.gz, results/rcorrector/chickinfected01/chickinfected01_2.cor.fq.gz
+    output: results/chickinfected01_filter/unfixrm_chickinfected01_1.cor.fq, results/chickinfected01_filter/unfixrm_chickinfected01_2.cor.fq
+    jobid: 7
+    wildcards: smp=chickinfected01
+
+ mkdir -p results/chickinfected01_filter && FilterUncorrectabledPEfastq.py -1 results/rcorrector/chickinfected01/chickinfected01_1.cor.fq.gz -2 results/rcorrector/chickinfected01/chickinfected01_2.cor.fq.gz && mv unfixrm_chickinfected01_1.cor.fq unfixrm_chickinfected01_2.cor.fq results/chickinfected01_filter
+Submitted job 7 with external jobid '245365.tinmgr2'.
+[Thu Jun 25 01:29:28 2020]
+Finished job 17.
+12 of 19 steps (63%) done
+
+[Thu Jun 25 01:29:28 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/chickcontrol02/chickcontrol02_1.cor.fq.gz, results/rcorrector/chickcontrol02/chickcontrol02_2.cor.fq.gz
+    output: results/chickcontrol02_filter/unfixrm_chickcontrol02_1.cor.fq, results/chickcontrol02_filter/unfixrm_chickcontrol02_2.cor.fq
+    jobid: 11
+    wildcards: smp=chickcontrol02
+
+ mkdir -p results/chickcontrol02_filter && FilterUncorrectabledPEfastq.py -1 results/rcorrector/chickcontrol02/chickcontrol02_1.cor.fq.gz -2 results/rcorrector/chickcontrol02/chickcontrol02_2.cor.fq.gz && mv unfixrm_chickcontrol02_1.cor.fq unfixrm_chickcontrol02_2.cor.fq results/chickcontrol02_filter
+Submitted job 11 with external jobid '245366.tinmgr2'.
+[Thu Jun 25 01:32:28 2020]
+Finished job 10.
+13 of 19 steps (68%) done
+
+[Thu Jun 25 01:32:28 2020]
+Job 4: --- Trimming.
+
+trim_galore --paired --retain_unpaired --phred33 --basename chickinfected03 -j 20 --output_dir results/trimmed/chickinfected03 --length 36 -q 5 --stringency 1 -e 0.1 results/chickinfected03_filter/unfixrm_chickinfected03_1.cor.fq results/chickinfected03_filter/unfixrm_chickinfected03_2.cor.fq > output.out 2>&1
+Submitted job 4 with external jobid '245367.tinmgr2'.
+[Thu Jun 25 01:55:30 2020]
+Finished job 7.
+14 of 19 steps (74%) done
+
+[Thu Jun 25 01:55:30 2020]
+Job 1: --- Trimming.
+
+trim_galore --paired --retain_unpaired --phred33 --basename chickinfected01 -j 20 --output_dir results/trimmed/chickinfected01 --length 36 -q 5 --stringency 1 -e 0.1 results/chickinfected01_filter/unfixrm_chickinfected01_1.cor.fq results/chickinfected01_filter/unfixrm_chickinfected01_2.cor.fq > output.out 2>&1
+Submitted job 1 with external jobid '246628.tinmgr2'.
+[Thu Jun 25 02:13:11 2020]
+Error in rule filter_uncorrected:
+    jobid: 11
+    output: results/chickcontrol02_filter/unfixrm_chickcontrol02_1.cor.fq, results/chickcontrol02_filter/unfixrm_chickcontrol02_2.cor.fq
+    shell:
+         mkdir -p results/chickcontrol02_filter && FilterUncorrectabledPEfastq.py -1 results/rcorrector/chickcontrol02/chickcontrol02_1.cor.fq.gz -2 results/rcorrector/chickcontrol02/chickcontrol02_2.cor.fq.gz && mv unfixrm_chickcontrol02_1.cor.fq unfixrm_chickcontrol02_2.cor.fq results/chickcontrol02_filter
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: 245366.tinmgr2
+
+Error executing rule filter_uncorrected on cluster (jobid: 11, external: 245366.tinmgr2, jobscript: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/chicken/.snakemake/tmp.t9uwrg0h/snakejob.filter_uncorrected.11.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Thu Jun 25 04:08:17 2020]
+Error in rule trimming:
+    jobid: 4
+    output: results/trimmed/chickinfected03/chickinfected03_val_1.fq, results/trimmed/chickinfected03/chickinfected03_val_2.fq
+    conda-env: /30days/uqakaraw/snakemake_envs/f868301f
+    shell:
+        trim_galore --paired --retain_unpaired --phred33 --basename chickinfected03 -j 20 --output_dir results/trimmed/chickinfected03 --length 36 -q 5 --stringency 1 -e 0.1 results/chickinfected03_filter/unfixrm_chickinfected03_1.cor.fq results/chickinfected03_filter/unfixrm_chickinfected03_2.cor.fq > output.out 2>&1
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: 245367.tinmgr2
+
+Error executing rule trimming on cluster (jobid: 4, external: 245367.tinmgr2, jobscript: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/chicken/.snakemake/tmp.t9uwrg0h/snakejob.trimming.4.sh). For error details see the cluster log and the log files of the involved rule(s).
+Terminating processes on user request, this might take some time.
+Will exit after finishing currently running jobs.
+Complete log: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/chicken/.snakemake/log/2020-06-24T162604.294402.snakemake.log

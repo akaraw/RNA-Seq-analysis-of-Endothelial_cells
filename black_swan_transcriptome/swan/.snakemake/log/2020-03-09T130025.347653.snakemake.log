@@ -1,0 +1,41 @@
+Building DAG of jobs...
+Creating conda environment env/busco.yaml...
+Downloading and installing remote packages.
+Environment for env/busco.yaml created (location: ../../../../../../30days/uqakaraw/snakemake_envs/a8d1d0af)
+Creating conda environment env/transcriptome.yaml...
+Downloading and installing remote packages.
+Environment for env/transcriptome.yaml created (location: ../../../../../../30days/uqakaraw/snakemake_envs/f868301f)
+Using shell: /bin/bash
+Provided cluster nodes: 2
+Job counts:
+	count	jobs
+	1	all
+	1	busco
+	1	star
+	1	stats
+	1	trinity
+	5
+
+[Mon Mar  9 13:14:01 2020]
+rule star:
+    input: fastq_files/trimmed/swancontrol01/swancontrol01_val_1.fq, fastq_files/trimmed/swancontrol01/swancontrol01_val_2.fq, fastq_files/fastqc/swancontrol01/swancontrol01_val_1_fastqc.zip, fastq_files/fastqc/swancontrol01/swancontrol01_val_2_fastqc.zip
+    output: results/STAR_bam/swancontrol01Aligned.sortedByCoord.out.bam
+    jobid: 5
+    wildcards: smp=swancontrol01
+    threads: 22
+
+Submitted job 5 with external jobid '171277.tinmgr2'.
+[Mon Mar  9 13:14:51 2020]
+Error in rule star:
+    jobid: 5
+    output: results/STAR_bam/swancontrol01Aligned.sortedByCoord.out.bam
+    conda-env: /30days/uqakaraw/snakemake_envs/f868301f
+    shell:
+        STAR --runMode alignReads --runThreadN 22 --genomeDir bowtie2 --readFilesIn fastq_files/trimmed/swancontrol01/swancontrol01_val_1.fq fastq_files/trimmed/swancontrol01/swancontrol01_val_2.fq --outSAMtype BAM SortedByCoordinate --outFileNamePrefix results/STAR_bam/swancontrol01
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: 171277.tinmgr2
+
+Error executing rule star on cluster (jobid: 5, external: 171277.tinmgr2, jobscript: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/swan/.snakemake/tmp.6d978ro5/snakejob.star.5.sh). For error details see the cluster log and the log files of the involved rule(s).
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/swan/.snakemake/log/2020-03-09T130025.347653.snakemake.log

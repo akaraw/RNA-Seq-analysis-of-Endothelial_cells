@@ -1,0 +1,772 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 6
+Job counts:
+	count	jobs
+	1	all
+	6	fastqc1
+	6	fastqc2
+	6	filter_uncorrected
+	6	htseq
+	6	rcorrector
+	6	rmbadreads
+	6	star
+	6	stringtie01
+	6	stringtie02
+	6	stringtie_merge
+	6	trimming
+	67
+
+[Fri Apr 24 22:39:08 2020]
+Job 65: --- Quality check of raw data with Fastqc.
+
+Submitted job 65 with external jobid '193420.tinmgr2'.
+
+[Fri Apr 24 22:39:08 2020]
+Job 63: --- Quality check of raw data with Fastqc.
+
+Submitted job 63 with external jobid '193421.tinmgr2'.
+
+[Fri Apr 24 22:39:08 2020]
+Job 64: --- Quality check of raw data with Fastqc.
+
+Submitted job 64 with external jobid '193422.tinmgr2'.
+
+[Fri Apr 24 22:39:09 2020]
+Job 61: --- Quality check of raw data with Fastqc.
+
+Submitted job 61 with external jobid '193423.tinmgr2'.
+
+[Fri Apr 24 22:39:10 2020]
+Job 66: --- Quality check of raw data with Fastqc.
+
+Submitted job 66 with external jobid '193424.tinmgr2'.
+
+[Fri Apr 24 22:39:10 2020]
+Job 62: --- Quality check of raw data with Fastqc.
+
+Submitted job 62 with external jobid '193425.tinmgr2'.
+[Sat Apr 25 06:52:36 2020]
+Finished job 65.
+1 of 67 steps (1%) done
+
+[Sat Apr 25 06:52:36 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckinfected01_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckinfected01_2.fastq.gz, fastqc/Duckinfected01/Duckinfected01_1_fastqc.zip, fastqc/Duckinfected01/Duckinfected01_2_fastqc.zip
+    output: results/rcorrector/Duckinfected01/Duckinfected01_1.cor.fq.gz, results/rcorrector/Duckinfected01/Duckinfected01_2.cor.fq.gz
+    jobid: 59
+    wildcards: smp=Duckinfected01
+    threads: 20
+
+Submitted job 59 with external jobid '193451.tinmgr2'.
+[Sat Apr 25 06:53:56 2020]
+Finished job 63.
+2 of 67 steps (3%) done
+
+[Sat Apr 25 06:53:56 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol03_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol03_2.fastq.gz, fastqc/Duckcontrol03/Duckcontrol03_1_fastqc.zip, fastqc/Duckcontrol03/Duckcontrol03_2_fastqc.zip
+    output: results/rcorrector/Duckcontrol03/Duckcontrol03_1.cor.fq.gz, results/rcorrector/Duckcontrol03/Duckcontrol03_2.cor.fq.gz
+    jobid: 57
+    wildcards: smp=Duckcontrol03
+    threads: 20
+
+Submitted job 57 with external jobid '193452.tinmgr2'.
+[Sat Apr 25 06:53:57 2020]
+Finished job 61.
+3 of 67 steps (4%) done
+
+[Sat Apr 25 06:53:57 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/duck/duckinfected03_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/duck/duckinfected03_2.fastq.gz, fastqc/duckinfected03/duckinfected03_1_fastqc.zip, fastqc/duckinfected03/duckinfected03_2_fastqc.zip
+    output: results/rcorrector/duckinfected03/duckinfected03_1.cor.fq.gz, results/rcorrector/duckinfected03/duckinfected03_2.cor.fq.gz
+    jobid: 55
+    wildcards: smp=duckinfected03
+    threads: 20
+
+Submitted job 55 with external jobid '193453.tinmgr2'.
+[Sat Apr 25 06:53:57 2020]
+Finished job 66.
+4 of 67 steps (6%) done
+
+[Sat Apr 25 06:53:57 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol02_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol02_2.fastq.gz, fastqc/Duckcontrol02/Duckcontrol02_1_fastqc.zip, fastqc/Duckcontrol02/Duckcontrol02_2_fastqc.zip
+    output: results/rcorrector/Duckcontrol02/Duckcontrol02_1.cor.fq.gz, results/rcorrector/Duckcontrol02/Duckcontrol02_2.cor.fq.gz
+    jobid: 60
+    wildcards: smp=Duckcontrol02
+    threads: 20
+
+Submitted job 60 with external jobid '193454.tinmgr2'.
+[Sat Apr 25 06:55:17 2020]
+Finished job 64.
+5 of 67 steps (7%) done
+
+[Sat Apr 25 06:55:17 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/duck/DuckControl01_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/duck/DuckControl01_2.fastq.gz, fastqc/DuckControl01/DuckControl01_1_fastqc.zip, fastqc/DuckControl01/DuckControl01_2_fastqc.zip
+    output: results/rcorrector/DuckControl01/DuckControl01_1.cor.fq.gz, results/rcorrector/DuckControl01/DuckControl01_2.cor.fq.gz
+    jobid: 58
+    wildcards: smp=DuckControl01
+    threads: 20
+
+Submitted job 58 with external jobid '193455.tinmgr2'.
+[Sat Apr 25 08:30:32 2020]
+Finished job 62.
+6 of 67 steps (9%) done
+
+[Sat Apr 25 08:30:32 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/duck/duckinfected02_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/duck/duckinfected02_2.fastq.gz, fastqc/duckinfected02/duckinfected02_1_fastqc.zip, fastqc/duckinfected02/duckinfected02_2_fastqc.zip
+    output: results/rcorrector/duckinfected02/duckinfected02_1.cor.fq.gz, results/rcorrector/duckinfected02/duckinfected02_2.cor.fq.gz
+    jobid: 56
+    wildcards: smp=duckinfected02
+    threads: 20
+
+Submitted job 56 with external jobid '193458.tinmgr2'.
+[Sat Apr 25 14:08:20 2020]
+Finished job 59.
+7 of 67 steps (10%) done
+
+[Sat Apr 25 14:08:20 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/Duckinfected01/Duckinfected01_1.cor.fq.gz, results/rcorrector/Duckinfected01/Duckinfected01_2.cor.fq.gz
+    output: results/Duckinfected01_filter/unfixrm_Duckinfected01_1.cor.fq, results/Duckinfected01_filter/unfixrm_Duckinfected01_2.cor.fq
+    jobid: 53
+    wildcards: smp=Duckinfected01
+
+Submitted job 53 with external jobid '193900.tinmgr2'.
+[Sat Apr 25 15:27:35 2020]
+Finished job 57.
+8 of 67 steps (12%) done
+
+[Sat Apr 25 15:27:35 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/Duckcontrol03/Duckcontrol03_1.cor.fq.gz, results/rcorrector/Duckcontrol03/Duckcontrol03_2.cor.fq.gz
+    output: results/Duckcontrol03_filter/unfixrm_Duckcontrol03_1.cor.fq, results/Duckcontrol03_filter/unfixrm_Duckcontrol03_2.cor.fq
+    jobid: 51
+    wildcards: smp=Duckcontrol03
+
+Submitted job 51 with external jobid '193913.tinmgr2'.
+[Sat Apr 25 16:22:18 2020]
+Finished job 56.
+9 of 67 steps (13%) done
+
+[Sat Apr 25 16:22:18 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/duckinfected02/duckinfected02_1.cor.fq.gz, results/rcorrector/duckinfected02/duckinfected02_2.cor.fq.gz
+    output: results/duckinfected02_filter/unfixrm_duckinfected02_1.cor.fq, results/duckinfected02_filter/unfixrm_duckinfected02_2.cor.fq
+    jobid: 50
+    wildcards: smp=duckinfected02
+
+Submitted job 50 with external jobid '193941.tinmgr2'.
+[Sat Apr 25 16:25:28 2020]
+Finished job 55.
+10 of 67 steps (15%) done
+
+[Sat Apr 25 16:25:28 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/duckinfected03/duckinfected03_1.cor.fq.gz, results/rcorrector/duckinfected03/duckinfected03_2.cor.fq.gz
+    output: results/duckinfected03_filter/unfixrm_duckinfected03_1.cor.fq, results/duckinfected03_filter/unfixrm_duckinfected03_2.cor.fq
+    jobid: 49
+    wildcards: smp=duckinfected03
+
+Submitted job 49 with external jobid '193942.tinmgr2'.
+[Sat Apr 25 16:28:08 2020]
+Finished job 60.
+11 of 67 steps (16%) done
+
+[Sat Apr 25 16:28:08 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/Duckcontrol02/Duckcontrol02_1.cor.fq.gz, results/rcorrector/Duckcontrol02/Duckcontrol02_2.cor.fq.gz
+    output: results/Duckcontrol02_filter/unfixrm_Duckcontrol02_1.cor.fq, results/Duckcontrol02_filter/unfixrm_Duckcontrol02_2.cor.fq
+    jobid: 54
+    wildcards: smp=Duckcontrol02
+
+Submitted job 54 with external jobid '193943.tinmgr2'.
+[Sat Apr 25 17:18:41 2020]
+Finished job 58.
+12 of 67 steps (18%) done
+
+[Sat Apr 25 17:18:41 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/DuckControl01/DuckControl01_1.cor.fq.gz, results/rcorrector/DuckControl01/DuckControl01_2.cor.fq.gz
+    output: results/DuckControl01_filter/unfixrm_DuckControl01_1.cor.fq, results/DuckControl01_filter/unfixrm_DuckControl01_2.cor.fq
+    jobid: 52
+    wildcards: smp=DuckControl01
+
+Submitted job 52 with external jobid '193950.tinmgr2'.
+Removing temporary output file results/rcorrector/Duckinfected01/Duckinfected01_1.cor.fq.gz.
+Removing temporary output file results/rcorrector/Duckinfected01/Duckinfected01_2.cor.fq.gz.
+[Sat Apr 25 21:12:12 2020]
+Finished job 53.
+13 of 67 steps (19%) done
+
+[Sat Apr 25 21:12:12 2020]
+Job 44: --- Trimming.
+
+Submitted job 44 with external jobid '193969.tinmgr2'.
+Removing temporary output file results/rcorrector/Duckcontrol03/Duckcontrol03_1.cor.fq.gz.
+Removing temporary output file results/rcorrector/Duckcontrol03/Duckcontrol03_2.cor.fq.gz.
+[Sat Apr 25 23:59:31 2020]
+Finished job 51.
+14 of 67 steps (21%) done
+
+[Sat Apr 25 23:59:31 2020]
+Job 38: --- Trimming.
+
+Submitted job 38 with external jobid '194013.tinmgr2'.
+Removing temporary output file results/rcorrector/duckinfected02/duckinfected02_1.cor.fq.gz.
+Removing temporary output file results/rcorrector/duckinfected02/duckinfected02_2.cor.fq.gz.
+[Sun Apr 26 00:02:51 2020]
+Finished job 50.
+15 of 67 steps (22%) done
+
+[Sun Apr 26 00:02:51 2020]
+Job 35: --- Trimming.
+
+Submitted job 35 with external jobid '194014.tinmgr2'.
+Removing temporary output file results/rcorrector/duckinfected03/duckinfected03_1.cor.fq.gz.
+Removing temporary output file results/rcorrector/duckinfected03/duckinfected03_2.cor.fq.gz.
+[Sun Apr 26 01:10:45 2020]
+Finished job 49.
+16 of 67 steps (24%) done
+
+[Sun Apr 26 01:10:45 2020]
+Job 32: --- Trimming.
+
+Submitted job 32 with external jobid '194020.tinmgr2'.
+Removing temporary output file results/rcorrector/Duckcontrol02/Duckcontrol02_1.cor.fq.gz.
+Removing temporary output file results/rcorrector/Duckcontrol02/Duckcontrol02_2.cor.fq.gz.
+[Sun Apr 26 01:21:26 2020]
+Finished job 54.
+17 of 67 steps (25%) done
+
+[Sun Apr 26 01:21:26 2020]
+Job 47: --- Trimming.
+
+Submitted job 47 with external jobid '194021.tinmgr2'.
+Removing temporary output file results/rcorrector/DuckControl01/DuckControl01_1.cor.fq.gz.
+Removing temporary output file results/rcorrector/DuckControl01/DuckControl01_2.cor.fq.gz.
+[Sun Apr 26 01:53:08 2020]
+Finished job 52.
+18 of 67 steps (27%) done
+
+[Sun Apr 26 01:53:08 2020]
+Job 41: --- Trimming.
+
+Submitted job 41 with external jobid '194022.tinmgr2'.
+Removing temporary output file results/Duckinfected01_filter/unfixrm_Duckinfected01_2.cor.fq.
+Removing temporary output file results/Duckinfected01_filter/unfixrm_Duckinfected01_1.cor.fq.
+[Sun Apr 26 02:03:29 2020]
+Finished job 44.
+19 of 67 steps (28%) done
+
+[Sun Apr 26 02:03:29 2020]
+Job 43: --- Quality check of raw data with Fastqc
+
+Submitted job 43 with external jobid '194023.tinmgr2'.
+Removing temporary output file results/Duckcontrol03_filter/unfixrm_Duckcontrol03_2.cor.fq.
+Removing temporary output file results/Duckcontrol03_filter/unfixrm_Duckcontrol03_1.cor.fq.
+[Sun Apr 26 03:49:38 2020]
+Finished job 38.
+20 of 67 steps (30%) done
+
+[Sun Apr 26 03:49:38 2020]
+Job 37: --- Quality check of raw data with Fastqc
+
+Submitted job 37 with external jobid '194029.tinmgr2'.
+Removing temporary output file results/duckinfected02_filter/unfixrm_duckinfected02_1.cor.fq.
+Removing temporary output file results/duckinfected02_filter/unfixrm_duckinfected02_2.cor.fq.
+[Sun Apr 26 04:13:19 2020]
+Finished job 35.
+21 of 67 steps (31%) done
+
+[Sun Apr 26 04:13:19 2020]
+Job 34: --- Quality check of raw data with Fastqc
+
+Submitted job 34 with external jobid '194030.tinmgr2'.
+Removing temporary output file results/duckinfected03_filter/unfixrm_duckinfected03_1.cor.fq.
+Removing temporary output file results/duckinfected03_filter/unfixrm_duckinfected03_2.cor.fq.
+[Sun Apr 26 04:17:09 2020]
+Finished job 32.
+22 of 67 steps (33%) done
+
+[Sun Apr 26 04:17:09 2020]
+Job 31: --- Quality check of raw data with Fastqc
+
+Submitted job 31 with external jobid '194031.tinmgr2'.
+Removing temporary output file results/Duckcontrol02_filter/unfixrm_Duckcontrol02_2.cor.fq.
+Removing temporary output file results/Duckcontrol02_filter/unfixrm_Duckcontrol02_1.cor.fq.
+[Sun Apr 26 04:59:23 2020]
+Finished job 47.
+23 of 67 steps (34%) done
+
+[Sun Apr 26 04:59:23 2020]
+Job 46: --- Quality check of raw data with Fastqc
+
+Submitted job 46 with external jobid '194033.tinmgr2'.
+[Sun Apr 26 05:01:53 2020]
+Finished job 43.
+24 of 67 steps (36%) done
+
+[Sun Apr 26 05:01:53 2020]
+rule rmbadreads:
+    input: fastqc2/Duckinfected01/Duckinfected01_val_1_fastqc/fastqc_data.txt, fastqc2/Duckinfected01/Duckinfected01_val_2_fastqc/fastqc_data.txt, results/trimmed/Duckinfected01/Duckinfected01_val_1.fq, results/trimmed/Duckinfected01/Duckinfected01_val_2.fq
+    output: star_input/rmoverrep_Duckinfected01_val_1.fq, star_input/rmoverrep_Duckinfected01_val_2.fq
+    jobid: 27
+    wildcards: smp=Duckinfected01
+
+Submitted job 27 with external jobid '194034.tinmgr2'.
+Removing temporary output file results/DuckControl01_filter/unfixrm_DuckControl01_1.cor.fq.
+Removing temporary output file results/DuckControl01_filter/unfixrm_DuckControl01_2.cor.fq.
+[Sun Apr 26 05:10:03 2020]
+Finished job 41.
+25 of 67 steps (37%) done
+
+[Sun Apr 26 05:10:03 2020]
+Job 40: --- Quality check of raw data with Fastqc
+
+Submitted job 40 with external jobid '194035.tinmgr2'.
+[Sun Apr 26 05:13:04 2020]
+Finished job 37.
+26 of 67 steps (39%) done
+
+[Sun Apr 26 05:13:04 2020]
+rule rmbadreads:
+    input: fastqc2/Duckcontrol03/Duckcontrol03_val_1_fastqc/fastqc_data.txt, fastqc2/Duckcontrol03/Duckcontrol03_val_2_fastqc/fastqc_data.txt, results/trimmed/Duckcontrol03/Duckcontrol03_val_1.fq, results/trimmed/Duckcontrol03/Duckcontrol03_val_2.fq
+    output: star_input/rmoverrep_Duckcontrol03_val_1.fq, star_input/rmoverrep_Duckcontrol03_val_2.fq
+    jobid: 23
+    wildcards: smp=Duckcontrol03
+
+Submitted job 23 with external jobid '194036.tinmgr2'.
+[Sun Apr 26 05:15:45 2020]
+Finished job 34.
+27 of 67 steps (40%) done
+
+[Sun Apr 26 05:15:45 2020]
+rule rmbadreads:
+    input: fastqc2/duckinfected02/duckinfected02_val_1_fastqc/fastqc_data.txt, fastqc2/duckinfected02/duckinfected02_val_2_fastqc/fastqc_data.txt, results/trimmed/duckinfected02/duckinfected02_val_1.fq, results/trimmed/duckinfected02/duckinfected02_val_2.fq
+    output: star_input/rmoverrep_duckinfected02_val_1.fq, star_input/rmoverrep_duckinfected02_val_2.fq
+    jobid: 21
+    wildcards: smp=duckinfected02
+
+Submitted job 21 with external jobid '194037.tinmgr2'.
+[Sun Apr 26 05:31:16 2020]
+Finished job 31.
+28 of 67 steps (42%) done
+
+[Sun Apr 26 05:31:16 2020]
+rule rmbadreads:
+    input: fastqc2/duckinfected03/duckinfected03_val_1_fastqc/fastqc_data.txt, fastqc2/duckinfected03/duckinfected03_val_2_fastqc/fastqc_data.txt, results/trimmed/duckinfected03/duckinfected03_val_1.fq, results/trimmed/duckinfected03/duckinfected03_val_2.fq
+    output: star_input/rmoverrep_duckinfected03_val_1.fq, star_input/rmoverrep_duckinfected03_val_2.fq
+    jobid: 19
+    wildcards: smp=duckinfected03
+
+Submitted job 19 with external jobid '194038.tinmgr2'.
+[Sun Apr 26 05:45:37 2020]
+Finished job 46.
+29 of 67 steps (43%) done
+
+[Sun Apr 26 05:45:37 2020]
+rule rmbadreads:
+    input: fastqc2/Duckcontrol02/Duckcontrol02_val_1_fastqc/fastqc_data.txt, fastqc2/Duckcontrol02/Duckcontrol02_val_2_fastqc/fastqc_data.txt, results/trimmed/Duckcontrol02/Duckcontrol02_val_1.fq, results/trimmed/Duckcontrol02/Duckcontrol02_val_2.fq
+    output: star_input/rmoverrep_Duckcontrol02_val_1.fq, star_input/rmoverrep_Duckcontrol02_val_2.fq
+    jobid: 29
+    wildcards: smp=Duckcontrol02
+
+Submitted job 29 with external jobid '194039.tinmgr2'.
+Removing temporary output file fastqc2/Duckinfected01/Duckinfected01_val_2_fastqc/fastqc_data.txt.
+Removing temporary output file fastqc2/Duckinfected01/Duckinfected01_val_1_fastqc/fastqc_data.txt.
+Removing temporary output file results/trimmed/Duckinfected01/Duckinfected01_val_1.fq.
+Removing temporary output file results/trimmed/Duckinfected01/Duckinfected01_val_2.fq.
+[Sun Apr 26 07:49:04 2020]
+Finished job 27.
+30 of 67 steps (45%) done
+
+[Sun Apr 26 07:49:04 2020]
+rule star:
+    input: star_input/rmoverrep_Duckinfected01_val_1.fq, star_input/rmoverrep_Duckinfected01_val_2.fq
+    output: results/STAR_bam/Duckinfected01Aligned.sortedByCoord.out.bam
+    jobid: 15
+    wildcards: smp=Duckinfected01
+    threads: 20
+
+Submitted job 15 with external jobid '194042.tinmgr2'.
+[Sun Apr 26 08:00:45 2020]
+Finished job 40.
+31 of 67 steps (46%) done
+
+[Sun Apr 26 08:00:45 2020]
+rule rmbadreads:
+    input: fastqc2/DuckControl01/DuckControl01_val_1_fastqc/fastqc_data.txt, fastqc2/DuckControl01/DuckControl01_val_2_fastqc/fastqc_data.txt, results/trimmed/DuckControl01/DuckControl01_val_1.fq, results/trimmed/DuckControl01/DuckControl01_val_2.fq
+    output: star_input/rmoverrep_DuckControl01_val_1.fq, star_input/rmoverrep_DuckControl01_val_2.fq
+    jobid: 25
+    wildcards: smp=DuckControl01
+
+Submitted job 25 with external jobid '194043.tinmgr2'.
+Removing temporary output file fastqc2/Duckcontrol03/Duckcontrol03_val_2_fastqc/fastqc_data.txt.
+Removing temporary output file fastqc2/Duckcontrol03/Duckcontrol03_val_1_fastqc/fastqc_data.txt.
+Removing temporary output file results/trimmed/Duckcontrol03/Duckcontrol03_val_1.fq.
+Removing temporary output file results/trimmed/Duckcontrol03/Duckcontrol03_val_2.fq.
+[Sun Apr 26 08:16:06 2020]
+Finished job 23.
+32 of 67 steps (48%) done
+
+[Sun Apr 26 08:16:06 2020]
+rule star:
+    input: star_input/rmoverrep_Duckcontrol03_val_1.fq, star_input/rmoverrep_Duckcontrol03_val_2.fq
+    output: results/STAR_bam/Duckcontrol03Aligned.sortedByCoord.out.bam
+    jobid: 11
+    wildcards: smp=Duckcontrol03
+    threads: 20
+
+Submitted job 11 with external jobid '194044.tinmgr2'.
+Removing temporary output file fastqc2/duckinfected02/duckinfected02_val_2_fastqc/fastqc_data.txt.
+Removing temporary output file fastqc2/duckinfected02/duckinfected02_val_1_fastqc/fastqc_data.txt.
+Removing temporary output file results/trimmed/duckinfected02/duckinfected02_val_1.fq.
+Removing temporary output file results/trimmed/duckinfected02/duckinfected02_val_2.fq.
+[Sun Apr 26 08:32:17 2020]
+Finished job 21.
+33 of 67 steps (49%) done
+
+[Sun Apr 26 08:32:17 2020]
+rule star:
+    input: star_input/rmoverrep_duckinfected02_val_1.fq, star_input/rmoverrep_duckinfected02_val_2.fq
+    output: results/STAR_bam/duckinfected02Aligned.sortedByCoord.out.bam
+    jobid: 9
+    wildcards: smp=duckinfected02
+    threads: 20
+
+Submitted job 9 with external jobid '194046.tinmgr2'.
+Removing temporary output file fastqc2/duckinfected03/duckinfected03_val_2_fastqc/fastqc_data.txt.
+Removing temporary output file fastqc2/duckinfected03/duckinfected03_val_1_fastqc/fastqc_data.txt.
+Removing temporary output file results/trimmed/duckinfected03/duckinfected03_val_2.fq.
+Removing temporary output file results/trimmed/duckinfected03/duckinfected03_val_1.fq.
+[Sun Apr 26 08:39:38 2020]
+Finished job 19.
+34 of 67 steps (51%) done
+
+[Sun Apr 26 08:39:38 2020]
+rule star:
+    input: star_input/rmoverrep_duckinfected03_val_1.fq, star_input/rmoverrep_duckinfected03_val_2.fq
+    output: results/STAR_bam/duckinfected03Aligned.sortedByCoord.out.bam
+    jobid: 7
+    wildcards: smp=duckinfected03
+    threads: 20
+
+Submitted job 7 with external jobid '194047.tinmgr2'.
+Removing temporary output file fastqc2/Duckcontrol02/Duckcontrol02_val_2_fastqc/fastqc_data.txt.
+Removing temporary output file fastqc2/Duckcontrol02/Duckcontrol02_val_1_fastqc/fastqc_data.txt.
+Removing temporary output file results/trimmed/Duckcontrol02/Duckcontrol02_val_2.fq.
+Removing temporary output file results/trimmed/Duckcontrol02/Duckcontrol02_val_1.fq.
+[Sun Apr 26 08:47:18 2020]
+Finished job 29.
+35 of 67 steps (52%) done
+
+[Sun Apr 26 08:47:18 2020]
+rule star:
+    input: star_input/rmoverrep_Duckcontrol02_val_1.fq, star_input/rmoverrep_Duckcontrol02_val_2.fq
+    output: results/STAR_bam/Duckcontrol02Aligned.sortedByCoord.out.bam
+    jobid: 17
+    wildcards: smp=Duckcontrol02
+    threads: 20
+
+Submitted job 17 with external jobid '194048.tinmgr2'.
+Removing temporary output file fastqc2/DuckControl01/DuckControl01_val_2_fastqc/fastqc_data.txt.
+Removing temporary output file fastqc2/DuckControl01/DuckControl01_val_1_fastqc/fastqc_data.txt.
+Removing temporary output file results/trimmed/DuckControl01/DuckControl01_val_2.fq.
+Removing temporary output file results/trimmed/DuckControl01/DuckControl01_val_1.fq.
+[Sun Apr 26 09:10:11 2020]
+Finished job 25.
+36 of 67 steps (54%) done
+
+[Sun Apr 26 09:10:11 2020]
+rule star:
+    input: star_input/rmoverrep_DuckControl01_val_1.fq, star_input/rmoverrep_DuckControl01_val_2.fq
+    output: results/STAR_bam/DuckControl01Aligned.sortedByCoord.out.bam
+    jobid: 13
+    wildcards: smp=DuckControl01
+    threads: 20
+
+Submitted job 13 with external jobid '194050.tinmgr2'.
+[Sun Apr 26 09:28:42 2020]
+Finished job 15.
+37 of 67 steps (55%) done
+
+[Sun Apr 26 09:28:42 2020]
+rule htseq:
+    input: results/STAR_bam/Duckinfected01Aligned.sortedByCoord.out.bam, /30days/uqakaraw/duck/duck.gtf
+    output: htseq/Duckinfected01.tsv, htseq/log/Duckinfected01.err
+    jobid: 45
+    wildcards: smp=Duckinfected01
+
+Submitted job 45 with external jobid '194063.tinmgr2'.
+[Sun Apr 26 09:56:34 2020]
+Finished job 11.
+38 of 67 steps (57%) done
+
+[Sun Apr 26 09:56:34 2020]
+rule htseq:
+    input: results/STAR_bam/Duckcontrol03Aligned.sortedByCoord.out.bam, /30days/uqakaraw/duck/duck.gtf
+    output: htseq/Duckcontrol03.tsv, htseq/log/Duckcontrol03.err
+    jobid: 39
+    wildcards: smp=Duckcontrol03
+
+Submitted job 39 with external jobid '194080.tinmgr2'.
+[Sun Apr 26 10:18:25 2020]
+Finished job 45.
+39 of 67 steps (58%) done
+
+[Sun Apr 26 10:18:25 2020]
+Job 28: --- Diffrential Gene Expression Analysis with Stringtie step 01
+
+Submitted job 28 with external jobid '194088.tinmgr2'.
+[Sun Apr 26 10:19:25 2020]
+Finished job 28.
+40 of 67 steps (60%) done
+
+[Sun Apr 26 10:19:25 2020]
+rule stringtie_merge:
+    input: stringtie_tab/Duckinfected01.list, /30days/uqakaraw/duck/duck.gtf
+    output: stringtie_gtf/Duckinfected01_merged.gtf
+    jobid: 16
+    wildcards: smp=Duckinfected01
+
+Submitted job 16 with external jobid '194089.tinmgr2'.
+Removing temporary output file stringtie_tab/Duckinfected01.list.
+[Sun Apr 26 10:19:48 2020]
+Finished job 16.
+41 of 67 steps (61%) done
+
+[Sun Apr 26 10:19:48 2020]
+Job 5: --- Diffrential Gene Expression Analysis with Stringtie step 02
+
+Submitted job 5 with external jobid '194090.tinmgr2'.
+Removing temporary output file results/STAR_bam/Duckinfected01Aligned.sortedByCoord.out.bam.
+[Sun Apr 26 10:31:59 2020]
+Finished job 5.
+42 of 67 steps (63%) done
+[Sun Apr 26 10:36:29 2020]
+Finished job 9.
+43 of 67 steps (64%) done
+
+[Sun Apr 26 10:36:29 2020]
+rule htseq:
+    input: results/STAR_bam/duckinfected02Aligned.sortedByCoord.out.bam, /30days/uqakaraw/duck/duck.gtf
+    output: htseq/duckinfected02.tsv, htseq/log/duckinfected02.err
+    jobid: 36
+    wildcards: smp=duckinfected02
+
+Submitted job 36 with external jobid '194092.tinmgr2'.
+[Sun Apr 26 10:44:50 2020]
+Finished job 7.
+44 of 67 steps (66%) done
+
+[Sun Apr 26 10:44:50 2020]
+rule htseq:
+    input: results/STAR_bam/duckinfected03Aligned.sortedByCoord.out.bam, /30days/uqakaraw/duck/duck.gtf
+    output: htseq/duckinfected03.tsv, htseq/log/duckinfected03.err
+    jobid: 33
+    wildcards: smp=duckinfected03
+
+Submitted job 33 with external jobid '194093.tinmgr2'.
+[Sun Apr 26 10:46:21 2020]
+Finished job 17.
+45 of 67 steps (67%) done
+
+[Sun Apr 26 10:46:21 2020]
+rule htseq:
+    input: results/STAR_bam/Duckcontrol02Aligned.sortedByCoord.out.bam, /30days/uqakaraw/duck/duck.gtf
+    output: htseq/Duckcontrol02.tsv, htseq/log/Duckcontrol02.err
+    jobid: 48
+    wildcards: smp=Duckcontrol02
+
+Submitted job 48 with external jobid '194094.tinmgr2'.
+[Sun Apr 26 10:47:11 2020]
+Finished job 39.
+46 of 67 steps (69%) done
+
+[Sun Apr 26 10:47:11 2020]
+Job 24: --- Diffrential Gene Expression Analysis with Stringtie step 01
+
+Submitted job 24 with external jobid '194095.tinmgr2'.
+[Sun Apr 26 10:53:31 2020]
+Finished job 13.
+47 of 67 steps (70%) done
+
+[Sun Apr 26 10:53:31 2020]
+rule htseq:
+    input: results/STAR_bam/DuckControl01Aligned.sortedByCoord.out.bam, /30days/uqakaraw/duck/duck.gtf
+    output: htseq/DuckControl01.tsv, htseq/log/DuckControl01.err
+    jobid: 42
+    wildcards: smp=DuckControl01
+
+Submitted job 42 with external jobid '194098.tinmgr2'.
+[Sun Apr 26 10:58:22 2020]
+Finished job 36.
+48 of 67 steps (72%) done
+
+[Sun Apr 26 10:58:22 2020]
+Job 22: --- Diffrential Gene Expression Analysis with Stringtie step 01
+
+Submitted job 22 with external jobid '194103.tinmgr2'.
+[Sun Apr 26 11:09:03 2020]
+Finished job 33.
+49 of 67 steps (73%) done
+
+[Sun Apr 26 11:09:03 2020]
+Job 20: --- Diffrential Gene Expression Analysis with Stringtie step 01
+
+Submitted job 20 with external jobid '194107.tinmgr2'.
+[Sun Apr 26 11:36:56 2020]
+Finished job 48.
+50 of 67 steps (75%) done
+
+[Sun Apr 26 11:36:56 2020]
+Job 30: --- Diffrential Gene Expression Analysis with Stringtie step 01
+
+Submitted job 30 with external jobid '194121.tinmgr2'.
+[Sun Apr 26 11:39:47 2020]
+Finished job 24.
+51 of 67 steps (76%) done
+
+[Sun Apr 26 11:39:47 2020]
+rule stringtie_merge:
+    input: stringtie_tab/Duckcontrol03.list, /30days/uqakaraw/duck/duck.gtf
+    output: stringtie_gtf/Duckcontrol03_merged.gtf
+    jobid: 12
+    wildcards: smp=Duckcontrol03
+
+Submitted job 12 with external jobid '194122.tinmgr2'.
+[Sun Apr 26 11:42:57 2020]
+Finished job 22.
+52 of 67 steps (78%) done
+
+[Sun Apr 26 11:42:57 2020]
+rule stringtie_merge:
+    input: stringtie_tab/duckinfected02.list, /30days/uqakaraw/duck/duck.gtf
+    output: stringtie_gtf/duckinfected02_merged.gtf
+    jobid: 10
+    wildcards: smp=duckinfected02
+
+[Sun Apr 26 11:42:57 2020]
+Finished job 20.
+53 of 67 steps (79%) done
+Submitted job 10 with external jobid '194125.tinmgr2'.
+
+[Sun Apr 26 11:42:57 2020]
+rule stringtie_merge:
+    input: stringtie_tab/duckinfected03.list, /30days/uqakaraw/duck/duck.gtf
+    output: stringtie_gtf/duckinfected03_merged.gtf
+    jobid: 8
+    wildcards: smp=duckinfected03
+
+Submitted job 8 with external jobid '194126.tinmgr2'.
+Removing temporary output file stringtie_tab/Duckcontrol03.list.
+[Sun Apr 26 11:43:57 2020]
+Finished job 12.
+54 of 67 steps (81%) done
+
+[Sun Apr 26 11:43:57 2020]
+Job 3: --- Diffrential Gene Expression Analysis with Stringtie step 02
+
+Submitted job 3 with external jobid '194127.tinmgr2'.
+Removing temporary output file stringtie_tab/duckinfected02.list.
+[Sun Apr 26 11:44:08 2020]
+Finished job 10.
+55 of 67 steps (82%) done
+
+[Sun Apr 26 11:44:08 2020]
+Job 2: --- Diffrential Gene Expression Analysis with Stringtie step 02
+
+Submitted job 2 with external jobid '194128.tinmgr2'.
+Removing temporary output file stringtie_tab/duckinfected03.list.
+[Sun Apr 26 11:44:18 2020]
+Finished job 8.
+56 of 67 steps (84%) done
+
+[Sun Apr 26 11:44:18 2020]
+Job 1: --- Diffrential Gene Expression Analysis with Stringtie step 02
+
+Submitted job 1 with external jobid '194129.tinmgr2'.
+[Sun Apr 26 11:46:18 2020]
+Finished job 30.
+57 of 67 steps (85%) done
+
+[Sun Apr 26 11:46:18 2020]
+rule stringtie_merge:
+    input: stringtie_tab/Duckcontrol02.list, /30days/uqakaraw/duck/duck.gtf
+    output: stringtie_gtf/Duckcontrol02_merged.gtf
+    jobid: 18
+    wildcards: smp=Duckcontrol02
+
+Submitted job 18 with external jobid '194131.tinmgr2'.
+Removing temporary output file results/STAR_bam/Duckcontrol03Aligned.sortedByCoord.out.bam.
+[Sun Apr 26 11:46:18 2020]
+Finished job 3.
+58 of 67 steps (87%) done
+Removing temporary output file results/STAR_bam/duckinfected03Aligned.sortedByCoord.out.bam.
+[Sun Apr 26 11:48:08 2020]
+Finished job 1.
+59 of 67 steps (88%) done
+Removing temporary output file results/STAR_bam/duckinfected02Aligned.sortedByCoord.out.bam.
+[Sun Apr 26 11:48:28 2020]
+Finished job 2.
+60 of 67 steps (90%) done
+Removing temporary output file stringtie_tab/Duckcontrol02.list.
+[Sun Apr 26 11:48:39 2020]
+Finished job 18.
+61 of 67 steps (91%) done
+
+[Sun Apr 26 11:48:39 2020]
+Job 6: --- Diffrential Gene Expression Analysis with Stringtie step 02
+
+Submitted job 6 with external jobid '194132.tinmgr2'.
+Removing temporary output file results/STAR_bam/Duckcontrol02Aligned.sortedByCoord.out.bam.
+[Sun Apr 26 12:00:59 2020]
+Finished job 6.
+62 of 67 steps (93%) done
+[Sun Apr 26 12:12:20 2020]
+Finished job 42.
+63 of 67 steps (94%) done
+
+[Sun Apr 26 12:12:20 2020]
+Job 26: --- Diffrential Gene Expression Analysis with Stringtie step 01
+
+Submitted job 26 with external jobid '194135.tinmgr2'.
+[Sun Apr 26 12:14:30 2020]
+Finished job 26.
+64 of 67 steps (96%) done
+
+[Sun Apr 26 12:14:30 2020]
+rule stringtie_merge:
+    input: stringtie_tab/DuckControl01.list, /30days/uqakaraw/duck/duck.gtf
+    output: stringtie_gtf/DuckControl01_merged.gtf
+    jobid: 14
+    wildcards: smp=DuckControl01
+
+Submitted job 14 with external jobid '194136.tinmgr2'.
+Removing temporary output file stringtie_tab/DuckControl01.list.
+[Sun Apr 26 12:26:11 2020]
+Finished job 14.
+65 of 67 steps (97%) done
+
+[Sun Apr 26 12:26:11 2020]
+Job 4: --- Diffrential Gene Expression Analysis with Stringtie step 02
+
+Submitted job 4 with external jobid '194139.tinmgr2'.
+Removing temporary output file results/STAR_bam/DuckControl01Aligned.sortedByCoord.out.bam.
+[Sun Apr 26 12:39:02 2020]
+Finished job 4.
+66 of 67 steps (99%) done
+
+[Sun Apr 26 12:39:02 2020]
+localrule all:
+    input: stringtie_gtf/duckinfected03.gtf, stringtie_gtf/duckinfected02.gtf, stringtie_gtf/Duckcontrol03.gtf, stringtie_gtf/DuckControl01.gtf, stringtie_gtf/Duckinfected01.gtf, stringtie_gtf/Duckcontrol02.gtf
+    jobid: 0
+
+[Sun Apr 26 12:39:02 2020]
+Finished job 0.
+67 of 67 steps (100%) done
+Complete log: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/duck/.snakemake/log/2020-04-24T223908.364065.snakemake.log

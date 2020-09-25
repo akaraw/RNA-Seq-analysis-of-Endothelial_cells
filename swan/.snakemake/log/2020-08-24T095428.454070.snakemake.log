@@ -1,0 +1,102 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 12
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	6	fastqc2
+	6	filter_uncorrected
+	6	htseq
+	5	rcorrector
+	6	rmbadreads
+	6	star
+	6	stringtie01
+	6	stringtie02
+	6	stringtie_merge
+	6	trimming
+	60
+
+[Mon Aug 24 09:54:29 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/swancontrol03/swancontrol03_1.cor.fq.gz, results/rcorrector/swancontrol03/swancontrol03_2.cor.fq.gz
+    output: results/swancontrol03_filter/unfixrm_swancontrol03_1.cor.fq, results/swancontrol03_filter/unfixrm_swancontrol03_2.cor.fq
+    jobid: 53
+    wildcards: smp=swancontrol03
+
+ mkdir -p results/swancontrol03_filter && FilterUncorrectabledPEfastq.py -1 results/rcorrector/swancontrol03/swancontrol03_1.cor.fq.gz -2 results/rcorrector/swancontrol03/swancontrol03_2.cor.fq.gz && mv unfixrm_swancontrol03_1.cor.fq unfixrm_swancontrol03_2.cor.fq results/swancontrol03_filter
+Removing temporary output file results/rcorrector/swancontrol03/swancontrol03_1.cor.fq.gz.
+Removing temporary output file results/rcorrector/swancontrol03/swancontrol03_2.cor.fq.gz.
+[Mon Aug 24 10:14:11 2020]
+Finished job 53.
+1 of 60 steps (2%) done
+
+[Mon Aug 24 10:14:11 2020]
+Job 46: --- Trimming.
+
+trim_galore --paired --retain_unpaired --phred33 --basename swancontrol03 -j 12 --output_dir results/trimmed/swancontrol03 --length 36 -q 5 --stringency 1 -e 0.1 results/swancontrol03_filter/unfixrm_swancontrol03_1.cor.fq results/swancontrol03_filter/unfixrm_swancontrol03_2.cor.fq > output.out 2>&1
+Activating conda environment: /30days/uqakaraw/snakemake_envs/f868301f
+Removing temporary output file results/swancontrol03_filter/unfixrm_swancontrol03_1.cor.fq.
+Removing temporary output file results/swancontrol03_filter/unfixrm_swancontrol03_2.cor.fq.
+[Mon Aug 24 10:20:03 2020]
+Finished job 46.
+2 of 60 steps (3%) done
+
+[Mon Aug 24 10:20:03 2020]
+Job 45: --- Quality check of raw data with Fastqc
+
+fastqc --outdir fastqc2/swancontrol03 --extract -f fastq results/trimmed/swancontrol03/swancontrol03_val_1.fq results/trimmed/swancontrol03/swancontrol03_val_2.fq
+Activating conda environment: /30days/uqakaraw/snakemake_envs/f868301f
+[Mon Aug 24 10:30:59 2020]
+Finished job 45.
+3 of 60 steps (5%) done
+
+[Mon Aug 24 10:30:59 2020]
+rule rmbadreads:
+    input: fastqc2/swancontrol03/swancontrol03_val_1_fastqc/fastqc_data.txt, fastqc2/swancontrol03/swancontrol03_val_2_fastqc/fastqc_data.txt, results/trimmed/swancontrol03/swancontrol03_val_1.fq, results/trimmed/swancontrol03/swancontrol03_val_2.fq
+    output: star_input/rmoverrep_swancontrol03_val_1.fq, star_input/rmoverrep_swancontrol03_val_2.fq
+    jobid: 29
+    wildcards: smp=swancontrol03
+
+RemoveFastqcOverrepSequenceReads.py -1 results/trimmed/swancontrol03/swancontrol03_val_1.fq -2 results/trimmed/swancontrol03/swancontrol03_val_2.fq -fql fastqc2/swancontrol03/swancontrol03_val_1_fastqc/fastqc_data.txt -fqr fastqc2/swancontrol03/swancontrol03_val_2_fastqc/fastqc_data.txt && mv rmoverrep_swancontrol03_val_?.fq star_input/
+Removing temporary output file fastqc2/swancontrol03/swancontrol03_val_2_fastqc/fastqc_data.txt.
+Removing temporary output file fastqc2/swancontrol03/swancontrol03_val_1_fastqc/fastqc_data.txt.
+[Mon Aug 24 10:37:23 2020]
+Finished job 29.
+4 of 60 steps (7%) done
+
+[Mon Aug 24 10:37:23 2020]
+rule star:
+    input: star_input/rmoverrep_swancontrol03_val_1.fq, star_input/rmoverrep_swancontrol03_val_2.fq
+    output: results/STAR_bam/swancontrol03Aligned.sortedByCoord.out.bam
+    jobid: 17
+    wildcards: smp=swancontrol03
+    threads: 12
+
+STAR --runMode alignReads --runThreadN 12 --genomeDir /30days/uqakaraw/swan/swan --readFilesIn star_input/rmoverrep_swancontrol03_val_1.fq star_input/rmoverrep_swancontrol03_val_2.fq --outSAMtype BAM SortedByCoordinate --outFileNamePrefix results/STAR_bam/swancontrol03
+Activating conda environment: /30days/uqakaraw/snakemake_envs/f868301f
+[Mon Aug 24 10:56:07 2020]
+Finished job 17.
+5 of 60 steps (8%) done
+
+[Mon Aug 24 10:56:07 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swancontrol01_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swancontrol01_2.fastq.gz
+    output: results/rcorrector/swancontrol01/swancontrol01_1.cor.fq.gz, results/rcorrector/swancontrol01/swancontrol01_2.cor.fq.gz
+    jobid: 55
+    wildcards: smp=swancontrol01
+    threads: 12
+
+ run_rcorrector.pl -od results/rcorrector/swancontrol01 -t 12 -1 /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swancontrol01_1.fastq.gz -2 /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swancontrol01_2.fastq.gz 
+Terminating processes on user request, this might take some time.
+[Mon Aug 24 14:28:58 2020]
+Error in rule rcorrector:
+    jobid: 55
+    output: results/rcorrector/swancontrol01/swancontrol01_1.cor.fq.gz, results/rcorrector/swancontrol01/swancontrol01_2.cor.fq.gz
+    shell:
+         run_rcorrector.pl -od results/rcorrector/swancontrol01 -t 12 -1 /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swancontrol01_1.fastq.gz -2 /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swancontrol01_2.fastq.gz 
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job rcorrector since they might be corrupted:
+results/rcorrector/swancontrol01/swancontrol01_1.cor.fq.gz, results/rcorrector/swancontrol01/swancontrol01_2.cor.fq.gz
+Complete log: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/swan/.snakemake/log/2020-08-24T095428.454070.snakemake.log

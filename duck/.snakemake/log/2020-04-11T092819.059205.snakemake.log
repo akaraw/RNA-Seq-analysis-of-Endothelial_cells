@@ -1,0 +1,87 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 6
+Job counts:
+	count	jobs
+	1	all
+	5	fastqc2
+	2	filter_uncorrected
+	5	htseq
+	5	rmbadreads
+	5	star
+	6	stringtie01
+	6	stringtie02
+	6	stringtie_merge
+	4	trimming
+	45
+
+[Sat Apr 11 09:28:19 2020]
+Job 43: --- Quality check of raw data with Fastqc
+
+Submitted job 43 with external jobid '186086.tinmgr2'.
+
+[Sat Apr 11 09:28:19 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/duckinfected02/duckinfected02_1.cor.fq.gz, results/rcorrector/duckinfected02/duckinfected02_2.cor.fq.gz
+    output: results/duckinfected02_filter/unfixrm_duckinfected02_1.cor.fq, results/duckinfected02_filter/unfixrm_duckinfected02_2.cor.fq
+    jobid: 50
+    wildcards: smp=duckinfected02
+
+Submitted job 50 with external jobid '186087.tinmgr2'.
+
+[Sat Apr 11 09:28:19 2020]
+Job 32: --- Trimming.
+
+Submitted job 32 with external jobid '186088.tinmgr2'.
+
+[Sat Apr 11 09:28:19 2020]
+Job 38: --- Trimming.
+
+Submitted job 38 with external jobid '186089.tinmgr2'.
+
+[Sat Apr 11 09:28:19 2020]
+Job 30: --- Diffrential Gene Expression Analysis with Stringtie step 01
+
+Submitted job 30 with external jobid '186090.tinmgr2'.
+
+[Sat Apr 11 09:28:20 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/DuckControl01/DuckControl01_1.cor.fq.gz, results/rcorrector/DuckControl01/DuckControl01_2.cor.fq.gz
+    output: results/DuckControl01_filter/unfixrm_DuckControl01_1.cor.fq, results/DuckControl01_filter/unfixrm_DuckControl01_2.cor.fq
+    jobid: 52
+    wildcards: smp=DuckControl01
+
+Submitted job 52 with external jobid '186091.tinmgr2'.
+[Sat Apr 11 09:28:39 2020]
+Error in rule stringtie01:
+    jobid: 30
+    output: results/Duckcontrol02.list
+    conda-env: /30days/uqakaraw/snakemake_envs/6d06af2b
+    shell:
+        stringtie results/STAR_bam/Duckcontrol02Aligned.sortedByCoord.out.bam -C Duckcontrol02.1.ref.gtf -A Duckcontrol02.1.tab -p 24 -G /30days/uqakaraw/duck/duck.gtf -o Duckcontrol02.out.gtf && ls *.out.gtf > results/Duckcontrol02.list 
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: 186090.tinmgr2
+
+Error executing rule stringtie01 on cluster (jobid: 30, external: 186090.tinmgr2, jobscript: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/duck/.snakemake/tmp.82eyrwia/snakejob.stringtie01.30.sh). For error details see the cluster log and the log files of the involved rule(s).
+Removing temporary output file results/duckinfected03_filter/unfixrm_duckinfected03_2.cor.fq.
+Removing temporary output file results/duckinfected03_filter/unfixrm_duckinfected03_1.cor.fq.
+[Sat Apr 11 09:33:49 2020]
+Finished job 32.
+1 of 45 steps (2%) done
+Removing temporary output file results/Duckcontrol03_filter/unfixrm_Duckcontrol03_1.cor.fq.
+Removing temporary output file results/Duckcontrol03_filter/unfixrm_Duckcontrol03_2.cor.fq.
+[Sat Apr 11 09:34:19 2020]
+Finished job 38.
+2 of 45 steps (4%) done
+[Sat Apr 11 09:38:10 2020]
+Finished job 43.
+3 of 45 steps (7%) done
+[Sat Apr 11 09:48:10 2020]
+Finished job 52.
+4 of 45 steps (9%) done
+[Sat Apr 11 09:50:41 2020]
+Finished job 50.
+5 of 45 steps (11%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/duck/.snakemake/log/2020-04-11T092819.059205.snakemake.log

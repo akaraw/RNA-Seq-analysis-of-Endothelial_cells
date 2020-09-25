@@ -1,0 +1,73 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 24
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	2	fastqc2
+	2	filter_uncorrected
+	2	rcorrector
+	2	rmbadreads
+	2	star
+	2	trimming
+	13
+
+[Thu Sep 24 23:20:48 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol03_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol03_2.fastq.gz
+    output: results/rcorrector/Duckcontrol03/Duckcontrol03_1.cor.fq.gz, results/rcorrector/Duckcontrol03/Duckcontrol03_2.cor.fq.gz
+    jobid: 16
+    wildcards: smp=Duckcontrol03
+    threads: 20
+
+ run_rcorrector.pl -od results/rcorrector/Duckcontrol03 -t 20 -1 /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol03_1.fastq.gz -2 /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol03_2.fastq.gz 
+[Fri Sep 25 03:13:38 2020]
+Finished job 16.
+1 of 13 steps (8%) done
+
+[Fri Sep 25 03:13:38 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/Duckcontrol03/Duckcontrol03_1.cor.fq.gz, results/rcorrector/Duckcontrol03/Duckcontrol03_2.cor.fq.gz
+    output: results/Duckcontrol03_filter/unfixrm_Duckcontrol03_1.cor.fq, results/Duckcontrol03_filter/unfixrm_Duckcontrol03_2.cor.fq
+    jobid: 13
+    wildcards: smp=Duckcontrol03
+
+ mkdir -p results/Duckcontrol03_filter && FilterUncorrectabledPEfastq.py -1 results/rcorrector/Duckcontrol03/Duckcontrol03_1.cor.fq.gz -2 results/rcorrector/Duckcontrol03/Duckcontrol03_2.cor.fq.gz && mv unfixrm_Duckcontrol03_1.cor.fq unfixrm_Duckcontrol03_2.cor.fq results/Duckcontrol03_filter
+
+[Fri Sep 25 03:13:38 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol02_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol02_2.fastq.gz
+    output: results/rcorrector/Duckcontrol02/Duckcontrol02_1.cor.fq.gz, results/rcorrector/Duckcontrol02/Duckcontrol02_2.cor.fq.gz
+    jobid: 18
+    wildcards: smp=Duckcontrol02
+    threads: 20
+
+ run_rcorrector.pl -od results/rcorrector/Duckcontrol02 -t 20 -1 /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol02_1.fastq.gz -2 /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol02_2.fastq.gz 
+Removing temporary output file results/rcorrector/Duckcontrol03/Duckcontrol03_2.cor.fq.gz.
+Removing temporary output file results/rcorrector/Duckcontrol03/Duckcontrol03_1.cor.fq.gz.
+[Fri Sep 25 03:33:13 2020]
+Finished job 13.
+2 of 13 steps (15%) done
+[Fri Sep 25 08:19:20 2020]
+Finished job 18.
+3 of 13 steps (23%) done
+
+[Fri Sep 25 08:19:20 2020]
+Job 8: --- Trimming.
+
+trim_galore --paired --retain_unpaired --phred33 --basename Duckcontrol03 -j 20 --output_dir results/trimmed/Duckcontrol03 --length 36 -q 5 --stringency 1 -e 0.1 results/Duckcontrol03_filter/unfixrm_Duckcontrol03_1.cor.fq results/Duckcontrol03_filter/unfixrm_Duckcontrol03_2.cor.fq > output.out 2>&1
+
+[Fri Sep 25 08:19:20 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/Duckcontrol02/Duckcontrol02_1.cor.fq.gz, results/rcorrector/Duckcontrol02/Duckcontrol02_2.cor.fq.gz
+    output: results/Duckcontrol02_filter/unfixrm_Duckcontrol02_1.cor.fq, results/Duckcontrol02_filter/unfixrm_Duckcontrol02_2.cor.fq
+    jobid: 15
+    wildcards: smp=Duckcontrol02
+
+ mkdir -p results/Duckcontrol02_filter && FilterUncorrectabledPEfastq.py -1 results/rcorrector/Duckcontrol02/Duckcontrol02_1.cor.fq.gz -2 results/rcorrector/Duckcontrol02/Duckcontrol02_2.cor.fq.gz && mv unfixrm_Duckcontrol02_1.cor.fq unfixrm_Duckcontrol02_2.cor.fq results/Duckcontrol02_filter
+Activating conda environment: /30days/uqakaraw/snakemake_envs/f868301f
+[Fri Sep 25 08:22:38 2020]
+Error in rule filter_uncorrected:
+    jobid: 15
+    output: results/Duckcontrol02_filter/unfixrm_Duckcontrol02_1.cor.fq, results/Duckcontrol02_filter/unfixrm_Duckcontrol02_2.cor.fq

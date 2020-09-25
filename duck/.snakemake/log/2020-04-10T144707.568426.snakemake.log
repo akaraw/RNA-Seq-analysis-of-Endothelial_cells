@@ -1,0 +1,228 @@
+Building DAG of jobs...
+Creating conda environment env/htseq.yaml...
+Downloading and installing remote packages.
+Environment for env/htseq.yaml created (location: ../../../../../../30days/uqakaraw/snakemake_envs/f9a6e946)
+Creating conda environment env/stringtie.yaml...
+Downloading and installing remote packages.
+Environment for env/stringtie.yaml created (location: ../../../../../../30days/uqakaraw/snakemake_envs/6d06af2b)
+Using shell: /usr/bin/bash
+Provided cluster nodes: 6
+Job counts:
+	count	jobs
+	1	all
+	6	fastqc1
+	6	fastqc2
+	6	filter_uncorrected
+	6	htseq
+	6	rcorrector
+	6	rmbadreads
+	6	star
+	6	stringtie01
+	6	stringtie02
+	6	stringtie_merge
+	6	trimming
+	67
+
+[Fri Apr 10 14:57:27 2020]
+Job 66: --- Quality check of raw data with Fastqc.
+
+Submitted job 66 with external jobid '185974.tinmgr2'.
+
+[Fri Apr 10 14:57:27 2020]
+Job 65: --- Quality check of raw data with Fastqc.
+
+Submitted job 65 with external jobid '185975.tinmgr2'.
+
+[Fri Apr 10 14:57:27 2020]
+Job 62: --- Quality check of raw data with Fastqc.
+
+Submitted job 62 with external jobid '185976.tinmgr2'.
+
+[Fri Apr 10 14:57:27 2020]
+Job 64: --- Quality check of raw data with Fastqc.
+
+Submitted job 64 with external jobid '185977.tinmgr2'.
+
+[Fri Apr 10 14:57:27 2020]
+Job 61: --- Quality check of raw data with Fastqc.
+
+Submitted job 61 with external jobid '185978.tinmgr2'.
+
+[Fri Apr 10 14:57:28 2020]
+Job 63: --- Quality check of raw data with Fastqc.
+
+Submitted job 63 with external jobid '185979.tinmgr2'.
+[Fri Apr 10 15:10:48 2020]
+Finished job 65.
+1 of 67 steps (1%) done
+
+[Fri Apr 10 15:10:48 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckinfected01_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckinfected01_2.fastq.gz, fastqc/Duckinfected01/Duckinfected01_1_fastqc.zip, fastqc/Duckinfected01/Duckinfected01_2_fastqc.zip
+    output: results/rcorrector/Duckinfected01/Duckinfected01_1.cor.fq.gz, results/rcorrector/Duckinfected01/Duckinfected01_2.cor.fq.gz
+    jobid: 59
+    wildcards: smp=Duckinfected01
+    threads: 10
+
+Submitted job 59 with external jobid '185993.tinmgr2'.
+[Fri Apr 10 15:12:18 2020]
+Finished job 66.
+2 of 67 steps (3%) done
+
+[Fri Apr 10 15:12:18 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol02_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol02_2.fastq.gz, fastqc/Duckcontrol02/Duckcontrol02_1_fastqc.zip, fastqc/Duckcontrol02/Duckcontrol02_2_fastqc.zip
+    output: results/rcorrector/Duckcontrol02/Duckcontrol02_1.cor.fq.gz, results/rcorrector/Duckcontrol02/Duckcontrol02_2.cor.fq.gz
+    jobid: 60
+    wildcards: smp=Duckcontrol02
+    threads: 10
+
+Submitted job 60 with external jobid '185994.tinmgr2'.
+[Fri Apr 10 15:28:39 2020]
+Finished job 62.
+3 of 67 steps (4%) done
+
+[Fri Apr 10 15:28:39 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/duck/duckinfected02_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/duck/duckinfected02_2.fastq.gz, fastqc/duckinfected02/duckinfected02_1_fastqc.zip, fastqc/duckinfected02/duckinfected02_2_fastqc.zip
+    output: results/rcorrector/duckinfected02/duckinfected02_1.cor.fq.gz, results/rcorrector/duckinfected02/duckinfected02_2.cor.fq.gz
+    jobid: 56
+    wildcards: smp=duckinfected02
+    threads: 10
+
+Submitted job 56 with external jobid '185996.tinmgr2'.
+[Fri Apr 10 15:28:50 2020]
+Finished job 64.
+4 of 67 steps (6%) done
+
+[Fri Apr 10 15:28:50 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/duck/DuckControl01_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/duck/DuckControl01_2.fastq.gz, fastqc/DuckControl01/DuckControl01_1_fastqc.zip, fastqc/DuckControl01/DuckControl01_2_fastqc.zip
+    output: results/rcorrector/DuckControl01/DuckControl01_1.cor.fq.gz, results/rcorrector/DuckControl01/DuckControl01_2.cor.fq.gz
+    jobid: 58
+    wildcards: smp=DuckControl01
+    threads: 10
+
+Submitted job 58 with external jobid '185997.tinmgr2'.
+[Fri Apr 10 15:43:10 2020]
+Finished job 61.
+5 of 67 steps (7%) done
+
+[Fri Apr 10 15:43:10 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/duck/duckinfected03_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/duck/duckinfected03_2.fastq.gz, fastqc/duckinfected03/duckinfected03_1_fastqc.zip, fastqc/duckinfected03/duckinfected03_2_fastqc.zip
+    output: results/rcorrector/duckinfected03/duckinfected03_1.cor.fq.gz, results/rcorrector/duckinfected03/duckinfected03_2.cor.fq.gz
+    jobid: 55
+    wildcards: smp=duckinfected03
+    threads: 10
+
+Submitted job 55 with external jobid '185999.tinmgr2'.
+[Fri Apr 10 15:43:41 2020]
+Finished job 63.
+6 of 67 steps (9%) done
+
+[Fri Apr 10 15:43:41 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol03_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol03_2.fastq.gz, fastqc/Duckcontrol03/Duckcontrol03_1_fastqc.zip, fastqc/Duckcontrol03/Duckcontrol03_2_fastqc.zip
+    output: results/rcorrector/Duckcontrol03/Duckcontrol03_1.cor.fq.gz, results/rcorrector/Duckcontrol03/Duckcontrol03_2.cor.fq.gz
+    jobid: 57
+    wildcards: smp=Duckcontrol03
+    threads: 10
+
+Submitted job 57 with external jobid '186000.tinmgr2'.
+[Fri Apr 10 23:45:39 2020]
+Finished job 60.
+7 of 67 steps (10%) done
+
+[Fri Apr 10 23:45:39 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/Duckcontrol02/Duckcontrol02_1.cor.fq.gz, results/rcorrector/Duckcontrol02/Duckcontrol02_2.cor.fq.gz
+    output: results/Duckcontrol02_filter/unfixrm_Duckcontrol02_1.cor.fq, results/Duckcontrol02_filter/unfixrm_Duckcontrol02_2.cor.fq
+    jobid: 54
+    wildcards: smp=Duckcontrol02
+
+Submitted job 54 with external jobid '186060.tinmgr2'.
+[Sat Apr 11 00:06:10 2020]
+Finished job 54.
+8 of 67 steps (12%) done
+
+[Sat Apr 11 00:06:10 2020]
+Job 47: --- Trimming.
+
+Submitted job 47 with external jobid '186061.tinmgr2'.
+[Sat Apr 11 00:13:21 2020]
+Finished job 47.
+9 of 67 steps (13%) done
+
+[Sat Apr 11 00:13:21 2020]
+Job 46: --- Quality check of raw data with Fastqc
+
+Submitted job 46 with external jobid '186062.tinmgr2'.
+[Sat Apr 11 00:24:42 2020]
+Finished job 59.
+10 of 67 steps (15%) done
+
+[Sat Apr 11 00:24:42 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/Duckinfected01/Duckinfected01_1.cor.fq.gz, results/rcorrector/Duckinfected01/Duckinfected01_2.cor.fq.gz
+    output: results/Duckinfected01_filter/unfixrm_Duckinfected01_1.cor.fq, results/Duckinfected01_filter/unfixrm_Duckinfected01_2.cor.fq
+    jobid: 53
+    wildcards: smp=Duckinfected01
+
+Submitted job 53 with external jobid '186063.tinmgr2'.
+[Sat Apr 11 00:24:52 2020]
+Finished job 46.
+11 of 67 steps (16%) done
+
+[Sat Apr 11 00:24:52 2020]
+rule rmbadreads:
+    input: results/fastqc/Duckcontrol02/Duckcontrol02_val_1_fastqc/fastqc_data.txt, results/fastqc/Duckcontrol02/Duckcontrol02_val_2_fastqc/fastqc_data.txt, fastq_files/trimmed/Duckcontrol02/Duckcontrol02_val_1.fq, fastq_files/trimmed/Duckcontrol02/Duckcontrol02_val_2.fq
+    output: rmoverrep_Duckcontrol02_val_1.fq, rmoverrep_Duckcontrol02_val_2.fq
+    jobid: 29
+    wildcards: smp=Duckcontrol02
+
+Submitted job 29 with external jobid '186064.tinmgr2'.
+Removing temporary output file results/fastqc/Duckcontrol02/Duckcontrol02_val_2_fastqc/fastqc_data.txt.
+Removing temporary output file results/fastqc/Duckcontrol02/Duckcontrol02_val_1_fastqc/fastqc_data.txt.
+[Sat Apr 11 00:33:03 2020]
+Finished job 29.
+12 of 67 steps (18%) done
+
+[Sat Apr 11 00:33:03 2020]
+rule star:
+    input: rmoverrep_Duckcontrol02_val_1.fq, rmoverrep_Duckcontrol02_val_2.fq
+    output: results/STAR_bam/Duckcontrol02Aligned.sortedByCoord.out.bam
+    jobid: 17
+    wildcards: smp=Duckcontrol02
+    threads: 10
+
+Submitted job 17 with external jobid '186065.tinmgr2'.
+[Sat Apr 11 00:33:43 2020]
+Error in rule star:
+    jobid: 17
+    output: results/STAR_bam/Duckcontrol02Aligned.sortedByCoord.out.bam
+    conda-env: /30days/uqakaraw/snakemake_envs/f868301f
+    shell:
+        STAR --runMode alignReads --runThreadN 10 --genomeDir /duck --readFilesIn rmoverrep_Duckcontrol02_val_1.fq rmoverrep_Duckcontrol02_val_2.fq --outSAMtype BAM SortedByCoordinate --outFileNamePrefix results/STAR_bam/Duckcontrol02
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: 186065.tinmgr2
+
+Error executing rule star on cluster (jobid: 17, external: 186065.tinmgr2, jobscript: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/duck/.snakemake/tmp.bya1yghk/snakejob.star.17.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Sat Apr 11 00:42:44 2020]
+Finished job 53.
+13 of 67 steps (19%) done
+[Sat Apr 11 01:05:55 2020]
+Finished job 56.
+14 of 67 steps (21%) done
+[Sat Apr 11 04:03:56 2020]
+Finished job 58.
+15 of 67 steps (22%) done
+[Sat Apr 11 04:14:56 2020]
+Finished job 57.
+16 of 67 steps (24%) done
+[Sat Apr 11 04:42:58 2020]
+Finished job 55.
+17 of 67 steps (25%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/duck/.snakemake/log/2020-04-10T144707.568426.snakemake.log

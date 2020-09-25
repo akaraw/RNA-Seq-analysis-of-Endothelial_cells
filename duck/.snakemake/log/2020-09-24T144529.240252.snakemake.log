@@ -1,0 +1,116 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 3
+Job counts:
+	count	jobs
+	1	all
+	3	fastqc2
+	3	filter_uncorrected
+	3	rcorrector
+	3	rmbadreads
+	3	star
+	3	trimming
+	19
+
+[Thu Sep 24 14:45:29 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol03_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol03_2.fastq.gz
+    output: results/rcorrector/Duckcontrol03/Duckcontrol03_1.cor.fq.gz, results/rcorrector/Duckcontrol03/Duckcontrol03_2.cor.fq.gz
+    jobid: 16
+    wildcards: smp=Duckcontrol03
+    threads: 20
+
+ run_rcorrector.pl -od results/rcorrector/Duckcontrol03 -t 20 -1 /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol03_1.fastq.gz -2 /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol03_2.fastq.gz 
+Submitted job 16 with external jobid '403352.tinmgr2'.
+
+[Thu Sep 24 14:45:29 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol02_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol02_2.fastq.gz
+    output: results/rcorrector/Duckcontrol02/Duckcontrol02_1.cor.fq.gz, results/rcorrector/Duckcontrol02/Duckcontrol02_2.cor.fq.gz
+    jobid: 18
+    wildcards: smp=Duckcontrol02
+    threads: 20
+
+ run_rcorrector.pl -od results/rcorrector/Duckcontrol02 -t 20 -1 /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol02_1.fastq.gz -2 /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol02_2.fastq.gz 
+Submitted job 18 with external jobid '403353.tinmgr2'.
+
+[Thu Sep 24 14:45:29 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/duck/DuckControl01_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/duck/DuckControl01_2.fastq.gz
+    output: results/rcorrector/DuckControl01/DuckControl01_1.cor.fq.gz, results/rcorrector/DuckControl01/DuckControl01_2.cor.fq.gz
+    jobid: 17
+    wildcards: smp=DuckControl01
+    threads: 20
+
+ run_rcorrector.pl -od results/rcorrector/DuckControl01 -t 20 -1 /30days/uqakaraw/FASTQDIR_never_DELETE/duck/DuckControl01_1.fastq.gz -2 /30days/uqakaraw/FASTQDIR_never_DELETE/duck/DuckControl01_2.fastq.gz 
+Submitted job 17 with external jobid '403354.tinmgr2'.
+[Thu Sep 24 20:16:18 2020]
+Finished job 17.
+1 of 19 steps (5%) done
+
+[Thu Sep 24 20:16:18 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/DuckControl01/DuckControl01_1.cor.fq.gz, results/rcorrector/DuckControl01/DuckControl01_2.cor.fq.gz
+    output: results/DuckControl01_filter/unfixrm_DuckControl01_1.cor.fq, results/DuckControl01_filter/unfixrm_DuckControl01_2.cor.fq
+    jobid: 14
+    wildcards: smp=DuckControl01
+
+ mkdir -p results/DuckControl01_filter && FilterUncorrectabledPEfastq.py -1 results/rcorrector/DuckControl01/DuckControl01_1.cor.fq.gz -2 results/rcorrector/DuckControl01/DuckControl01_2.cor.fq.gz && mv unfixrm_DuckControl01_1.cor.fq unfixrm_DuckControl01_2.cor.fq results/DuckControl01_filter
+Submitted job 14 with external jobid '403449.tinmgr2'.
+Removing temporary output file results/rcorrector/DuckControl01/DuckControl01_2.cor.fq.gz.
+Removing temporary output file results/rcorrector/DuckControl01/DuckControl01_1.cor.fq.gz.
+[Thu Sep 24 20:42:20 2020]
+Finished job 14.
+2 of 19 steps (11%) done
+
+[Thu Sep 24 20:42:20 2020]
+Job 10: --- Trimming.
+
+trim_galore --paired --retain_unpaired --phred33 --basename DuckControl01 -j 20 --output_dir results/trimmed/DuckControl01 --length 36 -q 5 --stringency 1 -e 0.1 results/DuckControl01_filter/unfixrm_DuckControl01_1.cor.fq results/DuckControl01_filter/unfixrm_DuckControl01_2.cor.fq > output.out 2>&1
+Submitted job 10 with external jobid '403450.tinmgr2'.
+Removing temporary output file results/DuckControl01_filter/unfixrm_DuckControl01_2.cor.fq.
+Removing temporary output file results/DuckControl01_filter/unfixrm_DuckControl01_1.cor.fq.
+[Thu Sep 24 20:48:10 2020]
+Finished job 10.
+3 of 19 steps (16%) done
+
+[Thu Sep 24 20:48:10 2020]
+Job 9: --- Quality check of raw data with Fastqc
+
+fastqc --outdir fastqc2/DuckControl01 --extract -f fastq results/trimmed/DuckControl01/DuckControl01_val_1.fq results/trimmed/DuckControl01/DuckControl01_val_2.fq
+Submitted job 9 with external jobid '403451.tinmgr2'.
+[Thu Sep 24 21:08:51 2020]
+Finished job 9.
+4 of 19 steps (21%) done
+
+[Thu Sep 24 21:08:51 2020]
+rule rmbadreads:
+    input: fastqc2/DuckControl01/DuckControl01_val_1_fastqc/fastqc_data.txt, fastqc2/DuckControl01/DuckControl01_val_2_fastqc/fastqc_data.txt, results/trimmed/DuckControl01/DuckControl01_val_1.fq, results/trimmed/DuckControl01/DuckControl01_val_2.fq
+    output: star_input/rmoverrep_DuckControl01_val_1.fq, star_input/rmoverrep_DuckControl01_val_2.fq
+    jobid: 5
+    wildcards: smp=DuckControl01
+
+RemoveFastqcOverrepSequenceReads.py -1 results/trimmed/DuckControl01/DuckControl01_val_1.fq -2 results/trimmed/DuckControl01/DuckControl01_val_2.fq -fql fastqc2/DuckControl01/DuckControl01_val_1_fastqc/fastqc_data.txt -fqr fastqc2/DuckControl01/DuckControl01_val_2_fastqc/fastqc_data.txt && mv rmoverrep_DuckControl01_val_?.fq star_input/
+Submitted job 5 with external jobid '403452.tinmgr2'.
+Removing temporary output file fastqc2/DuckControl01/DuckControl01_val_1_fastqc/fastqc_data.txt.
+Removing temporary output file fastqc2/DuckControl01/DuckControl01_val_2_fastqc/fastqc_data.txt.
+[Thu Sep 24 21:25:02 2020]
+Finished job 5.
+5 of 19 steps (26%) done
+
+[Thu Sep 24 21:25:02 2020]
+rule star:
+    input: star_input/rmoverrep_DuckControl01_val_1.fq, star_input/rmoverrep_DuckControl01_val_2.fq
+    output: results/STAR_bam/DuckControl01Aligned.sortedByCoord.out.bam
+    jobid: 2
+    wildcards: smp=DuckControl01
+    threads: 20
+
+STAR --runMode alignReads --runThreadN 20 --genomeDir /30days/uqakaraw/duck/duck --readFilesIn star_input/rmoverrep_DuckControl01_val_1.fq star_input/rmoverrep_DuckControl01_val_2.fq --outSAMtype BAM SortedByCoordinate --outFileNamePrefix results/STAR_bam/DuckControl01
+Submitted job 2 with external jobid '403454.tinmgr2'.
+[Thu Sep 24 22:06:45 2020]
+Finished job 2.
+6 of 19 steps (32%) done
+Terminating processes on user request, this might take some time.
+Will exit after finishing currently running jobs.
+Complete log: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/duck/.snakemake/log/2020-09-24T144529.240252.snakemake.log

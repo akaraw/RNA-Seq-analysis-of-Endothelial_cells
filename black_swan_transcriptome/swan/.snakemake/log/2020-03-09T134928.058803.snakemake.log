@@ -1,0 +1,30 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 2
+Job counts:
+	count	jobs
+	1	all
+	1	busco
+	1	stats
+	1	trinity
+	4
+
+[Mon Mar  9 13:49:28 2020]
+Job 2: --- De novo assembly with Trinity
+
+Submitted job 2 with external jobid '171297.tinmgr2'.
+Will exit after finishing currently running jobs.
+[Fri Mar 13 12:01:42 2020]
+Error in rule trinity:
+    jobid: 2
+    output: results/trinity_assembly/swancontrol01/trinity/Trinity.fasta
+    conda-env: /30days/uqakaraw/snakemake_envs/f868301f
+    shell:
+        mkdir -p results/trinity_assembly && Trinity --seqType fq --SS_lib_type RF --max_memory 110G --min_kmer_cov 1 --CPU 20 --left fastq_files/trimmed/swancontrol01/swancontrol01_val_1.fq --right fastq_files/trimmed/swancontrol01/swancontrol01_val_2.fq --output results/trinity_assembly/swancontrol01/trinity
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: 171297.tinmgr2
+
+Error executing rule trinity on cluster (jobid: 2, external: 171297.tinmgr2, jobscript: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/swan/.snakemake/tmp._ixqmwpa/snakejob.trinity.2.sh). For error details see the cluster log and the log files of the involved rule(s).
+Will exit after finishing currently running jobs.
+Shutting down, this might take some time.
+Complete log: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/swan/.snakemake/log/2020-03-09T134928.058803.snakemake.log

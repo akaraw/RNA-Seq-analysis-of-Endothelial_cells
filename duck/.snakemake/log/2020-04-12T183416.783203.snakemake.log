@@ -1,0 +1,231 @@
+Building DAG of jobs...
+Job counts:
+	count	jobs
+	1	all
+	6	fastqc1
+	6	fastqc2
+	6	filter_uncorrected
+	6	htseq
+	6	rcorrector
+	6	rmbadreads
+	6	star
+	6	stringtie01
+	6	stringtie02
+	6	stringtie_merge
+	6	trimming
+	67
+
+[Sun Apr 12 18:34:16 2020]
+Job 63: --- Quality check of raw data with Fastqc.
+Reason: Missing output files: fastqc/Duckcontrol03/Duckcontrol03_1_fastqc.zip, fastqc/Duckcontrol03/Duckcontrol03_2_fastqc.zip
+
+
+[Sun Apr 12 18:34:16 2020]
+Job 62: --- Quality check of raw data with Fastqc.
+Reason: Missing output files: fastqc/duckinfected02/duckinfected02_2_fastqc.zip, fastqc/duckinfected02/duckinfected02_1_fastqc.zip
+
+
+[Sun Apr 12 18:34:16 2020]
+Job 64: --- Quality check of raw data with Fastqc.
+Reason: Missing output files: fastqc/DuckControl01/DuckControl01_2_fastqc.zip, fastqc/DuckControl01/DuckControl01_1_fastqc.zip
+
+
+[Sun Apr 12 18:34:16 2020]
+Job 61: --- Quality check of raw data with Fastqc.
+Reason: Missing output files: fastqc/duckinfected03/duckinfected03_1_fastqc.zip, fastqc/duckinfected03/duckinfected03_2_fastqc.zip
+
+
+[Sun Apr 12 18:34:16 2020]
+Job 65: --- Quality check of raw data with Fastqc.
+Reason: Missing output files: fastqc/Duckinfected01/Duckinfected01_2_fastqc.zip, fastqc/Duckinfected01/Duckinfected01_1_fastqc.zip
+
+
+[Sun Apr 12 18:34:16 2020]
+Job 66: --- Quality check of raw data with Fastqc.
+Reason: Missing output files: fastqc/Duckcontrol02/Duckcontrol02_2_fastqc.zip, fastqc/Duckcontrol02/Duckcontrol02_1_fastqc.zip
+
+
+[Sun Apr 12 18:34:16 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/duck/duckinfected02_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/duck/duckinfected02_2.fastq.gz, fastqc/duckinfected02/duckinfected02_1_fastqc.zip, fastqc/duckinfected02/duckinfected02_2_fastqc.zip
+    output: results/rcorrector/duckinfected02/duckinfected02_1.cor.fq.gz, results/rcorrector/duckinfected02/duckinfected02_2.cor.fq.gz
+    jobid: 56
+    reason: Missing output files: results/rcorrector/duckinfected02/duckinfected02_2.cor.fq.gz, results/rcorrector/duckinfected02/duckinfected02_1.cor.fq.gz; Input files updated by another job: fastqc/duckinfected02/duckinfected02_2_fastqc.zip, fastqc/duckinfected02/duckinfected02_1_fastqc.zip
+    wildcards: smp=duckinfected02
+    threads: 20
+
+
+[Sun Apr 12 18:34:16 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/duck/DuckControl01_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/duck/DuckControl01_2.fastq.gz, fastqc/DuckControl01/DuckControl01_1_fastqc.zip, fastqc/DuckControl01/DuckControl01_2_fastqc.zip
+    output: results/rcorrector/DuckControl01/DuckControl01_1.cor.fq.gz, results/rcorrector/DuckControl01/DuckControl01_2.cor.fq.gz
+    jobid: 58
+    reason: Missing output files: results/rcorrector/DuckControl01/DuckControl01_1.cor.fq.gz, results/rcorrector/DuckControl01/DuckControl01_2.cor.fq.gz; Input files updated by another job: fastqc/DuckControl01/DuckControl01_2_fastqc.zip, fastqc/DuckControl01/DuckControl01_1_fastqc.zip
+    wildcards: smp=DuckControl01
+    threads: 20
+
+
+[Sun Apr 12 18:34:16 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol03_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol03_2.fastq.gz, fastqc/Duckcontrol03/Duckcontrol03_1_fastqc.zip, fastqc/Duckcontrol03/Duckcontrol03_2_fastqc.zip
+    output: results/rcorrector/Duckcontrol03/Duckcontrol03_1.cor.fq.gz, results/rcorrector/Duckcontrol03/Duckcontrol03_2.cor.fq.gz
+    jobid: 57
+    reason: Missing output files: results/rcorrector/Duckcontrol03/Duckcontrol03_1.cor.fq.gz, results/rcorrector/Duckcontrol03/Duckcontrol03_2.cor.fq.gz; Input files updated by another job: fastqc/Duckcontrol03/Duckcontrol03_1_fastqc.zip, fastqc/Duckcontrol03/Duckcontrol03_2_fastqc.zip
+    wildcards: smp=Duckcontrol03
+    threads: 20
+
+
+[Sun Apr 12 18:34:16 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/duck/duckinfected03_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/duck/duckinfected03_2.fastq.gz, fastqc/duckinfected03/duckinfected03_1_fastqc.zip, fastqc/duckinfected03/duckinfected03_2_fastqc.zip
+    output: results/rcorrector/duckinfected03/duckinfected03_1.cor.fq.gz, results/rcorrector/duckinfected03/duckinfected03_2.cor.fq.gz
+    jobid: 55
+    reason: Missing output files: results/rcorrector/duckinfected03/duckinfected03_1.cor.fq.gz, results/rcorrector/duckinfected03/duckinfected03_2.cor.fq.gz; Input files updated by another job: fastqc/duckinfected03/duckinfected03_1_fastqc.zip, fastqc/duckinfected03/duckinfected03_2_fastqc.zip
+    wildcards: smp=duckinfected03
+    threads: 20
+
+
+[Sun Apr 12 18:34:16 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckinfected01_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckinfected01_2.fastq.gz, fastqc/Duckinfected01/Duckinfected01_1_fastqc.zip, fastqc/Duckinfected01/Duckinfected01_2_fastqc.zip
+    output: results/rcorrector/Duckinfected01/Duckinfected01_1.cor.fq.gz, results/rcorrector/Duckinfected01/Duckinfected01_2.cor.fq.gz
+    jobid: 59
+    reason: Missing output files: results/rcorrector/Duckinfected01/Duckinfected01_2.cor.fq.gz, results/rcorrector/Duckinfected01/Duckinfected01_1.cor.fq.gz; Input files updated by another job: fastqc/Duckinfected01/Duckinfected01_2_fastqc.zip, fastqc/Duckinfected01/Duckinfected01_1_fastqc.zip
+    wildcards: smp=Duckinfected01
+    threads: 20
+
+
+[Sun Apr 12 18:34:16 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol02_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol02_2.fastq.gz, fastqc/Duckcontrol02/Duckcontrol02_1_fastqc.zip, fastqc/Duckcontrol02/Duckcontrol02_2_fastqc.zip
+    output: results/rcorrector/Duckcontrol02/Duckcontrol02_1.cor.fq.gz, results/rcorrector/Duckcontrol02/Duckcontrol02_2.cor.fq.gz
+    jobid: 60
+    reason: Missing output files: results/rcorrector/Duckcontrol02/Duckcontrol02_1.cor.fq.gz, results/rcorrector/Duckcontrol02/Duckcontrol02_2.cor.fq.gz; Input files updated by another job: fastqc/Duckcontrol02/Duckcontrol02_2_fastqc.zip, fastqc/Duckcontrol02/Duckcontrol02_1_fastqc.zip
+    wildcards: smp=Duckcontrol02
+    threads: 20
+
+
+[Sun Apr 12 18:34:16 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/duckinfected02/duckinfected02_1.cor.fq.gz, results/rcorrector/duckinfected02/duckinfected02_2.cor.fq.gz
+    output: results/duckinfected02_filter/unfixrm_duckinfected02_1.cor.fq, results/duckinfected02_filter/unfixrm_duckinfected02_2.cor.fq
+    jobid: 50
+    reason: Missing output files: results/duckinfected02_filter/unfixrm_duckinfected02_1.cor.fq, results/duckinfected02_filter/unfixrm_duckinfected02_2.cor.fq; Input files updated by another job: results/rcorrector/duckinfected02/duckinfected02_2.cor.fq.gz, results/rcorrector/duckinfected02/duckinfected02_1.cor.fq.gz
+    wildcards: smp=duckinfected02
+
+
+[Sun Apr 12 18:34:16 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/DuckControl01/DuckControl01_1.cor.fq.gz, results/rcorrector/DuckControl01/DuckControl01_2.cor.fq.gz
+    output: results/DuckControl01_filter/unfixrm_DuckControl01_1.cor.fq, results/DuckControl01_filter/unfixrm_DuckControl01_2.cor.fq
+    jobid: 52
+    reason: Missing output files: results/DuckControl01_filter/unfixrm_DuckControl01_2.cor.fq, results/DuckControl01_filter/unfixrm_DuckControl01_1.cor.fq; Input files updated by another job: results/rcorrector/DuckControl01/DuckControl01_1.cor.fq.gz, results/rcorrector/DuckControl01/DuckControl01_2.cor.fq.gz
+    wildcards: smp=DuckControl01
+
+
+[Sun Apr 12 18:34:16 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/Duckcontrol03/Duckcontrol03_1.cor.fq.gz, results/rcorrector/Duckcontrol03/Duckcontrol03_2.cor.fq.gz
+    output: results/Duckcontrol03_filter/unfixrm_Duckcontrol03_1.cor.fq, results/Duckcontrol03_filter/unfixrm_Duckcontrol03_2.cor.fq
+    jobid: 51
+    reason: Missing output files: results/Duckcontrol03_filter/unfixrm_Duckcontrol03_1.cor.fq, results/Duckcontrol03_filter/unfixrm_Duckcontrol03_2.cor.fq; Input files updated by another job: results/rcorrector/Duckcontrol03/Duckcontrol03_1.cor.fq.gz, results/rcorrector/Duckcontrol03/Duckcontrol03_2.cor.fq.gz
+    wildcards: smp=Duckcontrol03
+
+
+[Sun Apr 12 18:34:16 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/duckinfected03/duckinfected03_1.cor.fq.gz, results/rcorrector/duckinfected03/duckinfected03_2.cor.fq.gz
+    output: results/duckinfected03_filter/unfixrm_duckinfected03_1.cor.fq, results/duckinfected03_filter/unfixrm_duckinfected03_2.cor.fq
+    jobid: 49
+    reason: Missing output files: results/duckinfected03_filter/unfixrm_duckinfected03_2.cor.fq, results/duckinfected03_filter/unfixrm_duckinfected03_1.cor.fq; Input files updated by another job: results/rcorrector/duckinfected03/duckinfected03_1.cor.fq.gz, results/rcorrector/duckinfected03/duckinfected03_2.cor.fq.gz
+    wildcards: smp=duckinfected03
+
+
+[Sun Apr 12 18:34:16 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/Duckinfected01/Duckinfected01_1.cor.fq.gz, results/rcorrector/Duckinfected01/Duckinfected01_2.cor.fq.gz
+    output: results/Duckinfected01_filter/unfixrm_Duckinfected01_1.cor.fq, results/Duckinfected01_filter/unfixrm_Duckinfected01_2.cor.fq
+    jobid: 53
+    reason: Missing output files: results/Duckinfected01_filter/unfixrm_Duckinfected01_1.cor.fq, results/Duckinfected01_filter/unfixrm_Duckinfected01_2.cor.fq; Input files updated by another job: results/rcorrector/Duckinfected01/Duckinfected01_2.cor.fq.gz, results/rcorrector/Duckinfected01/Duckinfected01_1.cor.fq.gz
+    wildcards: smp=Duckinfected01
+
+
+[Sun Apr 12 18:34:16 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/Duckcontrol02/Duckcontrol02_1.cor.fq.gz, results/rcorrector/Duckcontrol02/Duckcontrol02_2.cor.fq.gz
+    output: results/Duckcontrol02_filter/unfixrm_Duckcontrol02_1.cor.fq, results/Duckcontrol02_filter/unfixrm_Duckcontrol02_2.cor.fq
+    jobid: 54
+    reason: Missing output files: results/Duckcontrol02_filter/unfixrm_Duckcontrol02_2.cor.fq, results/Duckcontrol02_filter/unfixrm_Duckcontrol02_1.cor.fq; Input files updated by another job: results/rcorrector/Duckcontrol02/Duckcontrol02_1.cor.fq.gz, results/rcorrector/Duckcontrol02/Duckcontrol02_2.cor.fq.gz
+    wildcards: smp=Duckcontrol02
+
+
+[Sun Apr 12 18:34:16 2020]
+Job 32: --- Trimming.
+Reason: Missing output files: results/trimmed/duckinfected03/duckinfected03_val_2.fq, results/trimmed/duckinfected03/duckinfected03_val_1.fq; Input files updated by another job: results/duckinfected03_filter/unfixrm_duckinfected03_2.cor.fq, results/duckinfected03_filter/unfixrm_duckinfected03_1.cor.fq
+
+
+[Sun Apr 12 18:34:16 2020]
+Job 35: --- Trimming.
+Reason: Missing output files: results/trimmed/duckinfected02/duckinfected02_val_2.fq, results/trimmed/duckinfected02/duckinfected02_val_1.fq; Input files updated by another job: results/duckinfected02_filter/unfixrm_duckinfected02_1.cor.fq, results/duckinfected02_filter/unfixrm_duckinfected02_2.cor.fq
+
+
+[Sun Apr 12 18:34:16 2020]
+Job 41: --- Trimming.
+Reason: Missing output files: results/trimmed/DuckControl01/DuckControl01_val_2.fq, results/trimmed/DuckControl01/DuckControl01_val_1.fq; Input files updated by another job: results/DuckControl01_filter/unfixrm_DuckControl01_2.cor.fq, results/DuckControl01_filter/unfixrm_DuckControl01_1.cor.fq
+
+
+[Sun Apr 12 18:34:16 2020]
+Job 38: --- Trimming.
+Reason: Missing output files: results/trimmed/Duckcontrol03/Duckcontrol03_val_2.fq, results/trimmed/Duckcontrol03/Duckcontrol03_val_1.fq; Input files updated by another job: results/Duckcontrol03_filter/unfixrm_Duckcontrol03_1.cor.fq, results/Duckcontrol03_filter/unfixrm_Duckcontrol03_2.cor.fq
+
+
+[Sun Apr 12 18:34:16 2020]
+Job 47: --- Trimming.
+Reason: Missing output files: results/trimmed/Duckcontrol02/Duckcontrol02_val_2.fq, results/trimmed/Duckcontrol02/Duckcontrol02_val_1.fq; Input files updated by another job: results/Duckcontrol02_filter/unfixrm_Duckcontrol02_2.cor.fq, results/Duckcontrol02_filter/unfixrm_Duckcontrol02_1.cor.fq
+
+
+[Sun Apr 12 18:34:16 2020]
+Job 44: --- Trimming.
+Reason: Missing output files: results/trimmed/Duckinfected01/Duckinfected01_val_1.fq, results/trimmed/Duckinfected01/Duckinfected01_val_2.fq; Input files updated by another job: results/Duckinfected01_filter/unfixrm_Duckinfected01_1.cor.fq, results/Duckinfected01_filter/unfixrm_Duckinfected01_2.cor.fq
+
+
+[Sun Apr 12 18:34:16 2020]
+Job 37: --- Quality check of raw data with Fastqc
+Reason: Missing output files: fastqc2/Duckcontrol03/Duckcontrol03_val_2_fastqc/fastqc_data.txt, fastqc2/Duckcontrol03/Duckcontrol03_val_1_fastqc/fastqc_data.txt; Input files updated by another job: results/trimmed/Duckcontrol03/Duckcontrol03_val_2.fq, results/trimmed/Duckcontrol03/Duckcontrol03_val_1.fq
+
+
+[Sun Apr 12 18:34:16 2020]
+Job 46: --- Quality check of raw data with Fastqc
+Reason: Missing output files: fastqc2/Duckcontrol02/Duckcontrol02_val_2_fastqc/fastqc_data.txt, fastqc2/Duckcontrol02/Duckcontrol02_val_1_fastqc/fastqc_data.txt; Input files updated by another job: results/trimmed/Duckcontrol02/Duckcontrol02_val_2.fq, results/trimmed/Duckcontrol02/Duckcontrol02_val_1.fq
+
+
+[Sun Apr 12 18:34:16 2020]
+Job 43: --- Quality check of raw data with Fastqc
+Reason: Missing output files: fastqc2/Duckinfected01/Duckinfected01_val_2_fastqc/fastqc_data.txt, fastqc2/Duckinfected01/Duckinfected01_val_1_fastqc/fastqc_data.txt; Input files updated by another job: results/trimmed/Duckinfected01/Duckinfected01_val_1.fq, results/trimmed/Duckinfected01/Duckinfected01_val_2.fq
+
+
+[Sun Apr 12 18:34:16 2020]
+Job 31: --- Quality check of raw data with Fastqc
+Reason: Missing output files: fastqc2/duckinfected03/duckinfected03_val_2_fastqc/fastqc_data.txt, fastqc2/duckinfected03/duckinfected03_val_1_fastqc/fastqc_data.txt; Input files updated by another job: results/trimmed/duckinfected03/duckinfected03_val_2.fq, results/trimmed/duckinfected03/duckinfected03_val_1.fq
+
+
+[Sun Apr 12 18:34:16 2020]
+Job 40: --- Quality check of raw data with Fastqc
+Reason: Missing output files: fastqc2/DuckControl01/DuckControl01_val_2_fastqc/fastqc_data.txt, fastqc2/DuckControl01/DuckControl01_val_1_fastqc/fastqc_data.txt; Input files updated by another job: results/trimmed/DuckControl01/DuckControl01_val_2.fq, results/trimmed/DuckControl01/DuckControl01_val_1.fq
+
+
+[Sun Apr 12 18:34:16 2020]
+Job 34: --- Quality check of raw data with Fastqc
+Reason: Missing output files: fastqc2/duckinfected02/duckinfected02_val_2_fastqc/fastqc_data.txt, fastqc2/duckinfected02/duckinfected02_val_1_fastqc/fastqc_data.txt; Input files updated by another job: results/trimmed/duckinfected02/duckinfected02_val_2.fq, results/trimmed/duckinfected02/duckinfected02_val_1.fq
+
+
+[Sun Apr 12 18:34:16 2020]
+rule rmbadreads:
+    input: fastqc2/duckinfected02/duckinfected02_val_1_fastqc/fastqc_data.txt, fastqc2/duckinfected02/duckinfected02_val_2_fastqc/fastqc_data.txt, results/trimmed/duckinfected02/duckinfected02_val_1.fq, results/trimmed/duckinfected02/duckinfected02_val_2.fq
+    output: star_input/rmoverrep_duckinfected02_val_1.fq, star_input/rmoverrep_duckinfected02_val_2.fq
+    jobid: 21
+    reason: Missing output files: star_input/rmoverrep_duckinfected02_val_2.fq, star_input/rmoverrep_duckinfected02_val_1.fq; Input files updated by another job: fastqc2/duckinfected02/duckinfected02_val_1_fastqc/fastqc_data.txt, results/trimmed/duckinfected02/duckinfected02_val_1.fq, results/trimmed/duckinfected02/duckinfected02_val_2.fq, fastqc2/duckinfected02/duckinfected02_val_2_fastqc/fastqc_data.txt
+    wildcards: smp=duckinfected02
+
+RuleException in line 100 of /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/duck/Snakefile:
+NameError: The name 'smp' is unknown in this context. Please make sure that you defined that variable. Also note that braces not used for variable access have to be escaped by repeating them, i.e. {{print $1}}

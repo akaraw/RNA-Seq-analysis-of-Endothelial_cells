@@ -1,0 +1,48 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 6
+Job counts:
+	count	jobs
+	1	all
+	6	fastqc1
+	6	fastqc2
+	6	filter_uncorrected
+	6	htseq
+	6	rcorrector
+	6	rmbadreads
+	6	star
+	6	stringtie01
+	6	stringtie02
+	6	stringtie_merge
+	6	trimming
+	67
+
+[Fri Apr 24 20:40:56 2020]
+Job 62: --- Quality check of raw data with Fastqc.
+
+Submitted job 62 with external jobid '193394.tinmgr2'.
+
+[Fri Apr 24 20:40:57 2020]
+Job 65: --- Quality check of raw data with Fastqc.
+
+Submitted job 65 with external jobid '193395.tinmgr2'.
+
+[Fri Apr 24 20:40:57 2020]
+Job 61: --- Quality check of raw data with Fastqc.
+
+Submitted job 61 with external jobid '193396.tinmgr2'.
+
+[Fri Apr 24 20:40:57 2020]
+Job 66: --- Quality check of raw data with Fastqc.
+
+Submitted job 66 with external jobid '193397.tinmgr2'.
+
+[Fri Apr 24 20:40:57 2020]
+Job 63: --- Quality check of raw data with Fastqc.
+
+Submitted job 63 with external jobid '193398.tinmgr2'.
+
+[Fri Apr 24 20:40:57 2020]
+Job 64: --- Quality check of raw data with Fastqc.
+
+Submitted job 64 with external jobid '193399.tinmgr2'.

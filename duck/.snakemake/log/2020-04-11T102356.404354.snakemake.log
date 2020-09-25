@@ -1,0 +1,96 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 6
+Job counts:
+	count	jobs
+	1	all
+	4	fastqc2
+	5	htseq
+	5	rmbadreads
+	5	star
+	6	stringtie01
+	6	stringtie02
+	6	stringtie_merge
+	2	trimming
+	40
+
+[Sat Apr 11 10:23:57 2020]
+rule rmbadreads:
+    input: results/fastqc/Duckinfected01/Duckinfected01_val_1_fastqc/fastqc_data.txt, results/fastqc/Duckinfected01/Duckinfected01_val_2_fastqc/fastqc_data.txt, fastq_files/trimmed/Duckinfected01/Duckinfected01_val_1.fq, fastq_files/trimmed/Duckinfected01/Duckinfected01_val_2.fq
+    output: rmoverrep_Duckinfected01_val_1.fq, rmoverrep_Duckinfected01_val_2.fq
+    jobid: 27
+    wildcards: smp=Duckinfected01
+
+Submitted job 27 with external jobid '186095.tinmgr2'.
+
+[Sat Apr 11 10:23:57 2020]
+Job 31: --- Quality check of raw data with Fastqc
+
+Submitted job 31 with external jobid '186096.tinmgr2'.
+
+[Sat Apr 11 10:23:57 2020]
+Job 30: --- Diffrential Gene Expression Analysis with Stringtie step 01
+
+Submitted job 30 with external jobid '186097.tinmgr2'.
+
+[Sat Apr 11 10:23:57 2020]
+Job 35: --- Trimming.
+
+Submitted job 35 with external jobid '186098.tinmgr2'.
+
+[Sat Apr 11 10:23:57 2020]
+Job 41: --- Trimming.
+
+Submitted job 41 with external jobid '186099.tinmgr2'.
+
+[Sat Apr 11 10:23:58 2020]
+Job 37: --- Quality check of raw data with Fastqc
+
+Submitted job 37 with external jobid '186100.tinmgr2'.
+[Sat Apr 11 10:24:17 2020]
+Error in rule stringtie01:
+    jobid: 30
+    output: results/Duckcontrol02.list
+    conda-env: /30days/uqakaraw/snakemake_envs/6d06af2b
+    shell:
+        stringtie results/STAR_bam/Duckcontrol02Aligned.sortedByCoord.out.bam -C Duckcontrol02.1.ref.gtf -A Duckcontrol02.1.tab -p 24 -G /30days/uqakaraw/duck/duck.gtf -o Duckcontrol02.out.gtf && ls *.out.gtf > results/Duckcontrol02.list 
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: 186097.tinmgr2
+
+Error executing rule stringtie01 on cluster (jobid: 30, external: 186097.tinmgr2, jobscript: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/duck/.snakemake/tmp.al2nc76w/snakejob.stringtie01.30.sh). For error details see the cluster log and the log files of the involved rule(s).
+Waiting at most 5 seconds for missing files.
+MissingOutputException in line 100 of /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/duck/Snakefile:
+Missing files after 5 seconds:
+rmoverrep_Duckinfected01_val_1.fq
+rmoverrep_Duckinfected01_val_2.fq
+This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait.
+Will exit after finishing currently running jobs.
+Will exit after finishing currently running jobs.
+Waiting at most 5 seconds for missing files.
+MissingOutputException in line 89 of /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/duck/Snakefile:
+Missing files after 5 seconds:
+results/fastqc/duckinfected03/duckinfected03_val_1_fastqc/fastqc_data.txt
+results/fastqc/duckinfected03/duckinfected03_val_2_fastqc/fastqc_data.txt
+This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait.
+Will exit after finishing currently running jobs.
+Removing temporary output file results/duckinfected02_filter/unfixrm_duckinfected02_2.cor.fq.
+Removing temporary output file results/duckinfected02_filter/unfixrm_duckinfected02_1.cor.fq.
+[Sun Apr 12 18:44:08 2020]
+Finished job 35.
+1 of 40 steps (2%) done
+Will exit after finishing currently running jobs.
+Removing temporary output file results/DuckControl01_filter/unfixrm_DuckControl01_2.cor.fq.
+Removing temporary output file results/DuckControl01_filter/unfixrm_DuckControl01_1.cor.fq.
+[Sun Apr 12 18:44:08 2020]
+Finished job 41.
+2 of 40 steps (5%) done
+Will exit after finishing currently running jobs.
+Waiting at most 5 seconds for missing files.
+MissingOutputException in line 89 of /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/duck/Snakefile:
+Missing files after 5 seconds:
+results/fastqc/Duckcontrol03/Duckcontrol03_val_1_fastqc/fastqc_data.txt
+results/fastqc/Duckcontrol03/Duckcontrol03_val_2_fastqc/fastqc_data.txt
+This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait.
+Will exit after finishing currently running jobs.
+Shutting down, this might take some time.
+Complete log: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/duck/.snakemake/log/2020-04-11T102356.404354.snakemake.log

@@ -1,0 +1,68 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 2
+Job counts:
+	count	jobs
+	1	all
+	1	busco
+	1	star
+	1	stats
+	1	trinity
+	5
+
+[Mon Mar  9 13:49:59 2020]
+rule star:
+    input: fastq_files/trimmed/swancontrol01/swancontrol01_val_1.fq, fastq_files/trimmed/swancontrol01/swancontrol01_val_2.fq, fastq_files/fastqc/swancontrol01/swancontrol01_val_1_fastqc.zip, fastq_files/fastqc/swancontrol01/swancontrol01_val_2_fastqc.zip
+    output: results/STAR_bam/swancontrol01Aligned.sortedByCoord.out.bam
+    jobid: 5
+    wildcards: smp=swancontrol01
+    threads: 12
+
+Submitted job 5 with external jobid '171299.tinmgr2'.
+[Mon Mar  9 14:06:30 2020]
+Finished job 5.
+1 of 5 steps (20%) done
+
+[Mon Mar  9 14:06:30 2020]
+Job 2: --- De novo assembly with Trinity
+
+Submitted job 2 with external jobid '171308.tinmgr2'.
+[Mon Mar  9 23:23:02 2020]
+Finished job 2.
+2 of 5 steps (40%) done
+
+[Mon Mar  9 23:23:02 2020]
+rule stats:
+    input: results/trinity_assembly/swancontrol01/trinity/Trinity.fasta
+    output: results/trinity_assembly/swancontrol01/trinity/swancontrol01_stats
+    jobid: 3
+    wildcards: smp=swancontrol01
+
+Submitted job 3 with external jobid '171454.tinmgr2'.
+[Mon Mar  9 23:44:04 2020]
+Finished job 3.
+3 of 5 steps (60%) done
+
+[Mon Mar  9 23:44:04 2020]
+rule busco:
+    input: results/trinity_assembly/swancontrol01/trinity/Trinity.fasta, results/trinity_assembly/swancontrol01/trinity/swancontrol01_stats
+    output: results/busco/swancontrol01/swancontrol01
+    jobid: 1
+    wildcards: smp=swancontrol01
+    threads: 20
+
+Submitted job 1 with external jobid '171455.tinmgr2'.
+[Mon Mar  9 23:45:04 2020]
+Error in rule busco:
+    jobid: 1
+    output: results/busco/swancontrol01/swancontrol01
+    conda-env: /30days/uqakaraw/snakemake_envs/a8d1d0af
+    shell:
+         busco -f -i results/trinity_assembly/swancontrol01/trinity/Trinity.fasta --offline --cpu 20 -o results/busco/swancontrol01/swancontrol01 -l aves_odb10 -m transcriptome
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: 171455.tinmgr2
+
+Error executing rule busco on cluster (jobid: 1, external: 171455.tinmgr2, jobscript: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/swan/.snakemake/tmp.sl8ogi96/snakejob.busco.1.sh). For error details see the cluster log and the log files of the involved rule(s).
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/swan/.snakemake/log/2020-03-09T134959.789769.snakemake.log

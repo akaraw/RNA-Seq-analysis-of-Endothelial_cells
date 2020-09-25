@@ -1,0 +1,22 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 2
+Job counts:
+	count	jobs
+	1	all
+	1	busco
+	1	fastqc1
+	1	fastqc2
+	1	filter_uncorrected
+	1	rcorrector
+	1	star
+	1	stats
+	1	trimming
+	1	trinity
+	10
+
+[Wed Mar 11 12:01:13 2020]
+Job 9: --- Quality check of raw data with Fastqc.
+
+Submitted job 9 with external jobid '172631.tinmgr2'.
+Will exit after finishing currently running jobs.

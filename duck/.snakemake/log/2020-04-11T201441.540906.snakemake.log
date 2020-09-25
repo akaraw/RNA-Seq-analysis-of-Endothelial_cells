@@ -1,0 +1,16 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 48
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	clean
+	1
+
+[Sat Apr 11 20:14:41 2020]
+Job 0: -- Removing results/ --
+
+[Sat Apr 11 20:14:42 2020]
+Finished job 0.
+1 of 1 steps (100%) done
+Complete log: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/duck/.snakemake/log/2020-04-11T201441.540906.snakemake.log

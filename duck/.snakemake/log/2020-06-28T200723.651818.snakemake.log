@@ -1,0 +1,327 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 6
+Job counts:
+	count	jobs
+	1	all
+	6	fastqc1
+	6	filter_uncorrected
+	6	rcorrector
+	6	trimming
+	25
+
+[Sun Jun 28 20:07:24 2020]
+Job 21: --- Quality check of raw data with Fastqc.
+
+mkdir -p fastqc && fastqc --outdir fastqc/Duckcontrol03 --extract -f fastq /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol03_1.fastq.gz /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol03_2.fastq.gz
+Submitted job 21 with external jobid '252156.tinmgr2'.
+
+[Sun Jun 28 20:07:24 2020]
+Job 24: --- Quality check of raw data with Fastqc.
+
+mkdir -p fastqc && fastqc --outdir fastqc/Duckcontrol02 --extract -f fastq /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol02_1.fastq.gz /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol02_2.fastq.gz
+Submitted job 24 with external jobid '252157.tinmgr2'.
+
+[Sun Jun 28 20:07:24 2020]
+Job 19: --- Quality check of raw data with Fastqc.
+
+mkdir -p fastqc && fastqc --outdir fastqc/duckinfected03 --extract -f fastq /30days/uqakaraw/FASTQDIR_never_DELETE/duck/duckinfected03_1.fastq.gz /30days/uqakaraw/FASTQDIR_never_DELETE/duck/duckinfected03_2.fastq.gz
+Submitted job 19 with external jobid '252158.tinmgr2'.
+
+[Sun Jun 28 20:07:24 2020]
+Job 22: --- Quality check of raw data with Fastqc.
+
+mkdir -p fastqc && fastqc --outdir fastqc/DuckControl01 --extract -f fastq /30days/uqakaraw/FASTQDIR_never_DELETE/duck/DuckControl01_1.fastq.gz /30days/uqakaraw/FASTQDIR_never_DELETE/duck/DuckControl01_2.fastq.gz
+Submitted job 22 with external jobid '252159.tinmgr2'.
+
+[Sun Jun 28 20:07:26 2020]
+Job 20: --- Quality check of raw data with Fastqc.
+
+mkdir -p fastqc && fastqc --outdir fastqc/duckinfected02 --extract -f fastq /30days/uqakaraw/FASTQDIR_never_DELETE/duck/duckinfected02_1.fastq.gz /30days/uqakaraw/FASTQDIR_never_DELETE/duck/duckinfected02_2.fastq.gz
+Submitted job 20 with external jobid '252160.tinmgr2'.
+
+[Sun Jun 28 20:07:26 2020]
+Job 23: --- Quality check of raw data with Fastqc.
+
+mkdir -p fastqc && fastqc --outdir fastqc/Duckinfected01 --extract -f fastq /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckinfected01_1.fastq.gz /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckinfected01_2.fastq.gz
+Submitted job 23 with external jobid '252161.tinmgr2'.
+[Sun Jun 28 20:21:54 2020]
+Finished job 19.
+1 of 25 steps (4%) done
+
+[Sun Jun 28 20:21:54 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/duck/duckinfected03_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/duck/duckinfected03_2.fastq.gz, fastqc/duckinfected03/duckinfected03_1_fastqc.zip, fastqc/duckinfected03/duckinfected03_2_fastqc.zip
+    output: results/rcorrector/duckinfected03/duckinfected03_1.cor.fq.gz, results/rcorrector/duckinfected03/duckinfected03_2.cor.fq.gz
+    jobid: 13
+    wildcards: smp=duckinfected03
+    threads: 20
+
+ run_rcorrector.pl -od results/rcorrector/duckinfected03 -t 20 -1 /30days/uqakaraw/FASTQDIR_never_DELETE/duck/duckinfected03_1.fastq.gz -2 /30days/uqakaraw/FASTQDIR_never_DELETE/duck/duckinfected03_2.fastq.gz 
+Submitted job 13 with external jobid '252163.tinmgr2'.
+[Sun Jun 28 20:22:05 2020]
+Finished job 24.
+2 of 25 steps (8%) done
+
+[Sun Jun 28 20:22:05 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol02_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol02_2.fastq.gz, fastqc/Duckcontrol02/Duckcontrol02_1_fastqc.zip, fastqc/Duckcontrol02/Duckcontrol02_2_fastqc.zip
+    output: results/rcorrector/Duckcontrol02/Duckcontrol02_1.cor.fq.gz, results/rcorrector/Duckcontrol02/Duckcontrol02_2.cor.fq.gz
+    jobid: 18
+    wildcards: smp=Duckcontrol02
+    threads: 20
+
+ run_rcorrector.pl -od results/rcorrector/Duckcontrol02 -t 20 -1 /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol02_1.fastq.gz -2 /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol02_2.fastq.gz 
+Submitted job 18 with external jobid '252164.tinmgr2'.
+[Sun Jun 28 20:22:55 2020]
+Finished job 21.
+3 of 25 steps (12%) done
+
+[Sun Jun 28 20:22:55 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol03_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol03_2.fastq.gz, fastqc/Duckcontrol03/Duckcontrol03_1_fastqc.zip, fastqc/Duckcontrol03/Duckcontrol03_2_fastqc.zip
+    output: results/rcorrector/Duckcontrol03/Duckcontrol03_1.cor.fq.gz, results/rcorrector/Duckcontrol03/Duckcontrol03_2.cor.fq.gz
+    jobid: 15
+    wildcards: smp=Duckcontrol03
+    threads: 20
+
+ run_rcorrector.pl -od results/rcorrector/Duckcontrol03 -t 20 -1 /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol03_1.fastq.gz -2 /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckcontrol03_2.fastq.gz 
+Submitted job 15 with external jobid '252165.tinmgr2'.
+[Sun Jun 28 20:23:35 2020]
+Finished job 22.
+4 of 25 steps (16%) done
+
+[Sun Jun 28 20:23:35 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/duck/DuckControl01_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/duck/DuckControl01_2.fastq.gz, fastqc/DuckControl01/DuckControl01_1_fastqc.zip, fastqc/DuckControl01/DuckControl01_2_fastqc.zip
+    output: results/rcorrector/DuckControl01/DuckControl01_1.cor.fq.gz, results/rcorrector/DuckControl01/DuckControl01_2.cor.fq.gz
+    jobid: 16
+    wildcards: smp=DuckControl01
+    threads: 20
+
+ run_rcorrector.pl -od results/rcorrector/DuckControl01 -t 20 -1 /30days/uqakaraw/FASTQDIR_never_DELETE/duck/DuckControl01_1.fastq.gz -2 /30days/uqakaraw/FASTQDIR_never_DELETE/duck/DuckControl01_2.fastq.gz 
+Submitted job 16 with external jobid '252166.tinmgr2'.
+[Sun Jun 28 20:26:55 2020]
+Finished job 20.
+5 of 25 steps (20%) done
+
+[Sun Jun 28 20:26:55 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/duck/duckinfected02_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/duck/duckinfected02_2.fastq.gz, fastqc/duckinfected02/duckinfected02_1_fastqc.zip, fastqc/duckinfected02/duckinfected02_2_fastqc.zip
+    output: results/rcorrector/duckinfected02/duckinfected02_1.cor.fq.gz, results/rcorrector/duckinfected02/duckinfected02_2.cor.fq.gz
+    jobid: 14
+    wildcards: smp=duckinfected02
+    threads: 20
+
+ run_rcorrector.pl -od results/rcorrector/duckinfected02 -t 20 -1 /30days/uqakaraw/FASTQDIR_never_DELETE/duck/duckinfected02_1.fastq.gz -2 /30days/uqakaraw/FASTQDIR_never_DELETE/duck/duckinfected02_2.fastq.gz 
+Submitted job 14 with external jobid '252167.tinmgr2'.
+[Sun Jun 28 20:33:26 2020]
+Finished job 23.
+6 of 25 steps (24%) done
+
+[Sun Jun 28 20:33:26 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckinfected01_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckinfected01_2.fastq.gz, fastqc/Duckinfected01/Duckinfected01_1_fastqc.zip, fastqc/Duckinfected01/Duckinfected01_2_fastqc.zip
+    output: results/rcorrector/Duckinfected01/Duckinfected01_1.cor.fq.gz, results/rcorrector/Duckinfected01/Duckinfected01_2.cor.fq.gz
+    jobid: 17
+    wildcards: smp=Duckinfected01
+    threads: 20
+
+ run_rcorrector.pl -od results/rcorrector/Duckinfected01 -t 20 -1 /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckinfected01_1.fastq.gz -2 /30days/uqakaraw/FASTQDIR_never_DELETE/duck/Duckinfected01_2.fastq.gz 
+Submitted job 17 with external jobid '252169.tinmgr2'.
+[Sun Jun 28 23:59:28 2020]
+Finished job 15.
+7 of 25 steps (28%) done
+
+[Sun Jun 28 23:59:28 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/Duckcontrol03/Duckcontrol03_1.cor.fq.gz, results/rcorrector/Duckcontrol03/Duckcontrol03_2.cor.fq.gz
+    output: results/Duckcontrol03_filter/unfixrm_Duckcontrol03_1.cor.fq, results/Duckcontrol03_filter/unfixrm_Duckcontrol03_2.cor.fq
+    jobid: 9
+    wildcards: smp=Duckcontrol03
+
+ mkdir -p results/Duckcontrol03_filter && FilterUncorrectabledPEfastq.py -1 results/rcorrector/Duckcontrol03/Duckcontrol03_1.cor.fq.gz -2 results/rcorrector/Duckcontrol03/Duckcontrol03_2.cor.fq.gz && mv unfixrm_Duckcontrol03_1.cor.fq unfixrm_Duckcontrol03_2.cor.fq results/Duckcontrol03_filter
+Submitted job 9 with external jobid '252268.tinmgr2'.
+Removing temporary output file results/rcorrector/Duckcontrol03/Duckcontrol03_1.cor.fq.gz.
+Removing temporary output file results/rcorrector/Duckcontrol03/Duckcontrol03_2.cor.fq.gz.
+[Mon Jun 29 00:22:59 2020]
+Finished job 9.
+8 of 25 steps (32%) done
+
+[Mon Jun 29 00:22:59 2020]
+Job 3: --- Trimming.
+
+trim_galore --paired --retain_unpaired --phred33 --basename Duckcontrol03 -j 20 --output_dir results/trimmed/Duckcontrol03 --length 36 -q 5 --stringency 1 -e 0.1 results/Duckcontrol03_filter/unfixrm_Duckcontrol03_1.cor.fq results/Duckcontrol03_filter/unfixrm_Duckcontrol03_2.cor.fq > output.out 2>&1
+Submitted job 3 with external jobid '252269.tinmgr2'.
+Removing temporary output file results/Duckcontrol03_filter/unfixrm_Duckcontrol03_1.cor.fq.
+Removing temporary output file results/Duckcontrol03_filter/unfixrm_Duckcontrol03_2.cor.fq.
+Removing temporary output file results/trimmed/Duckcontrol03/Duckcontrol03_val_2.fq.
+[Mon Jun 29 00:39:30 2020]
+Finished job 3.
+9 of 25 steps (36%) done
+[Mon Jun 29 00:48:11 2020]
+Finished job 14.
+10 of 25 steps (40%) done
+
+[Mon Jun 29 00:48:11 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/duckinfected02/duckinfected02_1.cor.fq.gz, results/rcorrector/duckinfected02/duckinfected02_2.cor.fq.gz
+    output: results/duckinfected02_filter/unfixrm_duckinfected02_1.cor.fq, results/duckinfected02_filter/unfixrm_duckinfected02_2.cor.fq
+    jobid: 8
+    wildcards: smp=duckinfected02
+
+ mkdir -p results/duckinfected02_filter && FilterUncorrectabledPEfastq.py -1 results/rcorrector/duckinfected02/duckinfected02_1.cor.fq.gz -2 results/rcorrector/duckinfected02/duckinfected02_2.cor.fq.gz && mv unfixrm_duckinfected02_1.cor.fq unfixrm_duckinfected02_2.cor.fq results/duckinfected02_filter
+Submitted job 8 with external jobid '252280.tinmgr2'.
+[Mon Jun 29 01:00:32 2020]
+Finished job 13.
+11 of 25 steps (44%) done
+
+[Mon Jun 29 01:00:32 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/duckinfected03/duckinfected03_1.cor.fq.gz, results/rcorrector/duckinfected03/duckinfected03_2.cor.fq.gz
+    output: results/duckinfected03_filter/unfixrm_duckinfected03_1.cor.fq, results/duckinfected03_filter/unfixrm_duckinfected03_2.cor.fq
+    jobid: 7
+    wildcards: smp=duckinfected03
+
+ mkdir -p results/duckinfected03_filter && FilterUncorrectabledPEfastq.py -1 results/rcorrector/duckinfected03/duckinfected03_1.cor.fq.gz -2 results/rcorrector/duckinfected03/duckinfected03_2.cor.fq.gz && mv unfixrm_duckinfected03_1.cor.fq unfixrm_duckinfected03_2.cor.fq results/duckinfected03_filter
+Submitted job 7 with external jobid '252291.tinmgr2'.
+Removing temporary output file results/rcorrector/duckinfected02/duckinfected02_1.cor.fq.gz.
+Removing temporary output file results/rcorrector/duckinfected02/duckinfected02_2.cor.fq.gz.
+[Mon Jun 29 01:35:54 2020]
+Finished job 8.
+12 of 25 steps (48%) done
+
+[Mon Jun 29 01:35:54 2020]
+Job 2: --- Trimming.
+
+trim_galore --paired --retain_unpaired --phred33 --basename duckinfected02 -j 20 --output_dir results/trimmed/duckinfected02 --length 36 -q 5 --stringency 1 -e 0.1 results/duckinfected02_filter/unfixrm_duckinfected02_1.cor.fq results/duckinfected02_filter/unfixrm_duckinfected02_2.cor.fq > output.out 2>&1
+Submitted job 2 with external jobid '252292.tinmgr2'.
+[Mon Jun 29 01:43:24 2020]
+Finished job 16.
+13 of 25 steps (52%) done
+
+[Mon Jun 29 01:43:24 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/DuckControl01/DuckControl01_1.cor.fq.gz, results/rcorrector/DuckControl01/DuckControl01_2.cor.fq.gz
+    output: results/DuckControl01_filter/unfixrm_DuckControl01_1.cor.fq, results/DuckControl01_filter/unfixrm_DuckControl01_2.cor.fq
+    jobid: 10
+    wildcards: smp=DuckControl01
+
+ mkdir -p results/DuckControl01_filter && FilterUncorrectabledPEfastq.py -1 results/rcorrector/DuckControl01/DuckControl01_1.cor.fq.gz -2 results/rcorrector/DuckControl01/DuckControl01_2.cor.fq.gz && mv unfixrm_DuckControl01_1.cor.fq unfixrm_DuckControl01_2.cor.fq results/DuckControl01_filter
+Submitted job 10 with external jobid '252293.tinmgr2'.
+Removing temporary output file results/duckinfected02_filter/unfixrm_duckinfected02_1.cor.fq.
+Removing temporary output file results/duckinfected02_filter/unfixrm_duckinfected02_2.cor.fq.
+Removing temporary output file results/trimmed/duckinfected02/duckinfected02_val_2.fq.
+[Mon Jun 29 01:49:14 2020]
+Finished job 2.
+14 of 25 steps (56%) done
+Removing temporary output file results/rcorrector/duckinfected03/duckinfected03_1.cor.fq.gz.
+Removing temporary output file results/rcorrector/duckinfected03/duckinfected03_2.cor.fq.gz.
+[Mon Jun 29 01:53:05 2020]
+Finished job 7.
+15 of 25 steps (60%) done
+
+[Mon Jun 29 01:53:05 2020]
+Job 1: --- Trimming.
+
+trim_galore --paired --retain_unpaired --phred33 --basename duckinfected03 -j 20 --output_dir results/trimmed/duckinfected03 --length 36 -q 5 --stringency 1 -e 0.1 results/duckinfected03_filter/unfixrm_duckinfected03_1.cor.fq results/duckinfected03_filter/unfixrm_duckinfected03_2.cor.fq > output.out 2>&1
+Submitted job 1 with external jobid '252294.tinmgr2'.
+Removing temporary output file results/duckinfected03_filter/unfixrm_duckinfected03_1.cor.fq.
+Removing temporary output file results/duckinfected03_filter/unfixrm_duckinfected03_2.cor.fq.
+Removing temporary output file results/trimmed/duckinfected03/duckinfected03_val_2.fq.
+[Mon Jun 29 02:04:15 2020]
+Finished job 1.
+16 of 25 steps (64%) done
+Removing temporary output file results/rcorrector/DuckControl01/DuckControl01_2.cor.fq.gz.
+Removing temporary output file results/rcorrector/DuckControl01/DuckControl01_1.cor.fq.gz.
+[Mon Jun 29 02:09:56 2020]
+Finished job 10.
+17 of 25 steps (68%) done
+
+[Mon Jun 29 02:09:56 2020]
+Job 4: --- Trimming.
+
+trim_galore --paired --retain_unpaired --phred33 --basename DuckControl01 -j 20 --output_dir results/trimmed/DuckControl01 --length 36 -q 5 --stringency 1 -e 0.1 results/DuckControl01_filter/unfixrm_DuckControl01_1.cor.fq results/DuckControl01_filter/unfixrm_DuckControl01_2.cor.fq > output.out 2>&1
+Submitted job 4 with external jobid '252295.tinmgr2'.
+Removing temporary output file results/DuckControl01_filter/unfixrm_DuckControl01_1.cor.fq.
+Removing temporary output file results/DuckControl01_filter/unfixrm_DuckControl01_2.cor.fq.
+Removing temporary output file results/trimmed/DuckControl01/DuckControl01_val_2.fq.
+[Mon Jun 29 02:26:07 2020]
+Finished job 4.
+18 of 25 steps (72%) done
+[Mon Jun 29 02:29:47 2020]
+Finished job 18.
+19 of 25 steps (76%) done
+
+[Mon Jun 29 02:29:47 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/Duckcontrol02/Duckcontrol02_1.cor.fq.gz, results/rcorrector/Duckcontrol02/Duckcontrol02_2.cor.fq.gz
+    output: results/Duckcontrol02_filter/unfixrm_Duckcontrol02_1.cor.fq, results/Duckcontrol02_filter/unfixrm_Duckcontrol02_2.cor.fq
+    jobid: 12
+    wildcards: smp=Duckcontrol02
+
+ mkdir -p results/Duckcontrol02_filter && FilterUncorrectabledPEfastq.py -1 results/rcorrector/Duckcontrol02/Duckcontrol02_1.cor.fq.gz -2 results/rcorrector/Duckcontrol02/Duckcontrol02_2.cor.fq.gz && mv unfixrm_Duckcontrol02_1.cor.fq unfixrm_Duckcontrol02_2.cor.fq results/Duckcontrol02_filter
+Submitted job 12 with external jobid '252323.tinmgr2'.
+[Mon Jun 29 02:30:28 2020]
+Finished job 17.
+20 of 25 steps (80%) done
+
+[Mon Jun 29 02:30:28 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/Duckinfected01/Duckinfected01_1.cor.fq.gz, results/rcorrector/Duckinfected01/Duckinfected01_2.cor.fq.gz
+    output: results/Duckinfected01_filter/unfixrm_Duckinfected01_1.cor.fq, results/Duckinfected01_filter/unfixrm_Duckinfected01_2.cor.fq
+    jobid: 11
+    wildcards: smp=Duckinfected01
+
+ mkdir -p results/Duckinfected01_filter && FilterUncorrectabledPEfastq.py -1 results/rcorrector/Duckinfected01/Duckinfected01_1.cor.fq.gz -2 results/rcorrector/Duckinfected01/Duckinfected01_2.cor.fq.gz && mv unfixrm_Duckinfected01_1.cor.fq unfixrm_Duckinfected01_2.cor.fq results/Duckinfected01_filter
+Submitted job 11 with external jobid '252324.tinmgr2'.
+Removing temporary output file results/rcorrector/Duckinfected01/Duckinfected01_2.cor.fq.gz.
+Removing temporary output file results/rcorrector/Duckinfected01/Duckinfected01_1.cor.fq.gz.
+[Mon Jun 29 02:55:29 2020]
+Finished job 11.
+21 of 25 steps (84%) done
+
+[Mon Jun 29 02:55:29 2020]
+Job 5: --- Trimming.
+
+trim_galore --paired --retain_unpaired --phred33 --basename Duckinfected01 -j 20 --output_dir results/trimmed/Duckinfected01 --length 36 -q 5 --stringency 1 -e 0.1 results/Duckinfected01_filter/unfixrm_Duckinfected01_1.cor.fq results/Duckinfected01_filter/unfixrm_Duckinfected01_2.cor.fq > output.out 2>&1
+Submitted job 5 with external jobid '252344.tinmgr2'.
+Removing temporary output file results/rcorrector/Duckcontrol02/Duckcontrol02_2.cor.fq.gz.
+Removing temporary output file results/rcorrector/Duckcontrol02/Duckcontrol02_1.cor.fq.gz.
+[Mon Jun 29 02:57:59 2020]
+Finished job 12.
+22 of 25 steps (88%) done
+
+[Mon Jun 29 02:57:59 2020]
+Job 6: --- Trimming.
+
+trim_galore --paired --retain_unpaired --phred33 --basename Duckcontrol02 -j 20 --output_dir results/trimmed/Duckcontrol02 --length 36 -q 5 --stringency 1 -e 0.1 results/Duckcontrol02_filter/unfixrm_Duckcontrol02_1.cor.fq results/Duckcontrol02_filter/unfixrm_Duckcontrol02_2.cor.fq > output.out 2>&1
+Submitted job 6 with external jobid '252345.tinmgr2'.
+Removing temporary output file results/Duckinfected01_filter/unfixrm_Duckinfected01_1.cor.fq.
+Removing temporary output file results/Duckinfected01_filter/unfixrm_Duckinfected01_2.cor.fq.
+Removing temporary output file results/trimmed/Duckinfected01/Duckinfected01_val_2.fq.
+[Mon Jun 29 03:10:11 2020]
+Finished job 5.
+23 of 25 steps (92%) done
+Removing temporary output file results/Duckcontrol02_filter/unfixrm_Duckcontrol02_2.cor.fq.
+Removing temporary output file results/Duckcontrol02_filter/unfixrm_Duckcontrol02_1.cor.fq.
+Removing temporary output file results/trimmed/Duckcontrol02/Duckcontrol02_val_2.fq.
+[Mon Jun 29 03:13:21 2020]
+Finished job 6.
+24 of 25 steps (96%) done
+
+[Mon Jun 29 03:13:21 2020]
+localrule all:
+    input: results/trimmed/duckinfected03/duckinfected03_val_1.fq, results/trimmed/duckinfected02/duckinfected02_val_1.fq, results/trimmed/Duckcontrol03/Duckcontrol03_val_1.fq, results/trimmed/DuckControl01/DuckControl01_val_1.fq, results/trimmed/Duckinfected01/Duckinfected01_val_1.fq, results/trimmed/Duckcontrol02/Duckcontrol02_val_1.fq
+    jobid: 0
+
+Removing temporary output file results/trimmed/duckinfected03/duckinfected03_val_1.fq.
+Removing temporary output file results/trimmed/duckinfected02/duckinfected02_val_1.fq.
+Removing temporary output file results/trimmed/Duckcontrol03/Duckcontrol03_val_1.fq.
+Removing temporary output file results/trimmed/DuckControl01/DuckControl01_val_1.fq.
+Removing temporary output file results/trimmed/Duckinfected01/Duckinfected01_val_1.fq.
+Removing temporary output file results/trimmed/Duckcontrol02/Duckcontrol02_val_1.fq.
+[Mon Jun 29 03:13:21 2020]
+Finished job 0.
+25 of 25 steps (100%) done
+Complete log: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/duck/.snakemake/log/2020-06-28T200723.651818.snakemake.log

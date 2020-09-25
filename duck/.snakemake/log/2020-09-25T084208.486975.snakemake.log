@@ -1,0 +1,30 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 12
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	2	fastqc2
+	1	filter_uncorrected
+	2	rmbadreads
+	2	star
+	2	trimming
+	10
+
+[Fri Sep 25 08:42:08 2020]
+Job 8: --- Trimming.
+
+trim_galore --paired --retain_unpaired --phred33 --basename Duckcontrol03 -j 12 --output_dir results/trimmed/Duckcontrol03 --length 36 -q 5 --stringency 1 -e 0.1 results/Duckcontrol03_filter/unfixrm_Duckcontrol03_1.cor.fq results/Duckcontrol03_filter/unfixrm_Duckcontrol03_2.cor.fq > output.out 2>&1
+Activating conda environment: /30days/uqakaraw/snakemake_envs/f868301f
+Terminating processes on user request, this might take some time.
+[Fri Sep 25 08:55:51 2020]
+Error in rule trimming:
+    jobid: 8
+    output: results/trimmed/Duckcontrol03/Duckcontrol03_val_1.fq, results/trimmed/Duckcontrol03/Duckcontrol03_val_2.fq
+    conda-env: /30days/uqakaraw/snakemake_envs/f868301f
+    shell:
+        trim_galore --paired --retain_unpaired --phred33 --basename Duckcontrol03 -j 12 --output_dir results/trimmed/Duckcontrol03 --length 36 -q 5 --stringency 1 -e 0.1 results/Duckcontrol03_filter/unfixrm_Duckcontrol03_1.cor.fq results/Duckcontrol03_filter/unfixrm_Duckcontrol03_2.cor.fq > output.out 2>&1
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Complete log: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/duck/.snakemake/log/2020-09-25T084208.486975.snakemake.log

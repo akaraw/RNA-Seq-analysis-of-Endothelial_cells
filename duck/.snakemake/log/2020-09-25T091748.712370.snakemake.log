@@ -1,0 +1,3 @@
+AttributeError in line 144 of /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/duck/Snakefile:
+'Rules' object has no attribute 'rmbadreads'
+  File "/gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/duck/Snakefile", line 144, in <module>

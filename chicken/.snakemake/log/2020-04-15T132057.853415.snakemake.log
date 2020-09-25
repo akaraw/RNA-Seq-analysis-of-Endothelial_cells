@@ -1,0 +1,219 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 6
+Job counts:
+	count	jobs
+	1	all
+	1	htseq
+	1	star
+	4	stringtie01
+	6	stringtie02
+	6	stringtie_merge
+	19
+
+[Wed Apr 15 13:20:59 2020]
+rule stringtie_merge:
+    input: stringtie_tab/chickinfected03.list, /30days/uqakaraw/chicken/chicken.gtf
+    output: stringtie_gtf/chickinfected03_merged.gtf
+    jobid: 14
+    wildcards: smp=chickinfected03
+
+Submitted job 14 with external jobid '187168.tinmgr2'.
+
+[Wed Apr 15 13:20:59 2020]
+rule star:
+    input: star_input/rmoverrep_chickinfected02_val_1.fq, star_input/rmoverrep_chickinfected02_val_2.fq
+    output: results/STAR_bam/chickinfected02Aligned.sortedByCoord.out.bam
+    jobid: 17
+    wildcards: smp=chickinfected02
+    threads: 20
+
+Submitted job 17 with external jobid '187169.tinmgr2'.
+
+[Wed Apr 15 13:20:59 2020]
+Job 28: --- Diffrential Gene Expression Analysis with Stringtie step 01
+
+Submitted job 28 with external jobid '187170.tinmgr2'.
+
+[Wed Apr 15 13:21:00 2020]
+rule stringtie_merge:
+    input: stringtie_tab/chickcontrol01.list, /30days/uqakaraw/chicken/chicken.gtf
+    output: stringtie_gtf/chickcontrol01_merged.gtf
+    jobid: 10
+    wildcards: smp=chickcontrol01
+
+Submitted job 10 with external jobid '187171.tinmgr2'.
+
+[Wed Apr 15 13:21:00 2020]
+Job 20: --- Diffrential Gene Expression Analysis with Stringtie step 01
+
+Submitted job 20 with external jobid '187172.tinmgr2'.
+
+[Wed Apr 15 13:21:00 2020]
+Job 24: --- Diffrential Gene Expression Analysis with Stringtie step 01
+
+Submitted job 24 with external jobid '187173.tinmgr2'.
+Removing temporary output file stringtie_tab/chickinfected03.list.
+[Wed Apr 15 13:21:59 2020]
+Finished job 14.
+1 of 19 steps (5%) done
+
+[Wed Apr 15 13:21:59 2020]
+Job 4: --- Diffrential Gene Expression Analysis with Stringtie step 02
+
+Submitted job 4 with external jobid '187174.tinmgr2'.
+Removing temporary output file star_input/rmoverrep_chickcontrol02_val_1.fq.
+Removing temporary output file star_input/rmoverrep_chickcontrol02_val_2.fq.
+[Wed Apr 15 13:29:00 2020]
+Finished job 28.
+2 of 19 steps (11%) done
+
+[Wed Apr 15 13:29:00 2020]
+rule stringtie_merge:
+    input: stringtie_tab/chickcontrol02.list, /30days/uqakaraw/chicken/chicken.gtf
+    output: stringtie_gtf/chickcontrol02_merged.gtf
+    jobid: 16
+    wildcards: smp=chickcontrol02
+
+Submitted job 16 with external jobid '187183.tinmgr2'.
+Removing temporary output file stringtie_tab/chickcontrol01.list.
+[Wed Apr 15 13:30:10 2020]
+Finished job 10.
+3 of 19 steps (16%) done
+
+[Wed Apr 15 13:30:10 2020]
+Job 2: --- Diffrential Gene Expression Analysis with Stringtie step 02
+
+Submitted job 2 with external jobid '187185.tinmgr2'.
+Removing temporary output file star_input/rmoverrep_chickinfected01_val_2.fq.
+Removing temporary output file star_input/rmoverrep_chickinfected01_val_1.fq.
+[Wed Apr 15 13:32:20 2020]
+Finished job 20.
+4 of 19 steps (21%) done
+
+[Wed Apr 15 13:32:20 2020]
+rule stringtie_merge:
+    input: stringtie_tab/chickinfected01.list, /30days/uqakaraw/chicken/chicken.gtf
+    output: stringtie_gtf/chickinfected01_merged.gtf
+    jobid: 8
+    wildcards: smp=chickinfected01
+
+Submitted job 8 with external jobid '187187.tinmgr2'.
+[Wed Apr 15 14:05:32 2020]
+Finished job 17.
+5 of 19 steps (26%) done
+
+[Wed Apr 15 14:05:32 2020]
+rule htseq:
+    input: results/STAR_bam/chickinfected02Aligned.sortedByCoord.out.bam, /30days/uqakaraw/chicken/chicken.gtf
+    output: htseq/chickinfected02.tsv, htseq/log/chickinfected02.err
+    jobid: 48
+    wildcards: smp=chickinfected02
+
+Submitted job 48 with external jobid '187218.tinmgr2'.
+Removing temporary output file results/STAR_bam/chickinfected03Aligned.sortedByCoord.out.bam.
+[Wed Apr 15 14:47:24 2020]
+Finished job 4.
+6 of 19 steps (32%) done
+Removing temporary output file stringtie_tab/chickcontrol02.list.
+[Wed Apr 15 14:47:55 2020]
+Finished job 16.
+7 of 19 steps (37%) done
+
+[Wed Apr 15 14:47:55 2020]
+Job 5: --- Diffrential Gene Expression Analysis with Stringtie step 02
+
+Submitted job 5 with external jobid '187470.tinmgr2'.
+Removing temporary output file star_input/rmoverrep_chickcontrol03_val_1.fq.
+Removing temporary output file star_input/rmoverrep_chickcontrol03_val_2.fq.
+[Wed Apr 15 14:50:35 2020]
+Finished job 24.
+8 of 19 steps (42%) done
+
+[Wed Apr 15 14:50:35 2020]
+rule stringtie_merge:
+    input: stringtie_tab/chickcontrol03.list, /30days/uqakaraw/chicken/chicken.gtf
+    output: stringtie_gtf/chickcontrol03_merged.gtf
+    jobid: 12
+    wildcards: smp=chickcontrol03
+
+Submitted job 12 with external jobid '187473.tinmgr2'.
+Removing temporary output file stringtie_tab/chickinfected01.list.
+[Wed Apr 15 14:51:25 2020]
+Finished job 8.
+9 of 19 steps (47%) done
+
+[Wed Apr 15 14:51:25 2020]
+Job 1: --- Diffrential Gene Expression Analysis with Stringtie step 02
+
+Submitted job 1 with external jobid '187474.tinmgr2'.
+Removing temporary output file results/STAR_bam/chickcontrol01Aligned.sortedByCoord.out.bam.
+[Wed Apr 15 14:53:05 2020]
+Finished job 2.
+10 of 19 steps (53%) done
+Removing temporary output file stringtie_tab/chickcontrol03.list.
+[Wed Apr 15 15:08:16 2020]
+Finished job 12.
+11 of 19 steps (58%) done
+
+[Wed Apr 15 15:08:16 2020]
+Job 3: --- Diffrential Gene Expression Analysis with Stringtie step 02
+
+Submitted job 3 with external jobid '187727.tinmgr2'.
+Removing temporary output file results/STAR_bam/chickinfected01Aligned.sortedByCoord.out.bam.
+[Wed Apr 15 15:10:16 2020]
+Finished job 1.
+12 of 19 steps (63%) done
+Removing temporary output file results/STAR_bam/chickcontrol02Aligned.sortedByCoord.out.bam.
+[Wed Apr 15 15:14:16 2020]
+Finished job 5.
+13 of 19 steps (68%) done
+Removing temporary output file results/STAR_bam/chickcontrol03Aligned.sortedByCoord.out.bam.
+[Wed Apr 15 15:15:56 2020]
+Finished job 3.
+14 of 19 steps (74%) done
+[Wed Apr 15 15:26:37 2020]
+Finished job 48.
+15 of 19 steps (79%) done
+
+[Wed Apr 15 15:26:37 2020]
+Job 30: --- Diffrential Gene Expression Analysis with Stringtie step 01
+
+Submitted job 30 with external jobid '187747.tinmgr2'.
+Removing temporary output file star_input/rmoverrep_chickinfected02_val_1.fq.
+Removing temporary output file star_input/rmoverrep_chickinfected02_val_2.fq.
+[Wed Apr 15 15:31:27 2020]
+Finished job 30.
+16 of 19 steps (84%) done
+
+[Wed Apr 15 15:31:27 2020]
+rule stringtie_merge:
+    input: stringtie_tab/chickinfected02.list, /30days/uqakaraw/chicken/chicken.gtf
+    output: stringtie_gtf/chickinfected02_merged.gtf
+    jobid: 18
+    wildcards: smp=chickinfected02
+
+Submitted job 18 with external jobid '187755.tinmgr2'.
+Removing temporary output file stringtie_tab/chickinfected02.list.
+[Wed Apr 15 15:39:08 2020]
+Finished job 18.
+17 of 19 steps (89%) done
+
+[Wed Apr 15 15:39:08 2020]
+Job 6: --- Diffrential Gene Expression Analysis with Stringtie step 02
+
+Submitted job 6 with external jobid '187765.tinmgr2'.
+Removing temporary output file results/STAR_bam/chickinfected02Aligned.sortedByCoord.out.bam.
+[Wed Apr 15 15:58:19 2020]
+Finished job 6.
+18 of 19 steps (95%) done
+
+[Wed Apr 15 15:58:19 2020]
+localrule all:
+    input: stringtie_gtf/chickinfected01.gtf, stringtie_gtf/chickcontrol01.gtf, stringtie_gtf/chickcontrol03.gtf, stringtie_gtf/chickinfected03.gtf, stringtie_gtf/chickcontrol02.gtf, stringtie_gtf/chickinfected02.gtf
+    jobid: 0
+
+[Wed Apr 15 15:58:19 2020]
+Finished job 0.
+19 of 19 steps (100%) done
+Complete log: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/chicken/.snakemake/log/2020-04-15T132057.853415.snakemake.log

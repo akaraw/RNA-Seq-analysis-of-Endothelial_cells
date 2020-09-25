@@ -1,0 +1,65 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cluster nodes: 6
+Job counts:
+	count	jobs
+	1	all
+	1	filter_uncorrected
+	3	trimming
+	5
+
+[Thu Jun 25 11:22:09 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/chickcontrol02/chickcontrol02_1.cor.fq.gz, results/rcorrector/chickcontrol02/chickcontrol02_2.cor.fq.gz
+    output: results/chickcontrol02_filter/unfixrm_chickcontrol02_1.cor.fq, results/chickcontrol02_filter/unfixrm_chickcontrol02_2.cor.fq
+    jobid: 11
+    wildcards: smp=chickcontrol02
+
+ mkdir -p results/chickcontrol02_filter && FilterUncorrectabledPEfastq.py -1 results/rcorrector/chickcontrol02/chickcontrol02_1.cor.fq.gz -2 results/rcorrector/chickcontrol02/chickcontrol02_2.cor.fq.gz && mv unfixrm_chickcontrol02_1.cor.fq unfixrm_chickcontrol02_2.cor.fq results/chickcontrol02_filter
+Submitted job 11 with external jobid '246756.tinmgr2'.
+
+[Thu Jun 25 11:22:10 2020]
+Job 4: --- Trimming.
+
+trim_galore --paired --retain_unpaired --phred33 --basename chickinfected03 -j 20 --output_dir results/trimmed/chickinfected03 --length 36 -q 5 --stringency 1 -e 0.1 results/chickinfected03_filter/unfixrm_chickinfected03_1.cor.fq results/chickinfected03_filter/unfixrm_chickinfected03_2.cor.fq > output.out 2>&1
+Submitted job 4 with external jobid '246757.tinmgr2'.
+
+[Thu Jun 25 11:22:10 2020]
+Job 1: --- Trimming.
+
+trim_galore --paired --retain_unpaired --phred33 --basename chickinfected01 -j 20 --output_dir results/trimmed/chickinfected01 --length 36 -q 5 --stringency 1 -e 0.1 results/chickinfected01_filter/unfixrm_chickinfected01_1.cor.fq results/chickinfected01_filter/unfixrm_chickinfected01_2.cor.fq > output.out 2>&1
+Submitted job 1 with external jobid '246758.tinmgr2'.
+Removing temporary output file results/chickinfected03_filter/unfixrm_chickinfected03_1.cor.fq.
+Removing temporary output file results/chickinfected03_filter/unfixrm_chickinfected03_2.cor.fq.
+[Thu Jun 25 11:37:40 2020]
+Finished job 4.
+1 of 5 steps (20%) done
+Removing temporary output file results/chickinfected01_filter/unfixrm_chickinfected01_2.cor.fq.
+Removing temporary output file results/chickinfected01_filter/unfixrm_chickinfected01_1.cor.fq.
+[Thu Jun 25 11:38:41 2020]
+Finished job 1.
+2 of 5 steps (40%) done
+[Thu Jun 25 11:51:31 2020]
+Finished job 11.
+3 of 5 steps (60%) done
+
+[Thu Jun 25 11:51:31 2020]
+Job 5: --- Trimming.
+
+trim_galore --paired --retain_unpaired --phred33 --basename chickcontrol02 -j 20 --output_dir results/trimmed/chickcontrol02 --length 36 -q 5 --stringency 1 -e 0.1 results/chickcontrol02_filter/unfixrm_chickcontrol02_1.cor.fq results/chickcontrol02_filter/unfixrm_chickcontrol02_2.cor.fq > output.out 2>&1
+Submitted job 5 with external jobid '246800.tinmgr2'.
+Removing temporary output file results/chickcontrol02_filter/unfixrm_chickcontrol02_1.cor.fq.
+Removing temporary output file results/chickcontrol02_filter/unfixrm_chickcontrol02_2.cor.fq.
+[Thu Jun 25 11:57:52 2020]
+Finished job 5.
+4 of 5 steps (80%) done
+
+[Thu Jun 25 11:57:52 2020]
+localrule all:
+    input: results/trimmed/chickinfected01/chickinfected01_val_1.fq, results/trimmed/chickcontrol01/chickcontrol01_val_1.fq, results/trimmed/chickcontrol03/chickcontrol03_val_1.fq, results/trimmed/chickinfected03/chickinfected03_val_1.fq, results/trimmed/chickcontrol02/chickcontrol02_val_1.fq, results/trimmed/chickinfected02/chickinfected02_val_1.fq
+    jobid: 0
+
+[Thu Jun 25 11:57:52 2020]
+Finished job 0.
+5 of 5 steps (100%) done
+Complete log: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/chicken/.snakemake/log/2020-06-25T112209.787356.snakemake.log

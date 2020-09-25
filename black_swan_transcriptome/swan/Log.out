@@ -1,0 +1,458 @@
+STAR version=2.7.3a
+STAR compilation time,server,dir=Tue Oct 8 14:26:19 EDT 2019 vega:/home/dobin/data/STAR/STARcode/STAR.master/source
+##### Command Line:
+STAR --runThreadN 20 --runMode genomeGenerate --genomeDir bowtie2/ --genomeFastaFiles bowtie2/bs.fa
+##### Initial USER parameters from Command Line:
+###### All USER parameters from Command Line:
+runThreadN                    20     ~RE-DEFINED
+runMode                       genomeGenerate     ~RE-DEFINED
+genomeDir                     bowtie2/     ~RE-DEFINED
+genomeFastaFiles              bowtie2/bs.fa        ~RE-DEFINED
+##### Finished reading parameters from all sources
+
+##### Final user re-defined parameters-----------------:
+runMode                           genomeGenerate
+runThreadN                        20
+genomeDir                         bowtie2/
+genomeFastaFiles                  bowtie2/bs.fa   
+
+-------------------------------
+##### Final effective command line:
+STAR   --runMode genomeGenerate   --runThreadN 20   --genomeDir bowtie2/   --genomeFastaFiles bowtie2/bs.fa   
+----------------------------------------
+
+Finished loading and checking parameters
+Mar 09 08:04:08 ... starting to generate Genome files
+bowtie2/bs.fa : chr # 0  "000287F" chrStart: 0
+bowtie2/bs.fa : chr # 1  "000532F" chrStart: 262144
+bowtie2/bs.fa : chr # 2  "000003F" chrStart: 524288
+bowtie2/bs.fa : chr # 3  "000228F" chrStart: 30932992
+bowtie2/bs.fa : chr # 4  "000177F" chrStart: 31195136
+bowtie2/bs.fa : chr # 5  "000061F" chrStart: 31981568
+bowtie2/bs.fa : chr # 6  "000280F" chrStart: 38010880
+bowtie2/bs.fa : chr # 7  "000175F" chrStart: 38273024
+bowtie2/bs.fa : chr # 8  "000004F" chrStart: 39059456
+bowtie2/bs.fa : chr # 9  "000303F" chrStart: 68681728
+bowtie2/bs.fa : chr # 10  "000731F" chrStart: 68943872
+bowtie2/bs.fa : chr # 11  "000778F" chrStart: 69206016
+bowtie2/bs.fa : chr # 12  "000734F" chrStart: 69468160
+bowtie2/bs.fa : chr # 13  "000272F" chrStart: 69730304
+bowtie2/bs.fa : chr # 14  "000057F" chrStart: 69992448
+bowtie2/bs.fa : chr # 15  "000599F" chrStart: 76546048
+bowtie2/bs.fa : chr # 16  "000428F" chrStart: 76808192
+bowtie2/bs.fa : chr # 17  "000033F" chrStart: 77070336
+bowtie2/bs.fa : chr # 18  "000099F" chrStart: 87031808
+bowtie2/bs.fa : chr # 19  "000051F" chrStart: 89915392
+bowtie2/bs.fa : chr # 20  "000554F" chrStart: 96993280
+bowtie2/bs.fa : chr # 21  "000145F" chrStart: 97255424
+bowtie2/bs.fa : chr # 22  "000129F" chrStart: 98566144
+bowtie2/bs.fa : chr # 23  "000244F" chrStart: 99876864
+bowtie2/bs.fa : chr # 24  "000782F" chrStart: 100139008
+bowtie2/bs.fa : chr # 25  "000261F" chrStart: 100401152
+bowtie2/bs.fa : chr # 26  "000634F" chrStart: 100663296
+bowtie2/bs.fa : chr # 27  "000102F" chrStart: 100925440
+bowtie2/bs.fa : chr # 28  "000136F" chrStart: 103809024
+bowtie2/bs.fa : chr # 29  "000211F" chrStart: 105119744
+bowtie2/bs.fa : chr # 30  "000375F" chrStart: 105644032
+bowtie2/bs.fa : chr # 31  "000442F" chrStart: 105906176
+bowtie2/bs.fa : chr # 32  "000421F" chrStart: 106168320
+bowtie2/bs.fa : chr # 33  "000151F" chrStart: 106430464
+bowtie2/bs.fa : chr # 34  "000093F" chrStart: 107479040
+bowtie2/bs.fa : chr # 35  "000750F" chrStart: 110886912
+bowtie2/bs.fa : chr # 36  "000217F" chrStart: 111149056
+bowtie2/bs.fa : chr # 37  "000074F" chrStart: 111673344
+bowtie2/bs.fa : chr # 38  "000103F" chrStart: 116129792
+bowtie2/bs.fa : chr # 39  "000011F" chrStart: 119013376
+bowtie2/bs.fa : chr # 40  "000216F" chrStart: 138412032
+bowtie2/bs.fa : chr # 41  "000081F" chrStart: 138936320
+bowtie2/bs.fa : chr # 42  "000179F" chrStart: 143130624
+bowtie2/bs.fa : chr # 43  "000120F" chrStart: 143654912
+bowtie2/bs.fa : chr # 44  "000234F" chrStart: 145227776
+bowtie2/bs.fa : chr # 45  "000154F" chrStart: 145489920
+bowtie2/bs.fa : chr # 46  "000196F" chrStart: 146538496
+bowtie2/bs.fa : chr # 47  "000999F" chrStart: 147062784
+bowtie2/bs.fa : chr # 48  "000841F" chrStart: 147324928
+bowtie2/bs.fa : chr # 49  "000178F" chrStart: 147587072
+bowtie2/bs.fa : chr # 50  "000236F" chrStart: 148373504
+bowtie2/bs.fa : chr # 51  "000298F" chrStart: 148635648
+bowtie2/bs.fa : chr # 52  "000127F" chrStart: 148897792
+bowtie2/bs.fa : chr # 53  "000018F" chrStart: 150208512
+bowtie2/bs.fa : chr # 54  "000265F" chrStart: 165937152
+bowtie2/bs.fa : chr # 55  "000116F" chrStart: 166199296
+bowtie2/bs.fa : chr # 56  "000076F" chrStart: 168034304
+bowtie2/bs.fa : chr # 57  "000305F" chrStart: 172490752
+bowtie2/bs.fa : chr # 58  "000398F" chrStart: 172752896
+bowtie2/bs.fa : chr # 59  "000092F" chrStart: 173015040
+bowtie2/bs.fa : chr # 60  "000067F" chrStart: 176422912
+bowtie2/bs.fa : chr # 61  "000247F" chrStart: 181927936
+bowtie2/bs.fa : chr # 62  "000203F" chrStart: 182190080
+bowtie2/bs.fa : chr # 63  "000859F" chrStart: 182714368
+bowtie2/bs.fa : chr # 64  "000085F" chrStart: 182976512
+bowtie2/bs.fa : chr # 65  "000168F" chrStart: 186908672
+bowtie2/bs.fa : chr # 66  "000430F" chrStart: 187695104
+bowtie2/bs.fa : chr # 67  "000544F" chrStart: 187957248
+bowtie2/bs.fa : chr # 68  "000169F" chrStart: 188219392
+bowtie2/bs.fa : chr # 69  "000097F" chrStart: 189005824
+bowtie2/bs.fa : chr # 70  "000101F" chrStart: 192151552
+bowtie2/bs.fa : chr # 71  "000908F" chrStart: 195035136
+bowtie2/bs.fa : chr # 72  "000480F" chrStart: 195297280
+bowtie2/bs.fa : chr # 73  "000312F" chrStart: 195559424
+bowtie2/bs.fa : chr # 74  "000941F" chrStart: 195821568
+bowtie2/bs.fa : chr # 75  "000091F" chrStart: 196083712
+bowtie2/bs.fa : chr # 76  "000162F" chrStart: 199491584
+bowtie2/bs.fa : chr # 77  "000929F" chrStart: 200278016
+bowtie2/bs.fa : chr # 78  "000026F" chrStart: 200540160
+bowtie2/bs.fa : chr # 79  "000045F" chrStart: 213385216
+bowtie2/bs.fa : chr # 80  "000786F" chrStart: 220987392
+bowtie2/bs.fa : chr # 81  "000110F" chrStart: 221249536
+bowtie2/bs.fa : chr # 82  "000114F" chrStart: 223608832
+bowtie2/bs.fa : chr # 83  "000867F" chrStart: 225705984
+bowtie2/bs.fa : chr # 84  "000130F" chrStart: 225968128
+bowtie2/bs.fa : chr # 85  "000472F" chrStart: 227278848
+bowtie2/bs.fa : chr # 86  "000766F" chrStart: 227540992
+bowtie2/bs.fa : chr # 87  "000213F" chrStart: 227803136
+bowtie2/bs.fa : chr # 88  "000955F" chrStart: 228327424
+bowtie2/bs.fa : chr # 89  "000016F" chrStart: 228589568
+bowtie2/bs.fa : chr # 90  "000242F" chrStart: 245366784
+bowtie2/bs.fa : chr # 91  "000854F" chrStart: 245628928
+bowtie2/bs.fa : chr # 92  "000386F" chrStart: 245891072
+bowtie2/bs.fa : chr # 93  "000564F" chrStart: 246153216
+bowtie2/bs.fa : chr # 94  "000066F" chrStart: 246415360
+bowtie2/bs.fa : chr # 95  "000140F" chrStart: 251920384
+bowtie2/bs.fa : chr # 96  "000070F" chrStart: 253231104
+bowtie2/bs.fa : chr # 97  "000149F" chrStart: 258473984
+bowtie2/bs.fa : chr # 98  "000031F" chrStart: 259522560
+bowtie2/bs.fa : chr # 99  "000614F" chrStart: 269746176
+bowtie2/bs.fa : chr # 100  "000176F" chrStart: 270008320
+bowtie2/bs.fa : chr # 101  "000019F" chrStart: 270794752
+bowtie2/bs.fa : chr # 102  "000077F" chrStart: 285999104
+bowtie2/bs.fa : chr # 103  "000218F" chrStart: 290455552
+bowtie2/bs.fa : chr # 104  "000037F" chrStart: 290717696
+bowtie2/bs.fa : chr # 105  "000756F" chrStart: 300154880
+bowtie2/bs.fa : chr # 106  "000262F" chrStart: 300417024
+bowtie2/bs.fa : chr # 107  "000159F" chrStart: 300679168
+bowtie2/bs.fa : chr # 108  "000080F" chrStart: 301727744
+bowtie2/bs.fa : chr # 109  "000192F" chrStart: 305922048
+bowtie2/bs.fa : chr # 110  "000184F" chrStart: 306446336
+bowtie2/bs.fa : chr # 111  "000224F" chrStart: 306970624
+bowtie2/bs.fa : chr # 112  "000405F" chrStart: 307232768
+bowtie2/bs.fa : chr # 113  "000622F" chrStart: 307494912
+bowtie2/bs.fa : chr # 114  "000194F" chrStart: 307757056
+bowtie2/bs.fa : chr # 115  "000128F" chrStart: 308281344
+bowtie2/bs.fa : chr # 116  "000707F" chrStart: 309592064
+bowtie2/bs.fa : chr # 117  "000020F" chrStart: 309854208
+bowtie2/bs.fa : chr # 118  "000109F" chrStart: 324796416
+bowtie2/bs.fa : chr # 119  "000652F" chrStart: 327155712
+bowtie2/bs.fa : chr # 120  "000166F" chrStart: 327417856
+bowtie2/bs.fa : chr # 121  "000008F" chrStart: 328204288
+bowtie2/bs.fa : chr # 122  "000058F" chrStart: 349700096
+bowtie2/bs.fa : chr # 123  "000273F" chrStart: 356253696
+bowtie2/bs.fa : chr # 124  "000602F" chrStart: 356515840
+bowtie2/bs.fa : chr # 125  "000571F" chrStart: 356777984
+bowtie2/bs.fa : chr # 126  "000365F" chrStart: 357040128
+bowtie2/bs.fa : chr # 127  "000082F" chrStart: 357302272
+bowtie2/bs.fa : chr # 128  "000010F" chrStart: 361496576
+bowtie2/bs.fa : chr # 129  "000113F" chrStart: 381681664
+bowtie2/bs.fa : chr # 130  "000288F" chrStart: 383778816
+bowtie2/bs.fa : chr # 131  "000083F" chrStart: 384040960
+bowtie2/bs.fa : chr # 132  "000153F" chrStart: 388235264
+bowtie2/bs.fa : chr # 133  "000112F" chrStart: 389283840
+bowtie2/bs.fa : chr # 134  "000250F" chrStart: 391380992
+bowtie2/bs.fa : chr # 135  "000141F" chrStart: 391643136
+bowtie2/bs.fa : chr # 136  "000723F" chrStart: 392691712
+bowtie2/bs.fa : chr # 137  "000295F" chrStart: 392953856
+bowtie2/bs.fa : chr # 138  "000440F" chrStart: 393216000
+bowtie2/bs.fa : chr # 139  "000087F" chrStart: 393478144
+bowtie2/bs.fa : chr # 140  "001006F" chrStart: 397148160
+bowtie2/bs.fa : chr # 141  "000017F" chrStart: 397410304
+bowtie2/bs.fa : chr # 142  "000391F" chrStart: 413663232
+bowtie2/bs.fa : chr # 143  "000174F" chrStart: 413925376
+bowtie2/bs.fa : chr # 144  "000987F" chrStart: 414711808
+bowtie2/bs.fa : chr # 145  "000469F" chrStart: 414973952
+bowtie2/bs.fa : chr # 146  "000172F" chrStart: 415236096
+bowtie2/bs.fa : chr # 147  "000831F" chrStart: 416022528
+bowtie2/bs.fa : chr # 148  "000205F" chrStart: 416284672
+bowtie2/bs.fa : chr # 149  "000368F" chrStart: 416808960
+bowtie2/bs.fa : chr # 150  "000202F" chrStart: 417071104
+bowtie2/bs.fa : chr # 151  "000059F" chrStart: 417595392
+bowtie2/bs.fa : chr # 152  "000910F" chrStart: 423886848
+bowtie2/bs.fa : chr # 153  "000805F" chrStart: 424148992
+bowtie2/bs.fa : chr # 154  "000142F" chrStart: 424411136
+bowtie2/bs.fa : chr # 155  "000079F" chrStart: 425721856
+bowtie2/bs.fa : chr # 156  "000284F" chrStart: 430178304
+bowtie2/bs.fa : chr # 157  "000104F" chrStart: 430440448
+bowtie2/bs.fa : chr # 158  "000152F" chrStart: 433324032
+bowtie2/bs.fa : chr # 159  "000197F" chrStart: 434372608
+bowtie2/bs.fa : chr # 160  "000339F" chrStart: 434896896
+bowtie2/bs.fa : chr # 161  "000621F" chrStart: 435159040
+bowtie2/bs.fa : chr # 162  "000000F" chrStart: 435421184
+bowtie2/bs.fa : chr # 163  "000155F" chrStart: 478412800
+bowtie2/bs.fa : chr # 164  "000132F" chrStart: 479461376
+bowtie2/bs.fa : chr # 165  "000040F" chrStart: 480772096
+bowtie2/bs.fa : chr # 166  "000163F" chrStart: 489684992
+bowtie2/bs.fa : chr # 167  "000427F" chrStart: 490733568
+bowtie2/bs.fa : chr # 168  "000627F" chrStart: 490995712
+bowtie2/bs.fa : chr # 169  "000263F" chrStart: 491257856
+bowtie2/bs.fa : chr # 170  "000819F" chrStart: 491520000
+bowtie2/bs.fa : chr # 171  "000021F" chrStart: 491782144
+bowtie2/bs.fa : chr # 172  "000042F" chrStart: 506462208
+bowtie2/bs.fa : chr # 173  "000126F" chrStart: 514588672
+bowtie2/bs.fa : chr # 174  "000826F" chrStart: 516161536
+bowtie2/bs.fa : chr # 175  "000264F" chrStart: 516423680
+bowtie2/bs.fa : chr # 176  "000183F" chrStart: 516685824
+bowtie2/bs.fa : chr # 177  "000722F" chrStart: 517210112
+bowtie2/bs.fa : chr # 178  "000139F" chrStart: 517472256
+bowtie2/bs.fa : chr # 179  "000237F" chrStart: 518782976
+bowtie2/bs.fa : chr # 180  "001000F" chrStart: 519045120
+bowtie2/bs.fa : chr # 181  "000954F" chrStart: 519307264
+bowtie2/bs.fa : chr # 182  "000693F" chrStart: 519569408
+bowtie2/bs.fa : chr # 183  "000075F" chrStart: 519831552
+bowtie2/bs.fa : chr # 184  "000117F" chrStart: 524288000
+bowtie2/bs.fa : chr # 185  "000231F" chrStart: 526123008
+bowtie2/bs.fa : chr # 186  "000893F" chrStart: 526385152
+bowtie2/bs.fa : chr # 187  "000389F" chrStart: 526647296
+bowtie2/bs.fa : chr # 188  "000038F" chrStart: 526909440
+bowtie2/bs.fa : chr # 189  "000830F" chrStart: 536084480
+bowtie2/bs.fa : chr # 190  "000148F" chrStart: 536346624
+bowtie2/bs.fa : chr # 191  "000185F" chrStart: 537395200
+bowtie2/bs.fa : chr # 192  "000517F" chrStart: 537919488
+bowtie2/bs.fa : chr # 193  "000335F" chrStart: 538181632
+bowtie2/bs.fa : chr # 194  "000007F" chrStart: 538443776
+bowtie2/bs.fa : chr # 195  "000027F" chrStart: 563609600
+bowtie2/bs.fa : chr # 196  "000297F" chrStart: 576192512
+bowtie2/bs.fa : chr # 197  "000221F" chrStart: 576454656
+bowtie2/bs.fa : chr # 198  "000072F" chrStart: 576716800
+bowtie2/bs.fa : chr # 199  "000274F" chrStart: 581435392
+bowtie2/bs.fa : chr # 200  "000214F" chrStart: 581697536
+bowtie2/bs.fa : chr # 201  "000034F" chrStart: 582221824
+bowtie2/bs.fa : chr # 202  "000006F" chrStart: 592183296
+bowtie2/bs.fa : chr # 203  "000123F" chrStart: 619446272
+bowtie2/bs.fa : chr # 204  "000186F" chrStart: 621019136
+bowtie2/bs.fa : chr # 205  "000100F" chrStart: 621543424
+bowtie2/bs.fa : chr # 206  "000119F" chrStart: 624689152
+bowtie2/bs.fa : chr # 207  "000271F" chrStart: 626262016
+bowtie2/bs.fa : chr # 208  "000041F" chrStart: 626524160
+bowtie2/bs.fa : chr # 209  "000212F" chrStart: 634912768
+bowtie2/bs.fa : chr # 210  "000156F" chrStart: 635174912
+bowtie2/bs.fa : chr # 211  "000135F" chrStart: 635961344
+bowtie2/bs.fa : chr # 212  "000161F" chrStart: 637272064
+bowtie2/bs.fa : chr # 213  "000043F" chrStart: 638058496
+bowtie2/bs.fa : chr # 214  "000278F" chrStart: 645922816
+bowtie2/bs.fa : chr # 215  "000524F" chrStart: 646184960
+bowtie2/bs.fa : chr # 216  "000713F" chrStart: 646447104
+bowtie2/bs.fa : chr # 217  "000069F" chrStart: 646709248
+bowtie2/bs.fa : chr # 218  "000134F" chrStart: 651952128
+bowtie2/bs.fa : chr # 219  "000207F" chrStart: 653262848
+bowtie2/bs.fa : chr # 220  "000023F" chrStart: 653787136
+bowtie2/bs.fa : chr # 221  "000623F" chrStart: 667680768
+bowtie2/bs.fa : chr # 222  "000157F" chrStart: 667942912
+bowtie2/bs.fa : chr # 223  "000963F" chrStart: 668729344
+bowtie2/bs.fa : chr # 224  "000118F" chrStart: 668991488
+bowtie2/bs.fa : chr # 225  "000009F" chrStart: 670564352
+bowtie2/bs.fa : chr # 226  "000046F" chrStart: 690749440
+bowtie2/bs.fa : chr # 227  "000090F" chrStart: 698351616
+bowtie2/bs.fa : chr # 228  "000095F" chrStart: 702021632
+bowtie2/bs.fa : chr # 229  "000124F" chrStart: 705429504
+bowtie2/bs.fa : chr # 230  "000108F" chrStart: 707002368
+bowtie2/bs.fa : chr # 231  "000785F" chrStart: 709623808
+bowtie2/bs.fa : chr # 232  "000763F" chrStart: 709885952
+bowtie2/bs.fa : chr # 233  "000035F" chrStart: 710148096
+bowtie2/bs.fa : chr # 234  "000319F" chrStart: 719585280
+bowtie2/bs.fa : chr # 235  "000171F" chrStart: 719847424
+bowtie2/bs.fa : chr # 236  "000125F" chrStart: 720633856
+bowtie2/bs.fa : chr # 237  "000735F" chrStart: 722206720
+bowtie2/bs.fa : chr # 238  "000195F" chrStart: 722468864
+bowtie2/bs.fa : chr # 239  "000225F" chrStart: 722993152
+bowtie2/bs.fa : chr # 240  "000648F" chrStart: 723255296
+bowtie2/bs.fa : chr # 241  "000146F" chrStart: 723517440
+bowtie2/bs.fa : chr # 242  "000679F" chrStart: 724566016
+bowtie2/bs.fa : chr # 243  "000060F" chrStart: 724828160
+bowtie2/bs.fa : chr # 244  "000160F" chrStart: 731119616
+bowtie2/bs.fa : chr # 245  "000345F" chrStart: 732168192
+bowtie2/bs.fa : chr # 246  "000842F" chrStart: 732430336
+bowtie2/bs.fa : chr # 247  "000638F" chrStart: 732692480
+bowtie2/bs.fa : chr # 248  "000028F" chrStart: 732954624
+bowtie2/bs.fa : chr # 249  "000048F" chrStart: 745275392
+bowtie2/bs.fa : chr # 250  "000769F" chrStart: 752615424
+bowtie2/bs.fa : chr # 251  "000210F" chrStart: 752877568
+bowtie2/bs.fa : chr # 252  "000251F" chrStart: 753401856
+bowtie2/bs.fa : chr # 253  "000884F" chrStart: 753664000
+bowtie2/bs.fa : chr # 254  "000115F" chrStart: 753926144
+bowtie2/bs.fa : chr # 255  "000165F" chrStart: 755761152
+bowtie2/bs.fa : chr # 256  "000012F" chrStart: 756547584
+bowtie2/bs.fa : chr # 257  "000241F" chrStart: 775946240
+bowtie2/bs.fa : chr # 258  "000190F" chrStart: 776208384
+bowtie2/bs.fa : chr # 259  "000131F" chrStart: 776732672
+bowtie2/bs.fa : chr # 260  "000285F" chrStart: 778043392
+bowtie2/bs.fa : chr # 261  "000678F" chrStart: 778305536
+bowtie2/bs.fa : chr # 262  "000301F" chrStart: 778567680
+bowtie2/bs.fa : chr # 263  "000096F" chrStart: 778829824
+bowtie2/bs.fa : chr # 264  "000052F" chrStart: 781975552
+bowtie2/bs.fa : chr # 265  "000024F" chrStart: 788791296
+bowtie2/bs.fa : chr # 266  "000170F" chrStart: 802422784
+bowtie2/bs.fa : chr # 267  "000181F" chrStart: 803209216
+bowtie2/bs.fa : chr # 268  "000107F" chrStart: 803733504
+bowtie2/bs.fa : chr # 269  "000001F" chrStart: 806617088
+bowtie2/bs.fa : chr # 270  "000340F" chrStart: 841482240
+bowtie2/bs.fa : chr # 271  "000863F" chrStart: 841744384
+bowtie2/bs.fa : chr # 272  "000238F" chrStart: 842006528
+bowtie2/bs.fa : chr # 273  "000158F" chrStart: 842268672
+bowtie2/bs.fa : chr # 274  "000467F" chrStart: 843055104
+bowtie2/bs.fa : chr # 275  "000147F" chrStart: 843317248
+bowtie2/bs.fa : chr # 276  "000737F" chrStart: 844365824
+bowtie2/bs.fa : chr # 277  "000814F" chrStart: 844627968
+bowtie2/bs.fa : chr # 278  "000920F" chrStart: 844890112
+bowtie2/bs.fa : chr # 279  "000788F" chrStart: 845152256
+bowtie2/bs.fa : chr # 280  "000105F" chrStart: 845414400
+bowtie2/bs.fa : chr # 281  "000014F" chrStart: 848297984
+bowtie2/bs.fa : chr # 282  "000039F" chrStart: 865861632
+bowtie2/bs.fa : chr # 283  "000198F" chrStart: 875036672
+bowtie2/bs.fa : chr # 284  "000029F" chrStart: 875560960
+bowtie2/bs.fa : chr # 285  "000054F" chrStart: 887619584
+bowtie2/bs.fa : chr # 286  "001009F" chrStart: 894435328
+bowtie2/bs.fa : chr # 287  "000547F" chrStart: 894697472
+bowtie2/bs.fa : chr # 288  "000056F" chrStart: 894959616
+bowtie2/bs.fa : chr # 289  "000071F" chrStart: 901513216
+bowtie2/bs.fa : chr # 290  "000201F" chrStart: 906231808
+bowtie2/bs.fa : chr # 291  "000005F" chrStart: 906756096
+bowtie2/bs.fa : chr # 292  "000653F" chrStart: 935329792
+bowtie2/bs.fa : chr # 293  "000062F" chrStart: 935591936
+bowtie2/bs.fa : chr # 294  "000138F" chrStart: 941359104
+bowtie2/bs.fa : chr # 295  "000376F" chrStart: 942669824
+bowtie2/bs.fa : chr # 296  "000877F" chrStart: 942931968
+bowtie2/bs.fa : chr # 297  "000193F" chrStart: 943194112
+bowtie2/bs.fa : chr # 298  "000088F" chrStart: 943718400
+bowtie2/bs.fa : chr # 299  "000239F" chrStart: 947388416
+bowtie2/bs.fa : chr # 300  "000233F" chrStart: 947650560
+bowtie2/bs.fa : chr # 301  "000122F" chrStart: 947912704
+bowtie2/bs.fa : chr # 302  "000219F" chrStart: 949485568
+bowtie2/bs.fa : chr # 303  "000290F" chrStart: 949747712
+bowtie2/bs.fa : chr # 304  "000137F" chrStart: 950009856
+bowtie2/bs.fa : chr # 305  "000189F" chrStart: 951320576
+bowtie2/bs.fa : chr # 306  "000749F" chrStart: 951844864
+bowtie2/bs.fa : chr # 307  "000047F" chrStart: 952107008
+bowtie2/bs.fa : chr # 308  "000015F" chrStart: 959709184
+bowtie2/bs.fa : chr # 309  "000559F" chrStart: 976748544
+bowtie2/bs.fa : chr # 310  "000746F" chrStart: 977010688
+bowtie2/bs.fa : chr # 311  "000844F" chrStart: 977272832
+bowtie2/bs.fa : chr # 312  "000392F" chrStart: 977534976
+bowtie2/bs.fa : chr # 313  "000220F" chrStart: 977797120
+bowtie2/bs.fa : chr # 314  "000180F" chrStart: 978321408
+bowtie2/bs.fa : chr # 315  "000111F" chrStart: 979107840
+bowtie2/bs.fa : chr # 316  "000928F" chrStart: 981467136
+bowtie2/bs.fa : chr # 317  "000281F" chrStart: 981729280
+bowtie2/bs.fa : chr # 318  "000089F" chrStart: 981991424
+bowtie2/bs.fa : chr # 319  "000300F" chrStart: 985661440
+bowtie2/bs.fa : chr # 320  "000992F" chrStart: 985923584
+bowtie2/bs.fa : chr # 321  "000106F" chrStart: 986185728
+bowtie2/bs.fa : chr # 322  "000073F" chrStart: 989069312
+bowtie2/bs.fa : chr # 323  "000065F" chrStart: 993525760
+bowtie2/bs.fa : chr # 324  "000304F" chrStart: 999292928
+bowtie2/bs.fa : chr # 325  "000982F" chrStart: 999555072
+bowtie2/bs.fa : chr # 326  "000346F" chrStart: 999817216
+bowtie2/bs.fa : chr # 327  "000567F" chrStart: 1000079360
+bowtie2/bs.fa : chr # 328  "000890F" chrStart: 1000341504
+bowtie2/bs.fa : chr # 329  "000022F" chrStart: 1000603648
+bowtie2/bs.fa : chr # 330  "000215F" chrStart: 1014759424
+bowtie2/bs.fa : chr # 331  "000063F" chrStart: 1015283712
+bowtie2/bs.fa : chr # 332  "000518F" chrStart: 1021050880
+bowtie2/bs.fa : chr # 333  "000888F" chrStart: 1021313024
+bowtie2/bs.fa : chr # 334  "000431F" chrStart: 1021575168
+bowtie2/bs.fa : chr # 335  "000055F" chrStart: 1021837312
+bowtie2/bs.fa : chr # 336  "000025F" chrStart: 1028653056
+bowtie2/bs.fa : chr # 337  "000911F" chrStart: 1042022400
+bowtie2/bs.fa : chr # 338  "000086F" chrStart: 1042284544
+bowtie2/bs.fa : chr # 339  "000133F" chrStart: 1046216704
+bowtie2/bs.fa : chr # 340  "000916F" chrStart: 1047527424
+bowtie2/bs.fa : chr # 341  "000752F" chrStart: 1047789568
+bowtie2/bs.fa : chr # 342  "000333F" chrStart: 1048051712
+bowtie2/bs.fa : chr # 343  "000503F" chrStart: 1048313856
+bowtie2/bs.fa : chr # 344  "000078F" chrStart: 1048576000
+bowtie2/bs.fa : chr # 345  "000164F" chrStart: 1053032448
+bowtie2/bs.fa : chr # 346  "000064F" chrStart: 1053294592
+bowtie2/bs.fa : chr # 347  "000481F" chrStart: 1059061760
+bowtie2/bs.fa : chr # 348  "000002F" chrStart: 1059323904
+bowtie2/bs.fa : chr # 349  "000266F" chrStart: 1092616192
+bowtie2/bs.fa : chr # 350  "000044F" chrStart: 1092878336
+bowtie2/bs.fa : chr # 351  "000283F" chrStart: 1100480512
+bowtie2/bs.fa : chr # 352  "000208F" chrStart: 1100742656
+bowtie2/bs.fa : chr # 353  "000694F" chrStart: 1101266944
+bowtie2/bs.fa : chr # 354  "000741F" chrStart: 1101529088
+bowtie2/bs.fa : chr # 355  "000144F" chrStart: 1101791232
+bowtie2/bs.fa : chr # 356  "000013F" chrStart: 1103101952
+bowtie2/bs.fa : chr # 357  "000357F" chrStart: 1121976320
+bowtie2/bs.fa : chr # 358  "000191F" chrStart: 1122238464
+bowtie2/bs.fa : chr # 359  "000223F" chrStart: 1122762752
+bowtie2/bs.fa : chr # 360  "000209F" chrStart: 1123024896
+bowtie2/bs.fa : chr # 361  "000204F" chrStart: 1123287040
+bowtie2/bs.fa : chr # 362  "000032F" chrStart: 1123811328
+bowtie2/bs.fa : chr # 363  "000243F" chrStart: 1133772800
+bowtie2/bs.fa : chr # 364  "000150F" chrStart: 1134034944
+bowtie2/bs.fa : chr # 365  "000050F" chrStart: 1135083520
+bowtie2/bs.fa : chr # 366  "000098F" chrStart: 1142161408
+bowtie2/bs.fa : chr # 367  "000030F" chrStart: 1145307136
+bowtie2/bs.fa : chr # 368  "000182F" chrStart: 1156841472
+bowtie2/bs.fa : chr # 369  "000400F" chrStart: 1157627904
+bowtie2/bs.fa : chr # 370  "000324F" chrStart: 1157890048
+bowtie2/bs.fa : chr # 371  "000187F" chrStart: 1158152192
+bowtie2/bs.fa : chr # 372  "000226F" chrStart: 1158676480
+bowtie2/bs.fa : chr # 373  "000084F" chrStart: 1158938624
+bowtie2/bs.fa : chr # 374  "000348F" chrStart: 1162870784
+bowtie2/bs.fa : chr # 375  "000965F" chrStart: 1163132928
+bowtie2/bs.fa : chr # 376  "000227F" chrStart: 1163395072
+bowtie2/bs.fa : chr # 377  "000143F" chrStart: 1163657216
+bowtie2/bs.fa : chr # 378  "000049F" chrStart: 1164967936
+bowtie2/bs.fa : chr # 379  "000245F" chrStart: 1172045824
+bowtie2/bs.fa : chr # 380  "000121F" chrStart: 1172307968
+bowtie2/bs.fa : chr # 381  "000509F" chrStart: 1174142976
+bowtie2/bs.fa : chr # 382  "000385F" chrStart: 1174405120
+bowtie2/bs.fa : chr # 383  "000167F" chrStart: 1174667264
+bowtie2/bs.fa : chr # 384  "000728F" chrStart: 1175453696
+bowtie2/bs.fa : chr # 385  "000068F" chrStart: 1175715840
+bowtie2/bs.fa : chr # 386  "000200F" chrStart: 1181220864
+bowtie2/bs.fa : chr # 387  "000940F" chrStart: 1181745152
+bowtie2/bs.fa : chr # 388  "000188F" chrStart: 1182007296
+bowtie2/bs.fa : chr # 389  "000199F" chrStart: 1182531584
+Estimated genome size=1384055872   1183055872   201000000
+GstrandBit=32
+Number of SA indices: 2244608186
+Mar 09 08:04:27 ... starting to sort Suffix Array. This may take a long time...
+Number of chunks: 22;   chunks size limit: 859016040 bytes
+Mar 09 08:04:34 ... sorting Suffix Array chunks and saving them to disk...
+Writing 768272096 bytes into bowtie2//SA_1 ; empty space on disk = 7085376929792 bytes ... done
+Writing 852673808 bytes into bowtie2//SA_0 ; empty space on disk = 7084452085760 bytes ...Writing 809769888 bytes into bowtie2//SA_2 ; empty space on disk = 7084452085760 bytes ...Writing 792990280 bytes into bowtie2//SA_19 ; empty space on disk = 7084340936704 bytes ... done
+ done
+ done
+Writing 826644608 bytes into bowtie2//SA_3 ; empty space on disk = 7081736273920 bytes ... done
+Writing 837002536 bytes into bowtie2//SA_6 ; empty space on disk = 7080779972608 bytes ...Writing 824510064 bytes into bowtie2//SA_14 ; empty space on disk = 7080777875456 bytes ...Writing 799424520 bytes into bowtie2//SA_10 ; empty space on disk = 7080777875456 bytes ... done
+ done
+ done
+Writing 856785256 bytes into bowtie2//SA_13 ; empty space on disk = 7078290653184 bytes ... done
+Writing 856647920 bytes into bowtie2//SA_12 ; empty space on disk = 7077405655040 bytes ... done
+Writing 786200280 bytes into bowtie2//SA_18 ; empty space on disk = 7075895705600 bytes ... done
+Writing 775674456 bytes into bowtie2//SA_17 ; empty space on disk = 7074993930240 bytes ... done
+Writing 797484296 bytes into bowtie2//SA_16 ; empty space on disk = 7074836643840 bytes ... done
+Writing 817280088 bytes into bowtie2//SA_11 ; empty space on disk = 7073263779840 bytes ...Writing 791306656 bytes into bowtie2//SA_5 ; empty space on disk = 7073234419712 bytes ... done
+ done
+Writing 810721320 bytes into bowtie2//SA_9 ; empty space on disk = 7073110687744 bytes ... done
+Writing 815217768 bytes into bowtie2//SA_8 ; empty space on disk = 7070541676544 bytes ... done
+Writing 813598152 bytes into bowtie2//SA_7 ; empty space on disk = 7069725884416 bytes ... done
+Writing 853801392 bytes into bowtie2//SA_4 ; empty space on disk = 7069602152448 bytes ... done
+Writing 851143160 bytes into bowtie2//SA_15 ; empty space on disk = 7067788115968 bytes ... done
+Writing 782663856 bytes into bowtie2//SA_21 ; empty space on disk = 7300119003136 bytes ... done
+Writing 837053088 bytes into bowtie2//SA_20 ; empty space on disk = 7296528678912 bytes ... done
+Mar 09 08:08:08 ... loading chunks from disk, packing SA...
+Mar 09 08:08:41 ... finished generating suffix array
+Mar 09 08:08:41 ... generating Suffix Array index
+Mar 09 08:10:41 ... completed Suffix Array index
+Mar 09 08:10:41 ... writing Genome to disk ...
+Writing 1183055872 bytes into bowtie2//Genome ; empty space on disk = 7305068281856 bytes ... done
+SA size in bytes: 9259008771
+Mar 09 08:10:42 ... writing Suffix Array to disk ...
+Writing 9259008771 bytes into bowtie2//SA ; empty space on disk = 7303883390976 bytes ... done
+Mar 09 08:10:50 ... writing SAindex to disk
+Writing 8 bytes into bowtie2//SAindex ; empty space on disk = 7294087593984 bytes ... done
+Writing 120 bytes into bowtie2//SAindex ; empty space on disk = 7294087593984 bytes ... done
+Writing 1565873491 bytes into bowtie2//SAindex ; empty space on disk = 7294087593984 bytes ... done
+Mar 09 08:10:51 ..... finished successfully
+DONE: Genome generation, EXITING

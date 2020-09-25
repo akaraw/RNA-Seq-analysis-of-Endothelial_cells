@@ -1,0 +1,65 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cluster nodes: 6
+Job counts:
+	count	jobs
+	1	all
+	6	htseq
+	7
+
+[Mon Jun  8 15:29:43 2020]
+rule htseq:
+    input: results/STAR_bam/swaninfected02Aligned.sortedByCoord.out.bam, /30days/uqakaraw/swan/blackswan_isoseq.gtf
+    output: htseq/swaninfected02.tsv, htseq/log/swaninfected02.err
+    jobid: 6
+    wildcards: smp=swaninfected02
+
+Submitted job 6 with external jobid '232470.tinmgr2'.
+
+[Mon Jun  8 15:29:44 2020]
+rule htseq:
+    input: results/STAR_bam/swancontrol02Aligned.sortedByCoord.out.bam, /30days/uqakaraw/swan/blackswan_isoseq.gtf
+    output: htseq/swancontrol02.tsv, htseq/log/swancontrol02.err
+    jobid: 4
+    wildcards: smp=swancontrol02
+
+Submitted job 4 with external jobid '232471.tinmgr2'.
+
+[Mon Jun  8 15:29:44 2020]
+rule htseq:
+    input: results/STAR_bam/swancontrol01Aligned.sortedByCoord.out.bam, /30days/uqakaraw/swan/blackswan_isoseq.gtf
+    output: htseq/swancontrol01.tsv, htseq/log/swancontrol01.err
+    jobid: 1
+    wildcards: smp=swancontrol01
+
+Submitted job 1 with external jobid '232472.tinmgr2'.
+
+[Mon Jun  8 15:29:44 2020]
+rule htseq:
+    input: results/STAR_bam/swaninfected03Aligned.sortedByCoord.out.bam, /30days/uqakaraw/swan/blackswan_isoseq.gtf
+    output: htseq/swaninfected03.tsv, htseq/log/swaninfected03.err
+    jobid: 3
+    wildcards: smp=swaninfected03
+
+Submitted job 3 with external jobid '232473.tinmgr2'.
+
+[Mon Jun  8 15:29:48 2020]
+rule htseq:
+    input: results/STAR_bam/swancontrol03Aligned.sortedByCoord.out.bam, /30days/uqakaraw/swan/blackswan_isoseq.gtf
+    output: htseq/swancontrol03.tsv, htseq/log/swancontrol03.err
+    jobid: 5
+    wildcards: smp=swancontrol03
+
+Submitted job 5 with external jobid '232474.tinmgr2'.
+
+[Mon Jun  8 15:29:48 2020]
+rule htseq:
+    input: results/STAR_bam/swaninfected01Aligned.sortedByCoord.out.bam, /30days/uqakaraw/swan/blackswan_isoseq.gtf
+    output: htseq/swaninfected01.tsv, htseq/log/swaninfected01.err
+    jobid: 2
+    wildcards: smp=swaninfected01
+
+Submitted job 2 with external jobid '232475.tinmgr2'.
+Terminating processes on user request, this might take some time.
+Will exit after finishing currently running jobs.
+Complete log: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/swan/.snakemake/log/2020-06-08T152943.837663.snakemake.log

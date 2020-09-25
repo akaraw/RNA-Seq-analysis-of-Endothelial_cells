@@ -1,0 +1,76 @@
+#!/bin/bash
+#PBS -l select=1:ncpus=24:mem=120GB
+#PBS -A UQ-SCI-SCMB
+#PBS -N run_htseq_pipeline
+#PBS -l walltime=336:00:00
+
+cd $PBS_O_WORKDIR
+PROJECT=Swan_test01
+FINAL_DIR=$PROJECT/final
+mkdir -p $PROJECT
+mkdir -p $FINAL_DIR
+mkdir rcorrector
+cd rcorrector
+#rcorrector has been installed in the current conda env
+export PATH=/90days/uqakaraw/TranscriptomeAssemblyTools:/90days/uqakaraw/Rcorrector:$PATH
+
+######Naming convention must be as follows for the fastq files######################################################################################################################
+#left reads of the infected (paired end reads) sample no. 01 should >>>>= infected_1_1.fastq
+#right reads of the infected (paired end reads) sample no. 01 should be >>>= infected_1_2.fastq
+#left reads of the control sample no. 01 should be >>>>= control_1_1.fastq
+#right reads of the control sample no. 01 should be >>>>= control_1_2.fastq
+
+PATH_TO_fq=fastq_files
+ln -s $PATH_TO_fq/control* .
+#ln -s $PATH_TO_fq/infected* .
+
+
+THREADS=24
+MEM=100
+DIR=${PROJECT}_fastqc
+
+outdir=$DIR/outdir
+
+source activate base
+mkdir -p $DIR
+mkdir -p $outdir
+
+#####Reference website: https://informatics.fas.harvard.edu/best-practices-for-de-novo-transcriptome-assembly-with-trinity.html #####################################################
+#Step 01#
+#run_fastqc for qaulity assemnt of the raw reads#
+
+conda activate fastqc
+
+ls *fastq > names1
+
+for i in `cat names1`; do
+
+fastqc --extract --outdir ${outdir} -f fastq -fi $i -fo qc_$i
+
+done
+
+#Step 02#
+#Run rCorrector to remove errnoeous K-mers from the reads#
+
+conda activate base
+
+ls *_1.fastq > names
+for sample in `cat names`; do
+base=$(basename $sample "_1.fastq")
+run_rcorrector.pl -t $THREADS -1 ${base}_1.fastq -2 ${base}_2.fastq >${base}.rcorrector.out 2>&1
+done
+
+#Discard read pairs for which one of the reads is deemed unfixable#
+conda activate python2
+ls *1.cor.fq > names3
+for sample in `cat names3`; do base=$(basename $sample "1.cor.fq"); FilterUncorrectabledPEfastq.py -1 ${base}1.cor.fq -2 ${base}2.cor.fq -s log.uncorrectable; done
+#Rename the files
+mkdir renamed
+ls unfixrm_* > names4
+for i in `cat names4`; do
+  cp $i renamed/$(echo "${i}" | cut -d "_" -f2-)
+done
+find . -type f -size 0 -delete
+#################End of rcorrector#################################################################################################################################################
+#################Going to next working directory####################################################################################################################################
+

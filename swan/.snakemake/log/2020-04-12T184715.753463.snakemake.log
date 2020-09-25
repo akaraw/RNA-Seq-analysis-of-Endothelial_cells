@@ -1,0 +1,256 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 6
+Job counts:
+	count	jobs
+	1	all
+	6	fastqc1
+	6	fastqc2
+	6	filter_uncorrected
+	6	htseq
+	6	rcorrector
+	6	rmbadreads
+	6	star
+	6	stringtie01
+	6	stringtie02
+	6	stringtie_merge
+	6	trimming
+	67
+
+[Sun Apr 12 18:47:15 2020]
+Job 65: --- Quality check of raw data with Fastqc.
+
+Submitted job 65 with external jobid '186419.tinmgr2'.
+
+[Sun Apr 12 18:47:15 2020]
+Job 66: --- Quality check of raw data with Fastqc.
+
+Submitted job 66 with external jobid '186420.tinmgr2'.
+
+[Sun Apr 12 18:47:15 2020]
+Job 63: --- Quality check of raw data with Fastqc.
+
+Submitted job 63 with external jobid '186421.tinmgr2'.
+
+[Sun Apr 12 18:47:16 2020]
+Job 64: --- Quality check of raw data with Fastqc.
+
+Submitted job 64 with external jobid '186422.tinmgr2'.
+
+[Sun Apr 12 18:47:16 2020]
+Job 62: --- Quality check of raw data with Fastqc.
+
+Submitted job 62 with external jobid '186423.tinmgr2'.
+
+[Sun Apr 12 18:47:16 2020]
+Job 61: --- Quality check of raw data with Fastqc.
+
+Submitted job 61 with external jobid '186424.tinmgr2'.
+[Mon Apr 13 00:47:06 2020]
+Finished job 64.
+1 of 67 steps (1%) done
+
+[Mon Apr 13 00:47:06 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swancontrol02_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swancontrol02_2.fastq.gz, fastqc/swancontrol02/swancontrol02_1_fastqc.zip, fastqc/swancontrol02/swancontrol02_2_fastqc.zip
+    output: results/rcorrector/swancontrol02/swancontrol02_1.cor.fq.gz, results/rcorrector/swancontrol02/swancontrol02_2.cor.fq.gz
+    jobid: 58
+    wildcards: smp=swancontrol02
+    threads: 20
+
+Submitted job 58 with external jobid '186436.tinmgr2'.
+[Mon Apr 13 00:48:36 2020]
+Finished job 63.
+2 of 67 steps (3%) done
+
+[Mon Apr 13 00:48:36 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swaninfected03_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swaninfected03_2.fastq.gz, fastqc/swaninfected03/swaninfected03_1_fastqc.zip, fastqc/swaninfected03/swaninfected03_2_fastqc.zip
+    output: results/rcorrector/swaninfected03/swaninfected03_1.cor.fq.gz, results/rcorrector/swaninfected03/swaninfected03_2.cor.fq.gz
+    jobid: 57
+    wildcards: smp=swaninfected03
+    threads: 20
+
+Submitted job 57 with external jobid '186437.tinmgr2'.
+[Mon Apr 13 00:48:47 2020]
+Finished job 62.
+3 of 67 steps (4%) done
+
+[Mon Apr 13 00:48:47 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swaninfected01_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swaninfected01_2.fastq.gz, fastqc/swaninfected01/swaninfected01_1_fastqc.zip, fastqc/swaninfected01/swaninfected01_2_fastqc.zip
+    output: results/rcorrector/swaninfected01/swaninfected01_1.cor.fq.gz, results/rcorrector/swaninfected01/swaninfected01_2.cor.fq.gz
+    jobid: 56
+    wildcards: smp=swaninfected01
+    threads: 20
+
+Submitted job 56 with external jobid '186438.tinmgr2'.
+[Mon Apr 13 00:48:57 2020]
+Finished job 66.
+4 of 67 steps (6%) done
+
+[Mon Apr 13 00:48:57 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swaninfected02_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swaninfected02_2.fastq.gz, fastqc/swaninfected02/swaninfected02_1_fastqc.zip, fastqc/swaninfected02/swaninfected02_2_fastqc.zip
+    output: results/rcorrector/swaninfected02/swaninfected02_1.cor.fq.gz, results/rcorrector/swaninfected02/swaninfected02_2.cor.fq.gz
+    jobid: 60
+    wildcards: smp=swaninfected02
+    threads: 20
+
+Submitted job 60 with external jobid '186439.tinmgr2'.
+[Mon Apr 13 00:49:37 2020]
+Finished job 61.
+5 of 67 steps (7%) done
+
+[Mon Apr 13 00:49:37 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swancontrol01_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swancontrol01_2.fastq.gz, fastqc/swancontrol01/swancontrol01_1_fastqc.zip, fastqc/swancontrol01/swancontrol01_2_fastqc.zip
+    output: results/rcorrector/swancontrol01/swancontrol01_1.cor.fq.gz, results/rcorrector/swancontrol01/swancontrol01_2.cor.fq.gz
+    jobid: 55
+    wildcards: smp=swancontrol01
+    threads: 20
+
+Submitted job 55 with external jobid '186440.tinmgr2'.
+[Mon Apr 13 00:50:27 2020]
+Finished job 65.
+6 of 67 steps (9%) done
+
+[Mon Apr 13 00:50:27 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swancontrol03_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swancontrol03_2.fastq.gz, fastqc/swancontrol03/swancontrol03_1_fastqc.zip, fastqc/swancontrol03/swancontrol03_2_fastqc.zip
+    output: results/rcorrector/swancontrol03/swancontrol03_1.cor.fq.gz, results/rcorrector/swancontrol03/swancontrol03_2.cor.fq.gz
+    jobid: 59
+    wildcards: smp=swancontrol03
+    threads: 20
+
+Submitted job 59 with external jobid '186441.tinmgr2'.
+[Mon Apr 13 06:26:17 2020]
+Finished job 58.
+7 of 67 steps (10%) done
+
+[Mon Apr 13 06:26:17 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/swancontrol02/swancontrol02_1.cor.fq.gz, results/rcorrector/swancontrol02/swancontrol02_2.cor.fq.gz
+    output: results/swancontrol02_filter/unfixrm_swancontrol02_1.cor.fq, results/swancontrol02_filter/unfixrm_swancontrol02_2.cor.fq
+    jobid: 52
+    wildcards: smp=swancontrol02
+
+Submitted job 52 with external jobid '186465.tinmgr2'.
+[Mon Apr 13 07:43:13 2020]
+Finished job 52.
+8 of 67 steps (12%) done
+
+[Mon Apr 13 07:43:13 2020]
+Job 41: --- Trimming.
+
+Submitted job 41 with external jobid '186468.tinmgr2'.
+Removing temporary output file results/swancontrol02_filter/unfixrm_swancontrol02_1.cor.fq.
+Removing temporary output file results/swancontrol02_filter/unfixrm_swancontrol02_2.cor.fq.
+[Mon Apr 13 07:58:34 2020]
+Finished job 41.
+9 of 67 steps (13%) done
+
+[Mon Apr 13 07:58:34 2020]
+Job 40: --- Quality check of raw data with Fastqc
+
+Submitted job 40 with external jobid '186469.tinmgr2'.
+[Mon Apr 13 08:10:14 2020]
+Finished job 40.
+10 of 67 steps (15%) done
+
+[Mon Apr 13 08:10:14 2020]
+rule rmbadreads:
+    input: fastqc2/swancontrol02/swancontrol02_val_1_fastqc/fastqc_data.txt, fastqc2/swancontrol02/swancontrol02_val_2_fastqc/fastqc_data.txt, results/trimmed/swancontrol02/swancontrol02_val_1.fq, results/trimmed/swancontrol02/swancontrol02_val_2.fq
+    output: star_input/rmoverrep_swancontrol02_val_1.fq, star_input/rmoverrep_swancontrol02_val_2.fq
+    jobid: 25
+    wildcards: smp=swancontrol02
+
+Submitted job 25 with external jobid '186472.tinmgr2'.
+Removing temporary output file fastqc2/swancontrol02/swancontrol02_val_1_fastqc/fastqc_data.txt.
+Removing temporary output file fastqc2/swancontrol02/swancontrol02_val_2_fastqc/fastqc_data.txt.
+[Mon Apr 13 08:22:15 2020]
+Finished job 25.
+11 of 67 steps (16%) done
+
+[Mon Apr 13 08:22:15 2020]
+rule star:
+    input: star_input/rmoverrep_swancontrol02_val_1.fq, star_input/rmoverrep_swancontrol02_val_2.fq
+    output: results/STAR_bam/swancontrol02Aligned.sortedByCoord.out.bam
+    jobid: 13
+    wildcards: smp=swancontrol02
+    threads: 20
+
+Submitted job 13 with external jobid '186474.tinmgr2'.
+[Mon Apr 13 08:41:06 2020]
+Finished job 13.
+12 of 67 steps (18%) done
+
+[Mon Apr 13 08:41:06 2020]
+rule htseq:
+    input: results/STAR_bam/swancontrol02Aligned.sortedByCoord.out.bam, /30days/uqakaraw/swan/blackswan.gtf
+    output: htseq/swancontrol02.tsv, htseq/log/swancontrol02.err
+    jobid: 42
+    wildcards: smp=swancontrol02
+
+Submitted job 42 with external jobid '186480.tinmgr2'.
+[Mon Apr 13 09:17:49 2020]
+Finished job 57.
+13 of 67 steps (19%) done
+
+[Mon Apr 13 09:17:49 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/swaninfected03/swaninfected03_1.cor.fq.gz, results/rcorrector/swaninfected03/swaninfected03_2.cor.fq.gz
+    output: results/swaninfected03_filter/unfixrm_swaninfected03_1.cor.fq, results/swaninfected03_filter/unfixrm_swaninfected03_2.cor.fq
+    jobid: 51
+    wildcards: smp=swaninfected03
+
+Submitted job 51 with external jobid '186513.tinmgr2'.
+[Mon Apr 13 10:12:12 2020]
+Finished job 42.
+14 of 67 steps (21%) done
+
+[Mon Apr 13 10:12:12 2020]
+Job 26: --- Diffrential Gene Expression Analysis with Stringtie step 01
+
+Submitted job 26 with external jobid '186521.tinmgr2'.
+[Mon Apr 13 10:18:03 2020]
+Finished job 60.
+15 of 67 steps (22%) done
+
+[Mon Apr 13 10:18:03 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/swaninfected02/swaninfected02_1.cor.fq.gz, results/rcorrector/swaninfected02/swaninfected02_2.cor.fq.gz
+    output: results/swaninfected02_filter/unfixrm_swaninfected02_1.cor.fq, results/swaninfected02_filter/unfixrm_swaninfected02_2.cor.fq
+    jobid: 54
+    wildcards: smp=swaninfected02
+
+Submitted job 54 with external jobid '186525.tinmgr2'.
+[Mon Apr 13 10:24:03 2020]
+Error in rule stringtie01:
+    jobid: 26
+    output: stringtie_tab/swancontrol02.list
+    conda-env: /30days/uqakaraw/snakemake_envs/6d06af2b
+    shell:
+        mkdir -p stringite_gtf && stringtie results/STAR_bam/swancontrol02Aligned.sortedByCoord.out.bam -C swancontrol02.1.ref.gtf -A swancontrol02.1.tab -p 20 -G /30days/uqakaraw/swan/blackswan.gtf -o swancontrol02.out.gtf && ls *.out.gtf > stringtie_tab/swancontrol02.list 
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: 186521.tinmgr2
+
+Error executing rule stringtie01 on cluster (jobid: 26, external: 186521.tinmgr2, jobscript: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/swan/.snakemake/tmp.pvapi5un/snakejob.stringtie01.26.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Mon Apr 13 10:36:04 2020]
+Finished job 51.
+16 of 67 steps (24%) done
+[Mon Apr 13 10:42:04 2020]
+Finished job 54.
+17 of 67 steps (25%) done
+[Mon Apr 13 10:54:55 2020]
+Finished job 56.
+18 of 67 steps (27%) done
+[Mon Apr 13 11:43:48 2020]
+Finished job 55.
+19 of 67 steps (28%) done
+[Mon Apr 13 12:37:11 2020]
+Finished job 59.
+20 of 67 steps (30%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/swan/.snakemake/log/2020-04-12T184715.753463.snakemake.log

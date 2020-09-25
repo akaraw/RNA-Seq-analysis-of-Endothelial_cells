@@ -1,0 +1,49 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cluster nodes: 6
+Job counts:
+	count	jobs
+	1	all
+	3	fastqc2
+	3	filter_uncorrected
+	3	rcorrector
+	3	rmbadreads
+	3	star
+	3	trimming
+	19
+
+[Thu Sep 24 13:54:29 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol01_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol01_2.fastq.gz
+    output: results/rcorrector/chickcontrol01/chickcontrol01_1.cor.fq.gz, results/rcorrector/chickcontrol01/chickcontrol01_2.cor.fq.gz
+    jobid: 16
+    wildcards: smp=chickcontrol01
+    threads: 20
+
+ run_rcorrector.pl -od results/rcorrector/chickcontrol01 -t 20 -1 /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol01_1.fastq.gz -2 /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol01_2.fastq.gz 
+Submitted job 16 with external jobid '403322.tinmgr2'.
+
+[Thu Sep 24 13:54:29 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol03_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol03_2.fastq.gz
+    output: results/rcorrector/chickcontrol03/chickcontrol03_1.cor.fq.gz, results/rcorrector/chickcontrol03/chickcontrol03_2.cor.fq.gz
+    jobid: 17
+    wildcards: smp=chickcontrol03
+    threads: 20
+
+ run_rcorrector.pl -od results/rcorrector/chickcontrol03 -t 20 -1 /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol03_1.fastq.gz -2 /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol03_2.fastq.gz 
+Submitted job 17 with external jobid '403323.tinmgr2'.
+
+[Thu Sep 24 13:54:29 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol02_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol02_2.fastq.gz
+    output: results/rcorrector/chickcontrol02/chickcontrol02_1.cor.fq.gz, results/rcorrector/chickcontrol02/chickcontrol02_2.cor.fq.gz
+    jobid: 18
+    wildcards: smp=chickcontrol02
+    threads: 20
+
+ run_rcorrector.pl -od results/rcorrector/chickcontrol02 -t 20 -1 /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol02_1.fastq.gz -2 /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol02_2.fastq.gz 
+Submitted job 18 with external jobid '403324.tinmgr2'.
+Terminating processes on user request, this might take some time.
+Will exit after finishing currently running jobs.
+Complete log: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/chicken/.snakemake/log/2020-09-24T135429.654990.snakemake.log

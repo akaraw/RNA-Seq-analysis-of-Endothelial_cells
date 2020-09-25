@@ -1,0 +1,383 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 24
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	6	filter_uncorrected
+	6	htseq
+	6	rcorrector
+	6	star
+	6	trimming
+	31
+
+[Thu Jun  4 19:22:49 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swancontrol03_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swancontrol03_2.fastq.gz
+    output: results/rcorrector/swancontrol03/swancontrol03_1.cor.fq.gz, results/rcorrector/swancontrol03/swancontrol03_2.cor.fq.gz
+    jobid: 29
+    wildcards: smp=swancontrol03
+    threads: 20
+
+[Fri Jun  5 01:09:59 2020]
+Finished job 29.
+1 of 31 steps (3%) done
+
+[Fri Jun  5 01:09:59 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/swancontrol03/swancontrol03_1.cor.fq.gz, results/rcorrector/swancontrol03/swancontrol03_2.cor.fq.gz
+    output: results/swancontrol03_filter/unfixrm_swancontrol03_1.cor.fq, results/swancontrol03_filter/unfixrm_swancontrol03_2.cor.fq
+    jobid: 23
+    wildcards: smp=swancontrol03
+
+
+[Fri Jun  5 01:09:59 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swancontrol01_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swancontrol01_2.fastq.gz
+    output: results/rcorrector/swancontrol01/swancontrol01_1.cor.fq.gz, results/rcorrector/swancontrol01/swancontrol01_2.cor.fq.gz
+    jobid: 25
+    wildcards: smp=swancontrol01
+    threads: 20
+
+Removing temporary output file results/rcorrector/swancontrol03/swancontrol03_1.cor.fq.gz.
+Removing temporary output file results/rcorrector/swancontrol03/swancontrol03_2.cor.fq.gz.
+[Fri Jun  5 01:32:44 2020]
+Finished job 23.
+2 of 31 steps (6%) done
+[Fri Jun  5 06:04:22 2020]
+Finished job 25.
+3 of 31 steps (10%) done
+
+[Fri Jun  5 06:04:22 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/swancontrol01/swancontrol01_1.cor.fq.gz, results/rcorrector/swancontrol01/swancontrol01_2.cor.fq.gz
+    output: results/swancontrol01_filter/unfixrm_swancontrol01_1.cor.fq, results/swancontrol01_filter/unfixrm_swancontrol01_2.cor.fq
+    jobid: 19
+    wildcards: smp=swancontrol01
+
+
+[Fri Jun  5 06:04:22 2020]
+Job 17: --- Trimming.
+
+Activating conda environment: /30days/uqakaraw/snakemake_envs/f868301f
+Removing temporary output file results/swancontrol03_filter/unfixrm_swancontrol03_1.cor.fq.
+Removing temporary output file results/swancontrol03_filter/unfixrm_swancontrol03_2.cor.fq.
+[Fri Jun  5 06:11:07 2020]
+Finished job 17.
+4 of 31 steps (13%) done
+
+[Fri Jun  5 06:11:07 2020]
+rule star:
+    input: results/trimmed/swancontrol03/swancontrol03_val_1.fq, results/trimmed/swancontrol03/swancontrol03_val_2.fq
+    output: results/STAR_bam/swancontrol03Aligned.sortedByCoord.out.bam
+    jobid: 11
+    wildcards: smp=swancontrol03
+    threads: 20
+
+Activating conda environment: /30days/uqakaraw/snakemake_envs/f868301f
+[Fri Jun  5 06:26:31 2020]
+Finished job 11.
+5 of 31 steps (16%) done
+
+[Fri Jun  5 06:26:31 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swaninfected03_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swaninfected03_2.fastq.gz
+    output: results/rcorrector/swaninfected03/swaninfected03_1.cor.fq.gz, results/rcorrector/swaninfected03/swaninfected03_2.cor.fq.gz
+    jobid: 27
+    wildcards: smp=swaninfected03
+    threads: 20
+
+
+[Fri Jun  5 06:26:31 2020]
+rule htseq:
+    input: results/STAR_bam/swancontrol03Aligned.sortedByCoord.out.bam, /30days/uqakaraw/swan/blackswan_isoseq.gtf
+    output: htseq/swancontrol03.tsv, htseq/log/swancontrol03.err
+    jobid: 5
+    wildcards: smp=swancontrol03
+
+Activating conda environment: /30days/uqakaraw/snakemake_envs/f9a6e946
+Removing temporary output file results/rcorrector/swancontrol01/swancontrol01_1.cor.fq.gz.
+Removing temporary output file results/rcorrector/swancontrol01/swancontrol01_2.cor.fq.gz.
+[Fri Jun  5 06:32:06 2020]
+Finished job 19.
+6 of 31 steps (19%) done
+[Fri Jun  5 07:37:44 2020]
+Finished job 5.
+7 of 31 steps (23%) done
+[Fri Jun  5 10:41:00 2020]
+Finished job 27.
+8 of 31 steps (26%) done
+
+[Fri Jun  5 10:41:00 2020]
+Job 13: --- Trimming.
+
+
+[Fri Jun  5 10:41:00 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/swaninfected03/swaninfected03_1.cor.fq.gz, results/rcorrector/swaninfected03/swaninfected03_2.cor.fq.gz
+    output: results/swaninfected03_filter/unfixrm_swaninfected03_1.cor.fq, results/swaninfected03_filter/unfixrm_swaninfected03_2.cor.fq
+    jobid: 21
+    wildcards: smp=swaninfected03
+
+Activating conda environment: /30days/uqakaraw/snakemake_envs/f868301f
+Removing temporary output file results/swancontrol01_filter/unfixrm_swancontrol01_1.cor.fq.
+Removing temporary output file results/swancontrol01_filter/unfixrm_swancontrol01_2.cor.fq.
+[Fri Jun  5 10:47:15 2020]
+Finished job 13.
+9 of 31 steps (29%) done
+
+[Fri Jun  5 10:47:15 2020]
+rule star:
+    input: results/trimmed/swancontrol01/swancontrol01_val_1.fq, results/trimmed/swancontrol01/swancontrol01_val_2.fq
+    output: results/STAR_bam/swancontrol01Aligned.sortedByCoord.out.bam
+    jobid: 7
+    wildcards: smp=swancontrol01
+    threads: 20
+
+Activating conda environment: /30days/uqakaraw/snakemake_envs/f868301f
+[Fri Jun  5 11:02:29 2020]
+Finished job 7.
+10 of 31 steps (32%) done
+
+[Fri Jun  5 11:02:29 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swaninfected02_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swaninfected02_2.fastq.gz
+    output: results/rcorrector/swaninfected02/swaninfected02_1.cor.fq.gz, results/rcorrector/swaninfected02/swaninfected02_2.cor.fq.gz
+    jobid: 30
+    wildcards: smp=swaninfected02
+    threads: 20
+
+
+[Fri Jun  5 11:02:29 2020]
+rule htseq:
+    input: results/STAR_bam/swancontrol01Aligned.sortedByCoord.out.bam, /30days/uqakaraw/swan/blackswan_isoseq.gtf
+    output: htseq/swancontrol01.tsv, htseq/log/swancontrol01.err
+    jobid: 1
+    wildcards: smp=swancontrol01
+
+Activating conda environment: /30days/uqakaraw/snakemake_envs/f9a6e946
+Removing temporary output file results/rcorrector/swaninfected03/swaninfected03_1.cor.fq.gz.
+Removing temporary output file results/rcorrector/swaninfected03/swaninfected03_2.cor.fq.gz.
+[Fri Jun  5 11:05:06 2020]
+Finished job 21.
+11 of 31 steps (35%) done
+[Fri Jun  5 12:05:34 2020]
+Finished job 1.
+12 of 31 steps (39%) done
+[Fri Jun  5 14:22:19 2020]
+Finished job 30.
+13 of 31 steps (42%) done
+
+[Fri Jun  5 14:22:19 2020]
+Job 15: --- Trimming.
+
+
+[Fri Jun  5 14:22:19 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/swaninfected02/swaninfected02_1.cor.fq.gz, results/rcorrector/swaninfected02/swaninfected02_2.cor.fq.gz
+    output: results/swaninfected02_filter/unfixrm_swaninfected02_1.cor.fq, results/swaninfected02_filter/unfixrm_swaninfected02_2.cor.fq
+    jobid: 24
+    wildcards: smp=swaninfected02
+
+Activating conda environment: /30days/uqakaraw/snakemake_envs/f868301f
+Removing temporary output file results/swaninfected03_filter/unfixrm_swaninfected03_2.cor.fq.
+Removing temporary output file results/swaninfected03_filter/unfixrm_swaninfected03_1.cor.fq.
+[Fri Jun  5 14:27:47 2020]
+Finished job 15.
+14 of 31 steps (45%) done
+
+[Fri Jun  5 14:27:47 2020]
+rule star:
+    input: results/trimmed/swaninfected03/swaninfected03_val_1.fq, results/trimmed/swaninfected03/swaninfected03_val_2.fq
+    output: results/STAR_bam/swaninfected03Aligned.sortedByCoord.out.bam
+    jobid: 9
+    wildcards: smp=swaninfected03
+    threads: 20
+
+Activating conda environment: /30days/uqakaraw/snakemake_envs/f868301f
+Removing temporary output file results/rcorrector/swaninfected02/swaninfected02_1.cor.fq.gz.
+Removing temporary output file results/rcorrector/swaninfected02/swaninfected02_2.cor.fq.gz.
+[Fri Jun  5 14:42:35 2020]
+Finished job 24.
+15 of 31 steps (48%) done
+[Fri Jun  5 14:50:07 2020]
+Finished job 9.
+16 of 31 steps (52%) done
+
+[Fri Jun  5 14:50:07 2020]
+rule htseq:
+    input: results/STAR_bam/swaninfected03Aligned.sortedByCoord.out.bam, /30days/uqakaraw/swan/blackswan_isoseq.gtf
+    output: htseq/swaninfected03.tsv, htseq/log/swaninfected03.err
+    jobid: 3
+    wildcards: smp=swaninfected03
+
+
+[Fri Jun  5 14:50:07 2020]
+Job 18: --- Trimming.
+
+Activating conda environment: /30days/uqakaraw/snakemake_envs/f868301f
+Activating conda environment: /30days/uqakaraw/snakemake_envs/f9a6e946
+Removing temporary output file results/swaninfected02_filter/unfixrm_swaninfected02_2.cor.fq.
+Removing temporary output file results/swaninfected02_filter/unfixrm_swaninfected02_1.cor.fq.
+[Fri Jun  5 14:55:00 2020]
+Finished job 18.
+17 of 31 steps (55%) done
+
+[Fri Jun  5 14:55:00 2020]
+rule star:
+    input: results/trimmed/swaninfected02/swaninfected02_val_1.fq, results/trimmed/swaninfected02/swaninfected02_val_2.fq
+    output: results/STAR_bam/swaninfected02Aligned.sortedByCoord.out.bam
+    jobid: 12
+    wildcards: smp=swaninfected02
+    threads: 20
+
+Activating conda environment: /30days/uqakaraw/snakemake_envs/f868301f
+[Fri Jun  5 15:17:12 2020]
+Finished job 12.
+18 of 31 steps (58%) done
+
+[Fri Jun  5 15:17:12 2020]
+rule htseq:
+    input: results/STAR_bam/swaninfected02Aligned.sortedByCoord.out.bam, /30days/uqakaraw/swan/blackswan_isoseq.gtf
+    output: htseq/swaninfected02.tsv, htseq/log/swaninfected02.err
+    jobid: 6
+    wildcards: smp=swaninfected02
+
+
+[Fri Jun  5 15:17:12 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swancontrol02_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swancontrol02_2.fastq.gz
+    output: results/rcorrector/swancontrol02/swancontrol02_1.cor.fq.gz, results/rcorrector/swancontrol02/swancontrol02_2.cor.fq.gz
+    jobid: 28
+    wildcards: smp=swancontrol02
+    threads: 20
+
+Activating conda environment: /30days/uqakaraw/snakemake_envs/f9a6e946
+[Fri Jun  5 15:25:51 2020]
+Finished job 3.
+19 of 31 steps (61%) done
+[Fri Jun  5 15:54:23 2020]
+Finished job 6.
+20 of 31 steps (65%) done
+[Fri Jun  5 18:46:25 2020]
+Finished job 28.
+21 of 31 steps (68%) done
+
+[Fri Jun  5 18:46:25 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swaninfected01_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swaninfected01_2.fastq.gz
+    output: results/rcorrector/swaninfected01/swaninfected01_1.cor.fq.gz, results/rcorrector/swaninfected01/swaninfected01_2.cor.fq.gz
+    jobid: 26
+    wildcards: smp=swaninfected01
+    threads: 20
+
+
+[Fri Jun  5 18:46:25 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/swancontrol02/swancontrol02_1.cor.fq.gz, results/rcorrector/swancontrol02/swancontrol02_2.cor.fq.gz
+    output: results/swancontrol02_filter/unfixrm_swancontrol02_1.cor.fq, results/swancontrol02_filter/unfixrm_swancontrol02_2.cor.fq
+    jobid: 22
+    wildcards: smp=swancontrol02
+
+Removing temporary output file results/rcorrector/swancontrol02/swancontrol02_1.cor.fq.gz.
+Removing temporary output file results/rcorrector/swancontrol02/swancontrol02_2.cor.fq.gz.
+[Fri Jun  5 19:04:06 2020]
+Finished job 22.
+22 of 31 steps (71%) done
+[Fri Jun  5 22:55:57 2020]
+Finished job 26.
+23 of 31 steps (74%) done
+
+[Fri Jun  5 22:55:57 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/swaninfected01/swaninfected01_1.cor.fq.gz, results/rcorrector/swaninfected01/swaninfected01_2.cor.fq.gz
+    output: results/swaninfected01_filter/unfixrm_swaninfected01_1.cor.fq, results/swaninfected01_filter/unfixrm_swaninfected01_2.cor.fq
+    jobid: 20
+    wildcards: smp=swaninfected01
+
+
+[Fri Jun  5 22:55:57 2020]
+Job 16: --- Trimming.
+
+Activating conda environment: /30days/uqakaraw/snakemake_envs/f868301f
+Removing temporary output file results/swancontrol02_filter/unfixrm_swancontrol02_1.cor.fq.
+Removing temporary output file results/swancontrol02_filter/unfixrm_swancontrol02_2.cor.fq.
+[Fri Jun  5 23:00:52 2020]
+Finished job 16.
+24 of 31 steps (77%) done
+
+[Fri Jun  5 23:00:52 2020]
+rule star:
+    input: results/trimmed/swancontrol02/swancontrol02_val_1.fq, results/trimmed/swancontrol02/swancontrol02_val_2.fq
+    output: results/STAR_bam/swancontrol02Aligned.sortedByCoord.out.bam
+    jobid: 10
+    wildcards: smp=swancontrol02
+    threads: 20
+
+Activating conda environment: /30days/uqakaraw/snakemake_envs/f868301f
+[Fri Jun  5 23:13:47 2020]
+Finished job 10.
+25 of 31 steps (81%) done
+
+[Fri Jun  5 23:13:47 2020]
+rule htseq:
+    input: results/STAR_bam/swancontrol02Aligned.sortedByCoord.out.bam, /30days/uqakaraw/swan/blackswan_isoseq.gtf
+    output: htseq/swancontrol02.tsv, htseq/log/swancontrol02.err
+    jobid: 4
+    wildcards: smp=swancontrol02
+
+Activating conda environment: /30days/uqakaraw/snakemake_envs/f9a6e946
+Removing temporary output file results/rcorrector/swaninfected01/swaninfected01_2.cor.fq.gz.
+Removing temporary output file results/rcorrector/swaninfected01/swaninfected01_1.cor.fq.gz.
+[Fri Jun  5 23:15:57 2020]
+Finished job 20.
+26 of 31 steps (84%) done
+
+[Fri Jun  5 23:15:57 2020]
+Job 14: --- Trimming.
+
+Activating conda environment: /30days/uqakaraw/snakemake_envs/f868301f
+Removing temporary output file results/swaninfected01_filter/unfixrm_swaninfected01_1.cor.fq.
+Removing temporary output file results/swaninfected01_filter/unfixrm_swaninfected01_2.cor.fq.
+[Fri Jun  5 23:20:05 2020]
+Finished job 14.
+27 of 31 steps (87%) done
+
+[Fri Jun  5 23:20:05 2020]
+rule star:
+    input: results/trimmed/swaninfected01/swaninfected01_val_1.fq, results/trimmed/swaninfected01/swaninfected01_val_2.fq
+    output: results/STAR_bam/swaninfected01Aligned.sortedByCoord.out.bam
+    jobid: 8
+    wildcards: smp=swaninfected01
+    threads: 20
+
+Activating conda environment: /30days/uqakaraw/snakemake_envs/f868301f
+[Fri Jun  5 23:38:43 2020]
+Finished job 8.
+28 of 31 steps (90%) done
+
+[Fri Jun  5 23:38:43 2020]
+rule htseq:
+    input: results/STAR_bam/swaninfected01Aligned.sortedByCoord.out.bam, /30days/uqakaraw/swan/blackswan_isoseq.gtf
+    output: htseq/swaninfected01.tsv, htseq/log/swaninfected01.err
+    jobid: 2
+    wildcards: smp=swaninfected01
+
+Activating conda environment: /30days/uqakaraw/snakemake_envs/f9a6e946
+[Sat Jun  6 00:02:14 2020]
+Finished job 4.
+29 of 31 steps (94%) done
+[Sat Jun  6 00:08:02 2020]
+Finished job 2.
+30 of 31 steps (97%) done
+
+[Sat Jun  6 00:08:02 2020]
+localrule all:
+    input: htseq/swancontrol01.tsv, htseq/swaninfected01.tsv, htseq/swaninfected03.tsv, htseq/swancontrol02.tsv, htseq/swancontrol03.tsv, htseq/swaninfected02.tsv
+    jobid: 0
+
+[Sat Jun  6 00:08:02 2020]
+Finished job 0.
+31 of 31 steps (100%) done
+Complete log: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/swan/.snakemake/log/2020-06-04T192248.954983.snakemake.log

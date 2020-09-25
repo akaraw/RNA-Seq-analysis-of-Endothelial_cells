@@ -1,0 +1,82 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cluster nodes: 6
+Job counts:
+	count	jobs
+	1	all
+	6	fastqc2
+	6	filter_uncorrected
+	6	rcorrector
+	6	rmbadreads
+	6	star
+	6	trimming
+	37
+
+[Thu Sep 24 13:51:09 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/infected_samples/chickinfected03_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/infected_samples/chickinfected03_2.fastq.gz
+    output: results/rcorrector/infected_samples/chickinfected03/infected_samples/chickinfected03_1.cor.fq.gz, results/rcorrector/infected_samples/chickinfected03/infected_samples/chickinfected03_2.cor.fq.gz
+    jobid: 35
+    wildcards: smp=infected_samples/chickinfected03
+    threads: 20
+
+ run_rcorrector.pl -od results/rcorrector/infected_samples/chickinfected03 -t 20 -1 /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/infected_samples/chickinfected03_1.fastq.gz -2 /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/infected_samples/chickinfected03_2.fastq.gz 
+Submitted job 35 with external jobid '403316.tinmgr2'.
+
+[Thu Sep 24 13:51:09 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/infected_samples/chickinfected02_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/infected_samples/chickinfected02_2.fastq.gz
+    output: results/rcorrector/infected_samples/chickinfected02/infected_samples/chickinfected02_1.cor.fq.gz, results/rcorrector/infected_samples/chickinfected02/infected_samples/chickinfected02_2.cor.fq.gz
+    jobid: 36
+    wildcards: smp=infected_samples/chickinfected02
+    threads: 20
+
+ run_rcorrector.pl -od results/rcorrector/infected_samples/chickinfected02 -t 20 -1 /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/infected_samples/chickinfected02_1.fastq.gz -2 /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/infected_samples/chickinfected02_2.fastq.gz 
+Submitted job 36 with external jobid '403317.tinmgr2'.
+
+[Thu Sep 24 13:51:09 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol03_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol03_2.fastq.gz
+    output: results/rcorrector/chickcontrol03/chickcontrol03_1.cor.fq.gz, results/rcorrector/chickcontrol03/chickcontrol03_2.cor.fq.gz
+    jobid: 32
+    wildcards: smp=chickcontrol03
+    threads: 20
+
+ run_rcorrector.pl -od results/rcorrector/chickcontrol03 -t 20 -1 /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol03_1.fastq.gz -2 /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol03_2.fastq.gz 
+Submitted job 32 with external jobid '403318.tinmgr2'.
+
+[Thu Sep 24 13:51:10 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol02_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol02_2.fastq.gz
+    output: results/rcorrector/chickcontrol02/chickcontrol02_1.cor.fq.gz, results/rcorrector/chickcontrol02/chickcontrol02_2.cor.fq.gz
+    jobid: 33
+    wildcards: smp=chickcontrol02
+    threads: 20
+
+ run_rcorrector.pl -od results/rcorrector/chickcontrol02 -t 20 -1 /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol02_1.fastq.gz -2 /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol02_2.fastq.gz 
+Submitted job 33 with external jobid '403319.tinmgr2'.
+
+[Thu Sep 24 13:51:12 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/infected_samples/chickinfected01_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/infected_samples/chickinfected01_2.fastq.gz
+    output: results/rcorrector/infected_samples/chickinfected01/infected_samples/chickinfected01_1.cor.fq.gz, results/rcorrector/infected_samples/chickinfected01/infected_samples/chickinfected01_2.cor.fq.gz
+    jobid: 34
+    wildcards: smp=infected_samples/chickinfected01
+    threads: 20
+
+ run_rcorrector.pl -od results/rcorrector/infected_samples/chickinfected01 -t 20 -1 /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/infected_samples/chickinfected01_1.fastq.gz -2 /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/infected_samples/chickinfected01_2.fastq.gz 
+Submitted job 34 with external jobid '403320.tinmgr2'.
+
+[Thu Sep 24 13:51:12 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol01_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol01_2.fastq.gz
+    output: results/rcorrector/chickcontrol01/chickcontrol01_1.cor.fq.gz, results/rcorrector/chickcontrol01/chickcontrol01_2.cor.fq.gz
+    jobid: 31
+    wildcards: smp=chickcontrol01
+    threads: 20
+
+ run_rcorrector.pl -od results/rcorrector/chickcontrol01 -t 20 -1 /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol01_1.fastq.gz -2 /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol01_2.fastq.gz 
+Submitted job 31 with external jobid '403321.tinmgr2'.
+Terminating processes on user request, this might take some time.
+Will exit after finishing currently running jobs.
+Complete log: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/chicken/.snakemake/log/2020-09-24T135109.300438.snakemake.log

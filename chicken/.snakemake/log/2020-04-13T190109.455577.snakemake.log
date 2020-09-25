@@ -1,0 +1,537 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 6
+Job counts:
+	count	jobs
+	1	all
+	6	fastqc1
+	6	fastqc2
+	6	filter_uncorrected
+	6	htseq
+	6	rcorrector
+	6	rmbadreads
+	6	star
+	6	stringtie01
+	6	stringtie02
+	6	stringtie_merge
+	6	trimming
+	67
+
+[Mon Apr 13 19:01:09 2020]
+Job 64: --- Quality check of raw data with Fastqc.
+
+Submitted job 64 with external jobid '186640.tinmgr2'.
+
+[Mon Apr 13 19:01:09 2020]
+Job 61: --- Quality check of raw data with Fastqc.
+
+Submitted job 61 with external jobid '186641.tinmgr2'.
+
+[Mon Apr 13 19:01:09 2020]
+Job 65: --- Quality check of raw data with Fastqc.
+
+Submitted job 65 with external jobid '186642.tinmgr2'.
+
+[Mon Apr 13 19:01:09 2020]
+Job 63: --- Quality check of raw data with Fastqc.
+
+Submitted job 63 with external jobid '186643.tinmgr2'.
+
+[Mon Apr 13 19:01:10 2020]
+Job 62: --- Quality check of raw data with Fastqc.
+
+Submitted job 62 with external jobid '186644.tinmgr2'.
+
+[Mon Apr 13 19:01:10 2020]
+Job 66: --- Quality check of raw data with Fastqc.
+
+Submitted job 66 with external jobid '186645.tinmgr2'.
+[Mon Apr 13 20:20:54 2020]
+Finished job 64.
+1 of 67 steps (1%) done
+
+[Mon Apr 13 20:20:54 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickinfected03_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickinfected03_2.fastq.gz, fastqc/chickinfected03/chickinfected03_1_fastqc.zip, fastqc/chickinfected03/chickinfected03_2_fastqc.zip
+    output: results/rcorrector/chickinfected03/chickinfected03_1.cor.fq.gz, results/rcorrector/chickinfected03/chickinfected03_2.cor.fq.gz
+    jobid: 58
+    wildcards: smp=chickinfected03
+    threads: 20
+
+Submitted job 58 with external jobid '186658.tinmgr2'.
+[Mon Apr 13 20:37:55 2020]
+Finished job 61.
+2 of 67 steps (3%) done
+
+[Mon Apr 13 20:37:55 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickinfected01_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickinfected01_2.fastq.gz, fastqc/chickinfected01/chickinfected01_1_fastqc.zip, fastqc/chickinfected01/chickinfected01_2_fastqc.zip
+    output: results/rcorrector/chickinfected01/chickinfected01_1.cor.fq.gz, results/rcorrector/chickinfected01/chickinfected01_2.cor.fq.gz
+    jobid: 55
+    wildcards: smp=chickinfected01
+    threads: 20
+
+Submitted job 55 with external jobid '186660.tinmgr2'.
+[Mon Apr 13 20:52:36 2020]
+Finished job 65.
+3 of 67 steps (4%) done
+
+[Mon Apr 13 20:52:36 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol02_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol02_2.fastq.gz, fastqc/chickcontrol02/chickcontrol02_1_fastqc.zip, fastqc/chickcontrol02/chickcontrol02_2_fastqc.zip
+    output: results/rcorrector/chickcontrol02/chickcontrol02_1.cor.fq.gz, results/rcorrector/chickcontrol02/chickcontrol02_2.cor.fq.gz
+    jobid: 59
+    wildcards: smp=chickcontrol02
+    threads: 20
+
+Submitted job 59 with external jobid '186662.tinmgr2'.
+[Mon Apr 13 21:03:57 2020]
+Finished job 63.
+4 of 67 steps (6%) done
+
+[Mon Apr 13 21:03:57 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol03_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol03_2.fastq.gz, fastqc/chickcontrol03/chickcontrol03_1_fastqc.zip, fastqc/chickcontrol03/chickcontrol03_2_fastqc.zip
+    output: results/rcorrector/chickcontrol03/chickcontrol03_1.cor.fq.gz, results/rcorrector/chickcontrol03/chickcontrol03_2.cor.fq.gz
+    jobid: 57
+    wildcards: smp=chickcontrol03
+    threads: 20
+
+Submitted job 57 with external jobid '186663.tinmgr2'.
+[Mon Apr 13 21:15:37 2020]
+Finished job 62.
+5 of 67 steps (7%) done
+
+[Mon Apr 13 21:15:37 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol01_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickcontrol01_2.fastq.gz, fastqc/chickcontrol01/chickcontrol01_1_fastqc.zip, fastqc/chickcontrol01/chickcontrol01_2_fastqc.zip
+    output: results/rcorrector/chickcontrol01/chickcontrol01_1.cor.fq.gz, results/rcorrector/chickcontrol01/chickcontrol01_2.cor.fq.gz
+    jobid: 56
+    wildcards: smp=chickcontrol01
+    threads: 20
+
+Submitted job 56 with external jobid '186664.tinmgr2'.
+[Mon Apr 13 21:30:38 2020]
+Finished job 66.
+6 of 67 steps (9%) done
+
+[Mon Apr 13 21:30:38 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickinfected02_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/chicken/chickinfected02_2.fastq.gz, fastqc/chickinfected02/chickinfected02_1_fastqc.zip, fastqc/chickinfected02/chickinfected02_2_fastqc.zip
+    output: results/rcorrector/chickinfected02/chickinfected02_1.cor.fq.gz, results/rcorrector/chickinfected02/chickinfected02_2.cor.fq.gz
+    jobid: 60
+    wildcards: smp=chickinfected02
+    threads: 20
+
+Submitted job 60 with external jobid '186665.tinmgr2'.
+[Tue Apr 14 02:04:24 2020]
+Finished job 58.
+7 of 67 steps (10%) done
+
+[Tue Apr 14 02:04:24 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/chickinfected03/chickinfected03_1.cor.fq.gz, results/rcorrector/chickinfected03/chickinfected03_2.cor.fq.gz
+    output: results/chickinfected03_filter/unfixrm_chickinfected03_1.cor.fq, results/chickinfected03_filter/unfixrm_chickinfected03_2.cor.fq
+    jobid: 52
+    wildcards: smp=chickinfected03
+
+Submitted job 52 with external jobid '186681.tinmgr2'.
+[Tue Apr 14 05:12:25 2020]
+Finished job 57.
+8 of 67 steps (12%) done
+
+[Tue Apr 14 05:12:25 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/chickcontrol03/chickcontrol03_1.cor.fq.gz, results/rcorrector/chickcontrol03/chickcontrol03_2.cor.fq.gz
+    output: results/chickcontrol03_filter/unfixrm_chickcontrol03_1.cor.fq, results/chickcontrol03_filter/unfixrm_chickcontrol03_2.cor.fq
+    jobid: 51
+    wildcards: smp=chickcontrol03
+
+Submitted job 51 with external jobid '186685.tinmgr2'.
+[Tue Apr 14 05:14:25 2020]
+Finished job 56.
+9 of 67 steps (13%) done
+
+[Tue Apr 14 05:14:25 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/chickcontrol01/chickcontrol01_1.cor.fq.gz, results/rcorrector/chickcontrol01/chickcontrol01_2.cor.fq.gz
+    output: results/chickcontrol01_filter/unfixrm_chickcontrol01_1.cor.fq, results/chickcontrol01_filter/unfixrm_chickcontrol01_2.cor.fq
+    jobid: 50
+    wildcards: smp=chickcontrol01
+
+Submitted job 50 with external jobid '186686.tinmgr2'.
+[Tue Apr 14 05:45:07 2020]
+Finished job 59.
+10 of 67 steps (15%) done
+
+[Tue Apr 14 05:45:07 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/chickcontrol02/chickcontrol02_1.cor.fq.gz, results/rcorrector/chickcontrol02/chickcontrol02_2.cor.fq.gz
+    output: results/chickcontrol02_filter/unfixrm_chickcontrol02_1.cor.fq, results/chickcontrol02_filter/unfixrm_chickcontrol02_2.cor.fq
+    jobid: 53
+    wildcards: smp=chickcontrol02
+
+Submitted job 53 with external jobid '186687.tinmgr2'.
+[Tue Apr 14 06:21:09 2020]
+Finished job 52.
+11 of 67 steps (16%) done
+
+[Tue Apr 14 06:21:09 2020]
+Job 41: --- Trimming.
+
+Submitted job 41 with external jobid '186690.tinmgr2'.
+[Tue Apr 14 06:32:00 2020]
+Finished job 55.
+12 of 67 steps (18%) done
+
+[Tue Apr 14 06:32:00 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/chickinfected01/chickinfected01_1.cor.fq.gz, results/rcorrector/chickinfected01/chickinfected01_2.cor.fq.gz
+    output: results/chickinfected01_filter/unfixrm_chickinfected01_1.cor.fq, results/chickinfected01_filter/unfixrm_chickinfected01_2.cor.fq
+    jobid: 49
+    wildcards: smp=chickinfected01
+
+Submitted job 49 with external jobid '186691.tinmgr2'.
+[Tue Apr 14 06:53:11 2020]
+Finished job 51.
+13 of 67 steps (19%) done
+
+[Tue Apr 14 06:53:11 2020]
+Job 38: --- Trimming.
+
+Submitted job 38 with external jobid '186692.tinmgr2'.
+[Tue Apr 14 07:09:22 2020]
+Finished job 50.
+14 of 67 steps (21%) done
+
+[Tue Apr 14 07:09:22 2020]
+Job 35: --- Trimming.
+
+Submitted job 35 with external jobid '186694.tinmgr2'.
+[Tue Apr 14 07:13:33 2020]
+Finished job 53.
+15 of 67 steps (22%) done
+
+[Tue Apr 14 07:13:33 2020]
+Job 44: --- Trimming.
+
+Submitted job 44 with external jobid '186695.tinmgr2'.
+Removing temporary output file results/chickcontrol03_filter/unfixrm_chickcontrol03_2.cor.fq.
+Removing temporary output file results/chickcontrol03_filter/unfixrm_chickcontrol03_1.cor.fq.
+[Tue Apr 14 07:42:54 2020]
+Finished job 38.
+16 of 67 steps (24%) done
+
+[Tue Apr 14 07:42:54 2020]
+Job 37: --- Quality check of raw data with Fastqc
+
+Submitted job 37 with external jobid '186700.tinmgr2'.
+Removing temporary output file results/chickinfected03_filter/unfixrm_chickinfected03_1.cor.fq.
+Removing temporary output file results/chickinfected03_filter/unfixrm_chickinfected03_2.cor.fq.
+[Tue Apr 14 07:43:14 2020]
+Finished job 41.
+17 of 67 steps (25%) done
+
+[Tue Apr 14 07:43:14 2020]
+Job 40: --- Quality check of raw data with Fastqc
+
+Submitted job 40 with external jobid '186701.tinmgr2'.
+Removing temporary output file results/chickcontrol01_filter/unfixrm_chickcontrol01_1.cor.fq.
+Removing temporary output file results/chickcontrol01_filter/unfixrm_chickcontrol01_2.cor.fq.
+[Tue Apr 14 07:48:05 2020]
+Finished job 35.
+18 of 67 steps (27%) done
+
+[Tue Apr 14 07:48:05 2020]
+Job 34: --- Quality check of raw data with Fastqc
+
+Submitted job 34 with external jobid '186703.tinmgr2'.
+Removing temporary output file results/chickcontrol02_filter/unfixrm_chickcontrol02_2.cor.fq.
+Removing temporary output file results/chickcontrol02_filter/unfixrm_chickcontrol02_1.cor.fq.
+[Tue Apr 14 07:52:35 2020]
+Finished job 44.
+19 of 67 steps (28%) done
+
+[Tue Apr 14 07:52:35 2020]
+Job 43: --- Quality check of raw data with Fastqc
+
+Submitted job 43 with external jobid '186707.tinmgr2'.
+[Tue Apr 14 07:58:26 2020]
+Finished job 49.
+20 of 67 steps (30%) done
+
+[Tue Apr 14 07:58:26 2020]
+Job 32: --- Trimming.
+
+Submitted job 32 with external jobid '186709.tinmgr2'.
+[Tue Apr 14 08:09:17 2020]
+Finished job 60.
+21 of 67 steps (31%) done
+
+[Tue Apr 14 08:09:17 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/chickinfected02/chickinfected02_1.cor.fq.gz, results/rcorrector/chickinfected02/chickinfected02_2.cor.fq.gz
+    output: results/chickinfected02_filter/unfixrm_chickinfected02_1.cor.fq, results/chickinfected02_filter/unfixrm_chickinfected02_2.cor.fq
+    jobid: 54
+    wildcards: smp=chickinfected02
+
+Submitted job 54 with external jobid '186712.tinmgr2'.
+[Tue Apr 14 08:26:58 2020]
+Finished job 37.
+22 of 67 steps (33%) done
+
+[Tue Apr 14 08:26:58 2020]
+rule rmbadreads:
+    input: fastqc2/chickcontrol03/chickcontrol03_val_1_fastqc/fastqc_data.txt, fastqc2/chickcontrol03/chickcontrol03_val_2_fastqc/fastqc_data.txt, results/trimmed/chickcontrol03/chickcontrol03_val_1.fq, results/trimmed/chickcontrol03/chickcontrol03_val_2.fq
+    output: star_input/rmoverrep_chickcontrol03_val_1.fq, star_input/rmoverrep_chickcontrol03_val_2.fq
+    jobid: 23
+    wildcards: smp=chickcontrol03
+
+Submitted job 23 with external jobid '186715.tinmgr2'.
+[Tue Apr 14 08:35:38 2020]
+Finished job 34.
+23 of 67 steps (34%) done
+
+[Tue Apr 14 08:35:38 2020]
+rule rmbadreads:
+    input: fastqc2/chickcontrol01/chickcontrol01_val_1_fastqc/fastqc_data.txt, fastqc2/chickcontrol01/chickcontrol01_val_2_fastqc/fastqc_data.txt, results/trimmed/chickcontrol01/chickcontrol01_val_1.fq, results/trimmed/chickcontrol01/chickcontrol01_val_2.fq
+    output: star_input/rmoverrep_chickcontrol01_val_1.fq, star_input/rmoverrep_chickcontrol01_val_2.fq
+    jobid: 21
+    wildcards: smp=chickcontrol01
+
+Submitted job 21 with external jobid '186718.tinmgr2'.
+[Tue Apr 14 08:37:18 2020]
+Finished job 40.
+24 of 67 steps (36%) done
+
+[Tue Apr 14 08:37:18 2020]
+rule rmbadreads:
+    input: fastqc2/chickinfected03/chickinfected03_val_1_fastqc/fastqc_data.txt, fastqc2/chickinfected03/chickinfected03_val_2_fastqc/fastqc_data.txt, results/trimmed/chickinfected03/chickinfected03_val_1.fq, results/trimmed/chickinfected03/chickinfected03_val_2.fq
+    output: star_input/rmoverrep_chickinfected03_val_1.fq, star_input/rmoverrep_chickinfected03_val_2.fq
+    jobid: 25
+    wildcards: smp=chickinfected03
+
+Submitted job 25 with external jobid '186721.tinmgr2'.
+Removing temporary output file results/chickinfected01_filter/unfixrm_chickinfected01_1.cor.fq.
+Removing temporary output file results/chickinfected01_filter/unfixrm_chickinfected01_2.cor.fq.
+[Tue Apr 14 08:43:29 2020]
+Finished job 32.
+25 of 67 steps (37%) done
+
+[Tue Apr 14 08:43:29 2020]
+Job 31: --- Quality check of raw data with Fastqc
+
+Submitted job 31 with external jobid '186733.tinmgr2'.
+Removing temporary output file fastqc2/chickcontrol03/chickcontrol03_val_2_fastqc/fastqc_data.txt.
+Removing temporary output file fastqc2/chickcontrol03/chickcontrol03_val_1_fastqc/fastqc_data.txt.
+[Tue Apr 14 08:45:19 2020]
+Finished job 23.
+26 of 67 steps (39%) done
+
+[Tue Apr 14 08:45:19 2020]
+rule star:
+    input: star_input/rmoverrep_chickcontrol03_val_1.fq, star_input/rmoverrep_chickcontrol03_val_2.fq
+    output: results/STAR_bam/chickcontrol03Aligned.sortedByCoord.out.bam
+    jobid: 11
+    wildcards: smp=chickcontrol03
+    threads: 20
+
+Submitted job 11 with external jobid '186736.tinmgr2'.
+Removing temporary output file fastqc2/chickcontrol01/chickcontrol01_val_1_fastqc/fastqc_data.txt.
+Removing temporary output file fastqc2/chickcontrol01/chickcontrol01_val_2_fastqc/fastqc_data.txt.
+[Tue Apr 14 08:45:49 2020]
+Finished job 21.
+27 of 67 steps (40%) done
+
+[Tue Apr 14 08:45:49 2020]
+rule star:
+    input: star_input/rmoverrep_chickcontrol01_val_1.fq, star_input/rmoverrep_chickcontrol01_val_2.fq
+    output: results/STAR_bam/chickcontrol01Aligned.sortedByCoord.out.bam
+    jobid: 9
+    wildcards: smp=chickcontrol01
+    threads: 20
+
+Submitted job 9 with external jobid '186737.tinmgr2'.
+[Tue Apr 14 08:46:29 2020]
+Finished job 43.
+28 of 67 steps (42%) done
+
+[Tue Apr 14 08:46:29 2020]
+rule rmbadreads:
+    input: fastqc2/chickcontrol02/chickcontrol02_val_1_fastqc/fastqc_data.txt, fastqc2/chickcontrol02/chickcontrol02_val_2_fastqc/fastqc_data.txt, results/trimmed/chickcontrol02/chickcontrol02_val_1.fq, results/trimmed/chickcontrol02/chickcontrol02_val_2.fq
+    output: star_input/rmoverrep_chickcontrol02_val_1.fq, star_input/rmoverrep_chickcontrol02_val_2.fq
+    jobid: 27
+    wildcards: smp=chickcontrol02
+
+Submitted job 27 with external jobid '186738.tinmgr2'.
+Removing temporary output file fastqc2/chickinfected03/chickinfected03_val_1_fastqc/fastqc_data.txt.
+Removing temporary output file fastqc2/chickinfected03/chickinfected03_val_2_fastqc/fastqc_data.txt.
+[Tue Apr 14 08:47:30 2020]
+Finished job 25.
+29 of 67 steps (43%) done
+
+[Tue Apr 14 08:47:30 2020]
+rule star:
+    input: star_input/rmoverrep_chickinfected03_val_1.fq, star_input/rmoverrep_chickinfected03_val_2.fq
+    output: results/STAR_bam/chickinfected03Aligned.sortedByCoord.out.bam
+    jobid: 13
+    wildcards: smp=chickinfected03
+    threads: 20
+
+Submitted job 13 with external jobid '186742.tinmgr2'.
+[Tue Apr 14 09:00:00 2020]
+Finished job 54.
+30 of 67 steps (45%) done
+
+[Tue Apr 14 09:00:00 2020]
+Job 47: --- Trimming.
+
+Submitted job 47 with external jobid '186747.tinmgr2'.
+[Tue Apr 14 13:47:17 2020]
+Finished job 31.
+31 of 67 steps (46%) done
+
+[Tue Apr 14 13:47:17 2020]
+rule rmbadreads:
+    input: fastqc2/chickinfected01/chickinfected01_val_1_fastqc/fastqc_data.txt, fastqc2/chickinfected01/chickinfected01_val_2_fastqc/fastqc_data.txt, results/trimmed/chickinfected01/chickinfected01_val_1.fq, results/trimmed/chickinfected01/chickinfected01_val_2.fq
+    output: star_input/rmoverrep_chickinfected01_val_1.fq, star_input/rmoverrep_chickinfected01_val_2.fq
+    jobid: 19
+    wildcards: smp=chickinfected01
+
+Submitted job 19 with external jobid '186876.tinmgr2'.
+[Tue Apr 14 14:03:18 2020]
+Finished job 11.
+32 of 67 steps (48%) done
+
+[Tue Apr 14 14:03:18 2020]
+rule htseq:
+    input: results/STAR_bam/chickcontrol03Aligned.sortedByCoord.out.bam, /30days/uqakaraw/chicken/chicken.gtf
+    output: htseq/chickcontrol03.tsv, htseq/log/chickcontrol03.err
+    jobid: 39
+    wildcards: smp=chickcontrol03
+
+Submitted job 39 with external jobid '186888.tinmgr2'.
+Removing temporary output file fastqc2/chickcontrol02/chickcontrol02_val_2_fastqc/fastqc_data.txt.
+Removing temporary output file fastqc2/chickcontrol02/chickcontrol02_val_1_fastqc/fastqc_data.txt.
+[Tue Apr 14 14:16:09 2020]
+Finished job 27.
+33 of 67 steps (49%) done
+
+[Tue Apr 14 14:16:09 2020]
+rule star:
+    input: star_input/rmoverrep_chickcontrol02_val_1.fq, star_input/rmoverrep_chickcontrol02_val_2.fq
+    output: results/STAR_bam/chickcontrol02Aligned.sortedByCoord.out.bam
+    jobid: 15
+    wildcards: smp=chickcontrol02
+    threads: 20
+
+Submitted job 15 with external jobid '186892.tinmgr2'.
+[Tue Apr 14 14:19:59 2020]
+Finished job 9.
+34 of 67 steps (51%) done
+
+[Tue Apr 14 14:19:59 2020]
+rule htseq:
+    input: results/STAR_bam/chickcontrol01Aligned.sortedByCoord.out.bam, /30days/uqakaraw/chicken/chicken.gtf
+    output: htseq/chickcontrol01.tsv, htseq/log/chickcontrol01.err
+    jobid: 36
+    wildcards: smp=chickcontrol01
+
+Submitted job 36 with external jobid '186893.tinmgr2'.
+Removing temporary output file results/chickinfected02_filter/unfixrm_chickinfected02_2.cor.fq.
+Removing temporary output file results/chickinfected02_filter/unfixrm_chickinfected02_1.cor.fq.
+[Tue Apr 14 14:41:00 2020]
+Finished job 47.
+35 of 67 steps (52%) done
+
+[Tue Apr 14 14:41:00 2020]
+Job 46: --- Quality check of raw data with Fastqc
+
+Submitted job 46 with external jobid '186897.tinmgr2'.
+[Tue Apr 14 15:05:52 2020]
+Finished job 13.
+36 of 67 steps (54%) done
+
+[Tue Apr 14 15:05:52 2020]
+rule htseq:
+    input: results/STAR_bam/chickinfected03Aligned.sortedByCoord.out.bam, /30days/uqakaraw/chicken/chicken.gtf
+    output: htseq/chickinfected03.tsv, htseq/log/chickinfected03.err
+    jobid: 42
+    wildcards: smp=chickinfected03
+
+Submitted job 42 with external jobid '186904.tinmgr2'.
+Removing temporary output file fastqc2/chickinfected01/chickinfected01_val_2_fastqc/fastqc_data.txt.
+Removing temporary output file fastqc2/chickinfected01/chickinfected01_val_1_fastqc/fastqc_data.txt.
+[Tue Apr 14 15:18:02 2020]
+Finished job 19.
+37 of 67 steps (55%) done
+
+[Tue Apr 14 15:18:02 2020]
+rule star:
+    input: star_input/rmoverrep_chickinfected01_val_1.fq, star_input/rmoverrep_chickinfected01_val_2.fq
+    output: results/STAR_bam/chickinfected01Aligned.sortedByCoord.out.bam
+    jobid: 7
+    wildcards: smp=chickinfected01
+    threads: 20
+
+Submitted job 7 with external jobid '186911.tinmgr2'.
+[Tue Apr 14 18:21:22 2020]
+Finished job 39.
+38 of 67 steps (57%) done
+
+[Tue Apr 14 18:21:22 2020]
+Job 24: --- Diffrential Gene Expression Analysis with Stringtie step 01
+
+Submitted job 24 with external jobid '186992.tinmgr2'.
+[Tue Apr 14 23:19:49 2020]
+Finished job 46.
+39 of 67 steps (58%) done
+
+[Tue Apr 14 23:19:49 2020]
+rule rmbadreads:
+    input: fastqc2/chickinfected02/chickinfected02_val_1_fastqc/fastqc_data.txt, fastqc2/chickinfected02/chickinfected02_val_2_fastqc/fastqc_data.txt, results/trimmed/chickinfected02/chickinfected02_val_1.fq, results/trimmed/chickinfected02/chickinfected02_val_2.fq
+    output: star_input/rmoverrep_chickinfected02_val_1.fq, star_input/rmoverrep_chickinfected02_val_2.fq
+    jobid: 29
+    wildcards: smp=chickinfected02
+
+Submitted job 29 with external jobid '187055.tinmgr2'.
+[Tue Apr 14 23:42:01 2020]
+Finished job 15.
+40 of 67 steps (60%) done
+
+[Tue Apr 14 23:42:01 2020]
+rule htseq:
+    input: results/STAR_bam/chickcontrol02Aligned.sortedByCoord.out.bam, /30days/uqakaraw/chicken/chicken.gtf
+    output: htseq/chickcontrol02.tsv, htseq/log/chickcontrol02.err
+    jobid: 45
+    wildcards: smp=chickcontrol02
+
+Submitted job 45 with external jobid '187078.tinmgr2'.
+[Tue Apr 14 23:53:11 2020]
+Finished job 42.
+41 of 67 steps (61%) done
+
+[Tue Apr 14 23:53:11 2020]
+Job 26: --- Diffrential Gene Expression Analysis with Stringtie step 01
+
+Submitted job 26 with external jobid '187080.tinmgr2'.
+[Wed Apr 15 00:28:04 2020]
+Finished job 36.
+42 of 67 steps (63%) done
+
+[Wed Apr 15 00:28:04 2020]
+Job 22: --- Diffrential Gene Expression Analysis with Stringtie step 01
+
+Submitted job 22 with external jobid '187082.tinmgr2'.
+[Wed Apr 15 00:28:24 2020]
+Finished job 7.
+43 of 67 steps (64%) done
+
+[Wed Apr 15 00:28:24 2020]
+rule htseq:
+    input: results/STAR_bam/chickinfected01Aligned.sortedByCoord.out.bam, /30days/uqakaraw/chicken/chicken.gtf
+    output: htseq/chickinfected01.tsv, htseq/log/chickinfected01.err
+    jobid: 33
+    wildcards: smp=chickinfected01
+
+Submitted job 33 with external jobid '187083.tinmgr2'.

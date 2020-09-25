@@ -1,0 +1,1 @@
+snakemake --use-conda --cluster "qsub -l select=1:ncpus=24:mem=120GB -l walltime=336:00:00 -A UQ-SCI-SCMB" --conda-prefix /30days/uqakaraw/snakemake_envs/ -np

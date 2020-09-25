@@ -1,0 +1,172 @@
+# This should be placed in the Snakefile.
+##-----------------------------------------------##
+## Working directory                             ##
+## Adapt to your needs                           ##
+##-----------------------------------------------##
+
+BASE_DIR = "/30days/uqakaraw/76.RNAseq_Infection"
+WDIR = BASE_DIR + "/swan"
+workdir: WDIR
+#message("The current working directory is " + WDIR)
+
+##--------------------------------------------------------------------------------------##
+## Variables declaration                          
+## Declaring some variables used by topHat and other tools... 
+## (GTF file, INDEX, chromosome length)
+##--------------------------------------------------------------------------------------##
+# Adapt the path to your needs
+BAMDIR = WDIR + "/bowtie2"
+#INDEX = BASE_DIR + "/bowtie2/bs"
+GTF   = BASE_DIR + "/bowtie2/bs.gtf"
+#CHR   = BASE_DIR + "/annotations/txt/chromInfo_mm10.txt"
+FASTA = BASE_DIR + "/bowtie2/bs.fa"
+
+##--------------------------------------------------------------------------------------##
+## The list of samples to be processed
+##--------------------------------------------------------------------------------------##
+
+SAMPLES, = glob_wildcards( WDIR + "/fastq_files/{smp}_1.fastq.gz")
+NB_SAMPLES = len(SAMPLES)
+
+rule all:
+	input:
+	 #fwd = expand("results/fastqc/{smp}_2/{smp}_val_1.fq.zip",smp=SAMPLES),
+	 #rev = expand("results/fastqc/{smp}_2/{smp}_val_2.fq.zip",smp=SAMPLES),
+	 out = expand("busco_{smp}",smp=SAMPLES)
+	 #out = expand("results/trinity_assembly/{smp}/trinity/{smp}_stats",smp=SAMPLES)
+	 #out1 = WDIR + "index.done",
+	 #bam = expand(WDIR + "{smp}.done",smp=SAMPLES)
+	 #fwd1=expand("results/rcorrector/{smp}_1_1.cor.fq",smp=SAMPLES), 
+	 #rev1=expand("results/rcorrector/{smp}_2_2.cor.fq",smp=SAMPLES),
+	 #fwd2=expand("results/{smp}_filter/unfixrm_{smp}_1.cor.fq", smp=SAMPLES), 
+	 #rev2=expand("results/{smp}_filter/unfixrm_{smp}_2.cor.fq", smp=SAMPLES)
+	 #fwd3=expand("fastq_files/trimmed/{smp}/{smp}_val_1.fq", smp=SAMPLES),
+         #rev3=expand("fastq_files/trimmed/{smp}/{smp}_val_2.fq", smp=SAMPLES)
+
+#for smp in SAMPLES:
+#	message("Sample " + smp + " will be processed")
+
+rule fastqc1:
+	input:  
+	 fwd="fastq_files/{smp}_1.fastq.gz",
+	 rev="fastq_files/{smp}_2.fastq.gz"
+	output: fwd="fastq_files/fastqc/{smp}/{smp}_1_fastqc.zip", rev="fastq_files/fastqc/{smp}/{smp}_2_fastqc.zip"
+	conda: "env/transcriptome.yaml"
+	message: """--- Quality check of raw data with Fastqc."""
+	shell: " mkdir -p fastq_files/fastqc && fastqc --outdir fastq_files/fastqc/{wildcards.smp} --extract  -f fastq {input.fwd} {input.rev}"
+  
+rule rcorrector:
+	input: fwd = "fastq_files/{smp}_1.fastq.gz",rev = "fastq_files/{smp}_2.fastq.gz", check1 = rules.fastqc1.output.fwd, check2 = rules.fastqc1.output.rev 
+	output: 
+	 fwd="results/rcorrector/{smp}/{smp}_1.cor.fq.gz", 
+	 rev="results/rcorrector/{smp}/{smp}_2.cor.fq.gz"
+	threads: 20
+	params: od="results/rcorrector/{smp}"
+	shell:
+         " run_rcorrector.pl -od {params.od} -t {threads} -1 {input.fwd} -2 {input.rev} "
+
+rule filter_uncorrected:
+	input: 
+	 fwd = rules.rcorrector.output.fwd, 
+	 rev = rules.rcorrector.output.rev
+	output: 
+	 fwd = "results/{smp}_filter/unfixrm_{smp}_1.cor.fq", 
+	 rev = "results/{smp}_filter/unfixrm_{smp}_2.cor.fq"
+	shell:
+	 " mkdir -p results/{wildcards.smp}_filter && FilterUncorrectabledPEfastq.py -1 {input.fwd} -2 {input.rev} && mv unfix* results/{wildcards.smp}_filter"
+
+rule trimming:
+	input: 
+	 fwd = rules.filter_uncorrected.output.fwd,
+	 rev = rules.filter_uncorrected.output.rev
+	output: 
+	 fwd="fastq_files/trimmed/{smp}/{smp}_val_1.fq", 
+         rev="fastq_files/trimmed/{smp}/{smp}_val_2.fq" 
+	message: """--- Trimming."""
+	conda: "env/transcriptome.yaml"
+	threads: 24
+	params:
+	 base = "fastq_files/trimmed/{smp}"
+	shell:
+	 "trim_galore --paired --retain_unpaired --phred33 --basename {wildcards.smp} -j {threads} --output_dir {params.base} --length 36 -q 5 --stringency 1 -e 0.1 "  
+	 "{input.fwd} {input.rev} > output.out 2>&1"
+
+rule fastqc2:
+	input:
+	 fwd = rules.trimming.output.fwd, 
+	 rev = rules.trimming.output.rev
+	output: 
+	 fwd="fastq_files/fastqc/{smp}/{smp}_val_1_fastqc.zip", 
+	 rev="fastq_files/fastqc/{smp}/{smp}_val_2_fastqc.zip"
+	message: """--- Quality check of raw data with Fastqc"""
+	conda: "env/transcriptome.yaml"
+	shell: "fastqc --outdir fastq_files/fastqc/{wildcards.smp} --extract -f fastq {input.fwd} {input.rev}"                                                                    
+
+rule star:
+	input:
+	 fwd = rules.trimming.output.fwd,
+	 rev = rules.trimming.output.rev,
+	 checkpoint1 = rules.fastqc2.output.fwd,
+	 checkpoint2 = rules.fastqc2.output.rev
+	output:
+	 bam = "results/STAR_bam/{smp}Aligned.sortedByCoord.out.bam"
+	params:
+	 type = "BAM",
+	 sort = "SortedByCoordinate",
+	 mode = "alignReads"
+	threads: 12
+	conda: "env/transcriptome.yaml"
+	shell:
+	 "STAR --runMode alignReads --runThreadN {threads} --genomeDir bowtie2 --readFilesIn {input.fwd} {input.rev} --outSAMtype BAM SortedByCoordinate "
+	 "--outFileNamePrefix results/STAR_bam/{wildcards.smp}"
+
+rule trinity:
+	input: 
+	 fwd = rules.trimming.output.fwd,
+	 rev = rules.trimming.output.rev,
+	 bam = rules.star.output.bam
+	output:
+	 out = "results/trinity_assembly/{smp}/trinity/Trinity.fasta"
+	params:  
+	 mem = "110G",
+	 cov = "1",
+	 type = "RF",
+	 seq = "fq"
+	message: "--- De novo assembly with Trinity"
+	threads: 20
+	conda: "env/transcriptome.yaml"
+	shell: 
+ 	 "mkdir -p results/trinity_assembly && Trinity --seqType {params.seq} --SS_lib_type {params.type} --max_memory {params.mem} --min_kmer_cov {params.cov} "
+	 "--CPU {threads} --left {input.fwd} --right {input.rev} " 
+	 "--output results/trinity_assembly/{wildcards.smp}/trinity"
+
+rule stats:
+	input:
+	 rules.trinity.output.out
+	output:
+	 out = "results/trinity_assembly/{smp}/trinity/{smp}_stats"
+	conda: "env/transcriptome.yaml"
+	shell:
+	 "TrinityStats.pl {input} > {output.out}"
+rule busco:
+	input:
+	 fa = rules.trinity.output.out,
+	 check = rules.stats.output.out
+	conda: "env/busco_4.yaml"
+	output: "busco_{smp}"
+	threads: 20
+	shell:
+	 " busco -f -i {input.fa} --offline --cpu {threads} -o {output} -l aves_odb10 -m transcriptome "
+	 "&& cp busco_{wildcards.smp}/short_summary.specific.aves_odb10.busco_{wildcards.smp}.txt . && rm -rf busco_{wildcards.smp}/*"
+
+
+
+
+
+
+
+
+
+
+
+

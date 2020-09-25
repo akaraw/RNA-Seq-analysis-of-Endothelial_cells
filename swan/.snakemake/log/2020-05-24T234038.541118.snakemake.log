@@ -1,0 +1,4 @@
+Building DAG of jobs...
+MissingInputException in line 129 of /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/swan/Snakefile:
+Missing input files for rule htseq:
+/30days/uqakaraw/swan/blackswan_isoseq.gtf

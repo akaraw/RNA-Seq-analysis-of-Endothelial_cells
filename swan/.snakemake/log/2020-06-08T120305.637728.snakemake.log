@@ -1,0 +1,131 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 24
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	6	htseq
+	7
+
+[Mon Jun  8 12:03:05 2020]
+rule htseq:
+    input: results/STAR_bam/swaninfected03Aligned.sortedByCoord.out.bam, /30days/uqakaraw/swan/blackswan_isoseq.gtf
+    output: htseq/swaninfected03.tsv, htseq/log/swaninfected03.err
+    jobid: 3
+    wildcards: smp=swaninfected03
+
+
+[Mon Jun  8 12:03:05 2020]
+rule htseq:
+    input: results/STAR_bam/swaninfected01Aligned.sortedByCoord.out.bam, /30days/uqakaraw/swan/blackswan_isoseq.gtf
+    output: htseq/swaninfected01.tsv, htseq/log/swaninfected01.err
+    jobid: 2
+    wildcards: smp=swaninfected01
+
+
+[Mon Jun  8 12:03:05 2020]
+rule htseq:
+    input: results/STAR_bam/swancontrol01Aligned.sortedByCoord.out.bam, /30days/uqakaraw/swan/blackswan_isoseq.gtf
+    output: htseq/swancontrol01.tsv, htseq/log/swancontrol01.err
+    jobid: 1
+    wildcards: smp=swancontrol01
+
+
+[Mon Jun  8 12:03:05 2020]
+rule htseq:
+    input: results/STAR_bam/swancontrol03Aligned.sortedByCoord.out.bam, /30days/uqakaraw/swan/blackswan_isoseq.gtf
+    output: htseq/swancontrol03.tsv, htseq/log/swancontrol03.err
+    jobid: 5
+    wildcards: smp=swancontrol03
+
+
+[Mon Jun  8 12:03:05 2020]
+rule htseq:
+    input: results/STAR_bam/swancontrol02Aligned.sortedByCoord.out.bam, /30days/uqakaraw/swan/blackswan_isoseq.gtf
+    output: htseq/swancontrol02.tsv, htseq/log/swancontrol02.err
+    jobid: 4
+    wildcards: smp=swancontrol02
+
+
+[Mon Jun  8 12:03:05 2020]
+rule htseq:
+    input: results/STAR_bam/swaninfected02Aligned.sortedByCoord.out.bam, /30days/uqakaraw/swan/blackswan_isoseq.gtf
+    output: htseq/swaninfected02.tsv, htseq/log/swaninfected02.err
+    jobid: 6
+    wildcards: smp=swaninfected02
+
+Activating conda environment: /30days/uqakaraw/snakemake_envs/f9a6e946
+Activating conda environment: /30days/uqakaraw/snakemake_envs/f9a6e946
+Activating conda environment: /30days/uqakaraw/snakemake_envs/f9a6e946
+Activating conda environment: /30days/uqakaraw/snakemake_envs/f9a6e946
+Activating conda environment: /30days/uqakaraw/snakemake_envs/f9a6e946
+Activating conda environment: /30days/uqakaraw/snakemake_envs/f9a6e946
+Terminating processes on user request, this might take some time.
+[Mon Jun  8 12:04:27 2020]
+Error in rule htseq:
+[Mon Jun  8 12:04:27 2020]
+    jobid: 4
+[Mon Jun  8 12:04:27 2020]
+[Mon Jun  8 12:04:27 2020]
+[Mon Jun  8 12:04:27 2020]
+Error in rule htseq:
+    output: htseq/swancontrol02.tsv, htseq/log/swancontrol02.err
+Error in rule htseq:
+Error in rule htseq:
+Error in rule htseq:
+    jobid: 6
+    conda-env: /30days/uqakaraw/snakemake_envs/f9a6e946
+    jobid: 2
+    jobid: 1
+    jobid: 3
+    output: htseq/swaninfected02.tsv, htseq/log/swaninfected02.err
+    shell:
+        htseq-count -f bam --order=name --nonunique=all -s yes -a 20 -t CDS -i gene_id -m intersection-strict results/STAR_bam/swancontrol02Aligned.sortedByCoord.out.bam /30days/uqakaraw/swan/blackswan_isoseq.gtf > htseq/swancontrol02.tsv 2> htseq/log/swancontrol02.err
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    output: htseq/swaninfected01.tsv, htseq/log/swaninfected01.err
+    output: htseq/swancontrol01.tsv, htseq/log/swancontrol01.err
+    output: htseq/swaninfected03.tsv, htseq/log/swaninfected03.err
+    conda-env: /30days/uqakaraw/snakemake_envs/f9a6e946
+
+    conda-env: /30days/uqakaraw/snakemake_envs/f9a6e946
+    conda-env: /30days/uqakaraw/snakemake_envs/f9a6e946
+    conda-env: /30days/uqakaraw/snakemake_envs/f9a6e946
+    shell:
+        htseq-count -f bam --order=name --nonunique=all -s yes -a 20 -t CDS -i gene_id -m intersection-strict results/STAR_bam/swaninfected02Aligned.sortedByCoord.out.bam /30days/uqakaraw/swan/blackswan_isoseq.gtf > htseq/swaninfected02.tsv 2> htseq/log/swaninfected02.err
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+Removing output files of failed job htseq since they might be corrupted:
+htseq/swancontrol02.tsv, htseq/log/swancontrol02.err
+    shell:
+        htseq-count -f bam --order=name --nonunique=all -s yes -a 20 -t CDS -i gene_id -m intersection-strict results/STAR_bam/swaninfected01Aligned.sortedByCoord.out.bam /30days/uqakaraw/swan/blackswan_isoseq.gtf > htseq/swaninfected01.tsv 2> htseq/log/swaninfected01.err
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    shell:
+        htseq-count -f bam --order=name --nonunique=all -s yes -a 20 -t CDS -i gene_id -m intersection-strict results/STAR_bam/swancontrol01Aligned.sortedByCoord.out.bam /30days/uqakaraw/swan/blackswan_isoseq.gtf > htseq/swancontrol01.tsv 2> htseq/log/swancontrol01.err
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    shell:
+        htseq-count -f bam --order=name --nonunique=all -s yes -a 20 -t CDS -i gene_id -m intersection-strict results/STAR_bam/swaninfected03Aligned.sortedByCoord.out.bam /30days/uqakaraw/swan/blackswan_isoseq.gtf > htseq/swaninfected03.tsv 2> htseq/log/swaninfected03.err
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+
+
+
+Removing output files of failed job htseq since they might be corrupted:
+htseq/swaninfected02.tsv, htseq/log/swaninfected02.err
+Removing output files of failed job htseq since they might be corrupted:
+htseq/swaninfected01.tsv, htseq/log/swaninfected01.err
+Removing output files of failed job htseq since they might be corrupted:
+htseq/swancontrol01.tsv, htseq/log/swancontrol01.err
+Removing output files of failed job htseq since they might be corrupted:
+htseq/swaninfected03.tsv, htseq/log/swaninfected03.err
+[Mon Jun  8 19:25:26 2020]
+Error in rule htseq:
+    jobid: 5
+    output: htseq/swancontrol03.tsv, htseq/log/swancontrol03.err
+    conda-env: /30days/uqakaraw/snakemake_envs/f9a6e946
+    shell:
+        htseq-count -f bam --order=name --nonunique=all -s yes -a 20 -t CDS -i gene_id -m intersection-strict results/STAR_bam/swancontrol03Aligned.sortedByCoord.out.bam /30days/uqakaraw/swan/blackswan_isoseq.gtf > htseq/swancontrol03.tsv 2> htseq/log/swancontrol03.err
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job htseq since they might be corrupted:
+htseq/swancontrol03.tsv, htseq/log/swancontrol03.err
+Complete log: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/swan/.snakemake/log/2020-06-08T120305.637728.snakemake.log

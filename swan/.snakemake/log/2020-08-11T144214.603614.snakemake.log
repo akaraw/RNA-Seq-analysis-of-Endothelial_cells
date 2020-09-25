@@ -1,0 +1,83 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 6
+Job counts:
+	count	jobs
+	1	all
+	6	fastqc2
+	6	filter_uncorrected
+	6	htseq
+	6	rcorrector
+	6	rmbadreads
+	6	star
+	6	trimming
+	43
+
+[Tue Aug 11 14:42:15 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swaninfected02_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swaninfected02_2.fastq.gz
+    output: results/rcorrector/swaninfected02/swaninfected02_1.cor.fq.gz, results/rcorrector/swaninfected02/swaninfected02_2.cor.fq.gz
+    jobid: 42
+    wildcards: smp=swaninfected02
+    threads: 20
+
+ run_rcorrector.pl -od results/rcorrector/swaninfected02 -t 20 -1 /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swaninfected02_1.fastq.gz -2 /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swaninfected02_2.fastq.gz 
+Submitted job 42 with external jobid '339192.tinmgr2'.
+
+[Tue Aug 11 14:42:16 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swancontrol01_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swancontrol01_2.fastq.gz
+    output: results/rcorrector/swancontrol01/swancontrol01_1.cor.fq.gz, results/rcorrector/swancontrol01/swancontrol01_2.cor.fq.gz
+    jobid: 37
+    wildcards: smp=swancontrol01
+    threads: 20
+
+ run_rcorrector.pl -od results/rcorrector/swancontrol01 -t 20 -1 /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swancontrol01_1.fastq.gz -2 /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swancontrol01_2.fastq.gz 
+Submitted job 37 with external jobid '339193.tinmgr2'.
+
+[Tue Aug 11 14:42:17 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swancontrol03_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swancontrol03_2.fastq.gz
+    output: results/rcorrector/swancontrol03/swancontrol03_1.cor.fq.gz, results/rcorrector/swancontrol03/swancontrol03_2.cor.fq.gz
+    jobid: 41
+    wildcards: smp=swancontrol03
+    threads: 20
+
+ run_rcorrector.pl -od results/rcorrector/swancontrol03 -t 20 -1 /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swancontrol03_1.fastq.gz -2 /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swancontrol03_2.fastq.gz 
+Submitted job 41 with external jobid '339194.tinmgr2'.
+
+[Tue Aug 11 14:42:17 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swaninfected01_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swaninfected01_2.fastq.gz
+    output: results/rcorrector/swaninfected01/swaninfected01_1.cor.fq.gz, results/rcorrector/swaninfected01/swaninfected01_2.cor.fq.gz
+    jobid: 38
+    wildcards: smp=swaninfected01
+    threads: 20
+
+ run_rcorrector.pl -od results/rcorrector/swaninfected01 -t 20 -1 /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swaninfected01_1.fastq.gz -2 /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swaninfected01_2.fastq.gz 
+Submitted job 38 with external jobid '339195.tinmgr2'.
+
+[Tue Aug 11 14:42:17 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swancontrol02_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swancontrol02_2.fastq.gz
+    output: results/rcorrector/swancontrol02/swancontrol02_1.cor.fq.gz, results/rcorrector/swancontrol02/swancontrol02_2.cor.fq.gz
+    jobid: 40
+    wildcards: smp=swancontrol02
+    threads: 20
+
+ run_rcorrector.pl -od results/rcorrector/swancontrol02 -t 20 -1 /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swancontrol02_1.fastq.gz -2 /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swancontrol02_2.fastq.gz 
+Submitted job 40 with external jobid '339196.tinmgr2'.
+
+[Tue Aug 11 14:42:17 2020]
+rule rcorrector:
+    input: /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swaninfected03_1.fastq.gz, /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swaninfected03_2.fastq.gz
+    output: results/rcorrector/swaninfected03/swaninfected03_1.cor.fq.gz, results/rcorrector/swaninfected03/swaninfected03_2.cor.fq.gz
+    jobid: 39
+    wildcards: smp=swaninfected03
+    threads: 20
+
+ run_rcorrector.pl -od results/rcorrector/swaninfected03 -t 20 -1 /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swaninfected03_1.fastq.gz -2 /30days/uqakaraw/FASTQDIR_never_DELETE/swan/swaninfected03_2.fastq.gz 
+Submitted job 39 with external jobid '339197.tinmgr2'.
+Terminating processes on user request, this might take some time.
+Will exit after finishing currently running jobs.
+Complete log: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/swan/.snakemake/log/2020-08-11T144214.603614.snakemake.log

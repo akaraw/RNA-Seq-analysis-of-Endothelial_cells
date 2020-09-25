@@ -1,0 +1,31 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	6	htseq
+	7
+
+[Mon Jun  8 12:13:33 2020]
+rule htseq:
+    input: results/STAR_bam/swancontrol03Aligned.sortedByCoord.out.bam, /30days/uqakaraw/swan/blackswan_isoseq.gtf
+    output: htseq/swancontrol03.tsv, htseq/log/swancontrol03.err
+    jobid: 5
+    wildcards: smp=swancontrol03
+
+Activating conda environment: /30days/uqakaraw/snakemake_envs/f9a6e946
+Terminating processes on user request, this might take some time.
+[Mon Jun  8 12:37:11 2020]
+Error in rule htseq:
+    jobid: 5
+    output: htseq/swancontrol03.tsv, htseq/log/swancontrol03.err
+    conda-env: /30days/uqakaraw/snakemake_envs/f9a6e946
+    shell:
+        htseq-count -f bam --order=name --nonunique=all -s yes -a 20 -t CDS -i gene_id -m intersection-strict results/STAR_bam/swancontrol03Aligned.sortedByCoord.out.bam /30days/uqakaraw/swan/blackswan_isoseq.gtf > htseq/swancontrol03.tsv 2> htseq/log/swancontrol03.err
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job htseq since they might be corrupted:
+htseq/swancontrol03.tsv, htseq/log/swancontrol03.err
+Complete log: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/swan/.snakemake/log/2020-06-08T121333.494501.snakemake.log

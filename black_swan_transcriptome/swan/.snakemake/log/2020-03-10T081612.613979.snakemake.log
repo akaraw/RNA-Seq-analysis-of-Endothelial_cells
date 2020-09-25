@@ -1,0 +1,35 @@
+Building DAG of jobs...
+Creating conda environment env/busco_4.yaml...
+Downloading and installing remote packages.
+Environment for env/busco_4.yaml created (location: ../../../../../../30days/uqakaraw/snakemake_envs/a3b09c2c)
+Using shell: /usr/bin/bash
+Provided cluster nodes: 2
+Job counts:
+	count	jobs
+	1	all
+	1	busco
+	2
+
+[Tue Mar 10 08:24:59 2020]
+rule busco:
+    input: results/trinity_assembly/swancontrol01/trinity/Trinity.fasta, results/trinity_assembly/swancontrol01/trinity/swancontrol01_stats
+    output: busco_swancontrol01
+    jobid: 1
+    wildcards: smp=swancontrol01
+    threads: 20
+
+Submitted job 1 with external jobid '171460.tinmgr2'.
+[Tue Mar 10 12:26:03 2020]
+Error in rule busco:
+    jobid: 1
+    output: busco_swancontrol01
+    conda-env: /30days/uqakaraw/snakemake_envs/a3b09c2c
+    shell:
+         busco -f -i results/trinity_assembly/swancontrol01/trinity/Trinity.fasta --offline --cpu 20 -o busco_swancontrol01 -l aves_odb10 -m transcriptome
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: 171460.tinmgr2
+
+Error executing rule busco on cluster (jobid: 1, external: 171460.tinmgr2, jobscript: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/swan/.snakemake/tmp.0vdc20i6/snakejob.busco.1.sh). For error details see the cluster log and the log files of the involved rule(s).
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/swan/.snakemake/log/2020-03-10T081612.613979.snakemake.log

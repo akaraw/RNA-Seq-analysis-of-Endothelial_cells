@@ -1,0 +1,95 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 6
+Job counts:
+	count	jobs
+	1	all
+	5	fastqc2
+	3	filter_uncorrected
+	6	htseq
+	5	rmbadreads
+	5	star
+	6	stringtie01
+	6	stringtie02
+	6	stringtie_merge
+	5	trimming
+	48
+
+[Mon Apr 13 13:32:16 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/swaninfected01/swaninfected01_1.cor.fq.gz, results/rcorrector/swaninfected01/swaninfected01_2.cor.fq.gz
+    output: results/swaninfected01_filter/unfixrm_swaninfected01_1.cor.fq, results/swaninfected01_filter/unfixrm_swaninfected01_2.cor.fq
+    jobid: 50
+    wildcards: smp=swaninfected01
+
+Submitted job 50 with external jobid '186541.tinmgr2'.
+
+[Mon Apr 13 13:32:16 2020]
+rule htseq:
+    input: results/STAR_bam/swancontrol02Aligned.sortedByCoord.out.bam, /30days/uqakaraw/swan/blackswan.gtf
+    output: htseq/swancontrol02.tsv, htseq/log/swancontrol02.err
+    jobid: 42
+    wildcards: smp=swancontrol02
+
+Submitted job 42 with external jobid '186542.tinmgr2'.
+
+[Mon Apr 13 13:32:16 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/swancontrol01/swancontrol01_1.cor.fq.gz, results/rcorrector/swancontrol01/swancontrol01_2.cor.fq.gz
+    output: results/swancontrol01_filter/unfixrm_swancontrol01_1.cor.fq, results/swancontrol01_filter/unfixrm_swancontrol01_2.cor.fq
+    jobid: 49
+    wildcards: smp=swancontrol01
+
+Submitted job 49 with external jobid '186543.tinmgr2'.
+
+[Mon Apr 13 13:32:16 2020]
+Job 38: --- Trimming.
+
+Submitted job 38 with external jobid '186544.tinmgr2'.
+
+[Mon Apr 13 13:32:16 2020]
+Job 47: --- Trimming.
+
+Submitted job 47 with external jobid '186545.tinmgr2'.
+
+[Mon Apr 13 13:32:16 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/swancontrol03/swancontrol03_1.cor.fq.gz, results/rcorrector/swancontrol03/swancontrol03_2.cor.fq.gz
+    output: results/swancontrol03_filter/unfixrm_swancontrol03_1.cor.fq, results/swancontrol03_filter/unfixrm_swancontrol03_2.cor.fq
+    jobid: 53
+    wildcards: smp=swancontrol03
+
+Submitted job 53 with external jobid '186546.tinmgr2'.
+[Mon Apr 13 13:48:17 2020]
+Error in rule htseq:
+    jobid: 42
+    output: htseq/swancontrol02.tsv, htseq/log/swancontrol02.err
+    conda-env: /30days/uqakaraw/snakemake_envs/f9a6e946
+    shell:
+        htseq-count -f bam --order=name --nonunique=all -s yes -a 20 -t exon -i gene_id -m intersection-strict results/STAR_bam/swancontrol02Aligned.sortedByCoord.out.bam /30days/uqakaraw/swan/blackswan.gtf > htseq/swancontrol02.tsv 2> htseq/log/swancontrol02.err
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: 186542.tinmgr2
+
+Error executing rule htseq on cluster (jobid: 42, external: 186542.tinmgr2, jobscript: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/swan/.snakemake/tmp.3ff4eumg/snakejob.htseq.42.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Mon Apr 13 14:02:57 2020]
+Finished job 50.
+1 of 48 steps (2%) done
+[Mon Apr 13 14:07:58 2020]
+Finished job 49.
+2 of 48 steps (4%) done
+Removing temporary output file results/swaninfected03_filter/unfixrm_swaninfected03_1.cor.fq.
+Removing temporary output file results/swaninfected03_filter/unfixrm_swaninfected03_2.cor.fq.
+[Mon Apr 13 14:09:18 2020]
+Finished job 38.
+3 of 48 steps (6%) done
+Removing temporary output file results/swaninfected02_filter/unfixrm_swaninfected02_2.cor.fq.
+Removing temporary output file results/swaninfected02_filter/unfixrm_swaninfected02_1.cor.fq.
+[Mon Apr 13 14:09:28 2020]
+Finished job 47.
+4 of 48 steps (8%) done
+[Mon Apr 13 14:24:59 2020]
+Finished job 53.
+5 of 48 steps (10%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/swan/.snakemake/log/2020-04-13T133215.967204.snakemake.log

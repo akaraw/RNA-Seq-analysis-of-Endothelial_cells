@@ -1,0 +1,124 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 6
+Job counts:
+	count	jobs
+	1	all
+	5	fastqc2
+	4	filter_uncorrected
+	6	htseq
+	5	rmbadreads
+	5	star
+	6	stringtie01
+	6	stringtie02
+	6	stringtie_merge
+	5	trimming
+	49
+
+[Sat Apr 11 08:14:41 2020]
+rule htseq:
+    input: results/STAR_bam/Duckcontrol02Aligned.sortedByCoord.out.bam, /30days/uqakaraw/duck/duck.gtf
+    output: Duckcontrol02.txt, Duckcontrol02.err
+    jobid: 48
+    wildcards: smp=Duckcontrol02
+
+Submitted job 48 with external jobid '186073.tinmgr2'.
+
+[Sat Apr 11 08:14:41 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/Duckcontrol03/Duckcontrol03_1.cor.fq.gz, results/rcorrector/Duckcontrol03/Duckcontrol03_2.cor.fq.gz
+    output: results/Duckcontrol03_filter/unfixrm_Duckcontrol03_1.cor.fq, results/Duckcontrol03_filter/unfixrm_Duckcontrol03_2.cor.fq
+    jobid: 51
+    wildcards: smp=Duckcontrol03
+
+Submitted job 51 with external jobid '186074.tinmgr2'.
+
+[Sat Apr 11 08:14:41 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/duckinfected03/duckinfected03_1.cor.fq.gz, results/rcorrector/duckinfected03/duckinfected03_2.cor.fq.gz
+    output: results/duckinfected03_filter/unfixrm_duckinfected03_1.cor.fq, results/duckinfected03_filter/unfixrm_duckinfected03_2.cor.fq
+    jobid: 49
+    wildcards: smp=duckinfected03
+
+Submitted job 49 with external jobid '186075.tinmgr2'.
+
+[Sat Apr 11 08:14:41 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/duckinfected02/duckinfected02_1.cor.fq.gz, results/rcorrector/duckinfected02/duckinfected02_2.cor.fq.gz
+    output: results/duckinfected02_filter/unfixrm_duckinfected02_1.cor.fq, results/duckinfected02_filter/unfixrm_duckinfected02_2.cor.fq
+    jobid: 50
+    wildcards: smp=duckinfected02
+
+Submitted job 50 with external jobid '186076.tinmgr2'.
+
+[Sat Apr 11 08:14:41 2020]
+Job 44: --- Trimming.
+
+Submitted job 44 with external jobid '186077.tinmgr2'.
+
+[Sat Apr 11 08:14:42 2020]
+rule filter_uncorrected:
+    input: results/rcorrector/DuckControl01/DuckControl01_1.cor.fq.gz, results/rcorrector/DuckControl01/DuckControl01_2.cor.fq.gz
+    output: results/DuckControl01_filter/unfixrm_DuckControl01_1.cor.fq, results/DuckControl01_filter/unfixrm_DuckControl01_2.cor.fq
+    jobid: 52
+    wildcards: smp=DuckControl01
+
+Submitted job 52 with external jobid '186078.tinmgr2'.
+[Sat Apr 11 08:15:51 2020]
+Finished job 48.
+1 of 49 steps (2%) done
+
+[Sat Apr 11 08:15:51 2020]
+Job 30: --- Diffrential Gene Expression Analysis with Stringtie step 01
+
+Submitted job 30 with external jobid '186081.tinmgr2'.
+[Sat Apr 11 08:16:11 2020]
+Error in rule stringtie01:
+    jobid: 30
+    output: results/Duckcontrol02.list
+    conda-env: /30days/uqakaraw/snakemake_envs/6d06af2b
+    shell:
+        stringtie results/STAR_bam/Duckcontrol02Aligned.sortedByCoord.out.bam -C Duckcontrol02.1.ref.gtf -A Duckcontrol02.1.tab -p 24 -G /30days/uqakaraw/duck/duck.gtf -o Duckcontrol02.out.gtf && ls *.out.gtf > results/Duckcontrol02.list 
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: 186081.tinmgr2
+
+Error executing rule stringtie01 on cluster (jobid: 30, external: 186081.tinmgr2, jobscript: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/duck/.snakemake/tmp.phwn4jrm/snakejob.stringtie01.30.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Sat Apr 11 08:19:21 2020]
+Finished job 44.
+2 of 49 steps (4%) done
+[Sat Apr 11 08:33:22 2020]
+Finished job 49.
+3 of 49 steps (6%) done
+[Sat Apr 11 08:34:22 2020]
+Error in rule filter_uncorrected:
+    jobid: 51
+    output: results/Duckcontrol03_filter/unfixrm_Duckcontrol03_1.cor.fq, results/Duckcontrol03_filter/unfixrm_Duckcontrol03_2.cor.fq
+    shell:
+         mkdir -p results/Duckcontrol03_filter && FilterUncorrectabledPEfastq.py -1 results/rcorrector/Duckcontrol03/Duckcontrol03_1.cor.fq.gz -2 results/rcorrector/Duckcontrol03/Duckcontrol03_2.cor.fq.gz && mv unfix* results/Duckcontrol03_filter
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: 186074.tinmgr2
+
+Error executing rule filter_uncorrected on cluster (jobid: 51, external: 186074.tinmgr2, jobscript: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/duck/.snakemake/tmp.phwn4jrm/snakejob.filter_uncorrected.51.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Sat Apr 11 08:35:12 2020]
+Error in rule filter_uncorrected:
+    jobid: 52
+    output: results/DuckControl01_filter/unfixrm_DuckControl01_1.cor.fq, results/DuckControl01_filter/unfixrm_DuckControl01_2.cor.fq
+    shell:
+         mkdir -p results/DuckControl01_filter && FilterUncorrectabledPEfastq.py -1 results/rcorrector/DuckControl01/DuckControl01_1.cor.fq.gz -2 results/rcorrector/DuckControl01/DuckControl01_2.cor.fq.gz && mv unfix* results/DuckControl01_filter
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: 186078.tinmgr2
+
+Error executing rule filter_uncorrected on cluster (jobid: 52, external: 186078.tinmgr2, jobscript: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/duck/.snakemake/tmp.phwn4jrm/snakejob.filter_uncorrected.52.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Sat Apr 11 08:37:12 2020]
+Error in rule filter_uncorrected:
+    jobid: 50
+    output: results/duckinfected02_filter/unfixrm_duckinfected02_1.cor.fq, results/duckinfected02_filter/unfixrm_duckinfected02_2.cor.fq
+    shell:
+         mkdir -p results/duckinfected02_filter && FilterUncorrectabledPEfastq.py -1 results/rcorrector/duckinfected02/duckinfected02_1.cor.fq.gz -2 results/rcorrector/duckinfected02/duckinfected02_2.cor.fq.gz && mv unfix* results/duckinfected02_filter
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: 186076.tinmgr2
+
+Error executing rule filter_uncorrected on cluster (jobid: 50, external: 186076.tinmgr2, jobscript: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/duck/.snakemake/tmp.phwn4jrm/snakejob.filter_uncorrected.50.sh). For error details see the cluster log and the log files of the involved rule(s).
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/duck/.snakemake/log/2020-04-11T081440.674758.snakemake.log

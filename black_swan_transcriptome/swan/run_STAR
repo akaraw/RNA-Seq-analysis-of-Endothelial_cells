@@ -1,0 +1,1 @@
+STAR alignReads --runThreadN 20 --genomeDir bowtie2/ --readFilesIn fastq_files/trimmed/swancontrol01/swancontrol01_val_1.fq fastq_files/trimmed/swancontrol01/swancontrol01_val_2.fq --outSAMtype BAM SortedByCoordinate --outFileNamePrefix results/STAR_bam/swancontrol101

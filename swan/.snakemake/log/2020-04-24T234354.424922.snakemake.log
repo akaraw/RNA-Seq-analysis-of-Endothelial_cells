@@ -1,0 +1,9 @@
+Building DAG of jobs...
+MissingInputException in line 32 of /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/swan/Snakefile:
+Missing input files for rule all:
+stringtie_gtf/swaninfected01.gtf
+stringtie_gtf/swancontrol01.gtf
+stringtie_gtf/swancontrol02.gtf
+stringtie_gtf/swaninfected03.gtf
+stringtie_gtf/swancontrol03.gtf
+stringtie_gtf/swaninfected02.gtf

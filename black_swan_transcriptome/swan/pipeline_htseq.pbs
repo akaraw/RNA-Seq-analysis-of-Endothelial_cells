@@ -1,0 +1,244 @@
+#!/bin/bash
+#PBS -l select=1:ncpus=24:mem=120GB
+#PBS -A UQ-SCI-SCMB
+#PBS -N run_htseq_pipeline
+#PBS -l walltime=336:00:00
+
+cd $PBS_O_WORKDIR
+PROJECT=$2
+FINAL_DIR=$PROJECT/final
+mkdir -p $PROJECT
+mkdir -p $FINAL_DIR
+mkdir rcorrector
+cd rcorrector
+#rcorrector has been installed in the current conda env
+export PATH=/90days/uqakaraw/TranscriptomeAssemblyTools:/90days/uqakaraw/Rcorrector:$PATH
+
+######Naming convention must be as follows for the fastq files######################################################################################################################
+#left reads of the infected (paired end reads) sample no. 01 should >>>>= infected_1_1.fastq
+#right reads of the infected (paired end reads) sample no. 01 should be >>>= infected_1_2.fastq
+#left reads of the control sample no. 01 should be >>>>= control_1_1.fastq
+#right reads of the control sample no. 01 should be >>>>= control_1_2.fastq 
+
+PATH_TO_fq=$1
+ln -s $PATH_TO_fq/control* .
+ln -s $PATH_TO_fq/infected* .
+
+
+THREADS=24
+MEM=100
+DIR=${PROJECT}_fastqc
+
+outdir=$DIR/outdir
+
+source activate base
+
+#source activate base
+
+mkdir -p $DIR
+mkdir -p $outdir
+#####Reference website: https://informatics.fas.harvard.edu/best-practices-for-de-novo-transcriptome-assembly-with-trinity.html #####################################################
+#Step 01#
+#run_fastqc for qaulity assemnt of the raw reads#
+
+conda activate fastqc
+
+ls *fastq > names1
+
+for i in `cat names1`; do
+
+fastqc --extract --outdir $outdir -f fastq -fi $i -fo qc_$i
+
+done
+#fastqc --extract --outdir $outdir $i
+#done
+
+#Step 02#
+#Run rCorrector to remove errnoeous K-mers from the reads#
+
+conda activate base
+
+ls *_1.fastq > names
+for sample in `cat names`; do
+base=$(basename $sample "_1.fastq")
+run_rcorrector.pl -t $THREADS -1 ${base}_1.fastq -2 ${base}_2.fastq >${base}.rcorrector.out 2>&1
+done
+
+#Discard read pairs for which one of the reads is deemed unfixable#
+conda activate python2
+ls *1.cor.fq > names3
+for sample in `cat names3`; do base=$(basename $sample "1.cor.fq"); FilterUncorrectabledPEfastq.py -1 ${base}1.cor.fq -2 ${base}2.cor.fq -s log.uncorrectable; done
+#Rename the files
+mkdir renamed
+ls unfixrm_* > names4
+for i in `cat names4`; do
+  cp $i renamed/$(echo "${i}" | cut -d "_" -f2-) 
+done
+find . -type f -size 0 -delete
+#################End of rcorrector#################################################################################################################################################
+#################Going to next working directory####################################################################################################################################
+
+cd $PBS_O_WORKDIR
+mkdir -p trimgalore
+cd trimgalore
+
+##############################################################################################################################
+
+conda activate trimgalore
+ln -s $PBS_O_WORKDIR/rcorrector/renamed/* .
+
+ls *1.fq > names
+for sample in `cat names`; do
+
+base=$(basename ${sample} "_1.fq")
+
+trim_galore --paired --retain_unpaired --phred33 --basename $base -j 24 --output_dir . --length 36 -q 5 --stringency 1 -e 0.1  ${base}_1.fq ${base}_2.fq > ${base}.trimgalore.out 2>&1
+
+done
+##############################################################################################################################
+#Map trimmed reads to a blacklist to remove unwanted (rRNA reads) -- OPTIONAL#
+##############################################################################################################################
+conda activate bowtie2
+
+RNA_db.chicken=/30days/uqakaraw/32.Chicken_stringtie/data/chRNA
+RNA_db.duck=
+RNA_db.swan=
+
+ls *_val_1.fq > names5
+
+for t in `cat names5`; do
+base1=$(basename $t "_R1_val_1.fq")
+
+bowtie2 --quiet --very-sensitive-local --phred33 --met-file ${base1}_bowtie2_metrics.txt --al-conc blacklist_paired_aligned_${base1}.fq --un-conc paired_unaligned_${base1}.fq  --al blacklist_unpaired_aligned_${base1}.fq --un blacklist_unpaired_unaligned_${base1}.fq -p 24 -x $RNA_db -1 ${base1}_R1_val_1.fq -2 ${base1}_R2_val_2.fq > ${base1}.bowtie2.our 2>&1
+
+done
+
+find . -type f -size 0 -delete
+
+cd ..
+###############################################End of trimgalore##############################################################
+###############################################Strating hisat2################################################################
+conda activate hisat2
+
+mkdir -p hisat2
+cd hisat2
+
+ln -s $PBS_O_WORKDIR/trimgalore/paired_unaligned* .
+
+###change the names to make them hande easily in downstream#############################
+
+ls *.fq > names
+for i in `cat names`; do
+mv $i $(echo "$i" | cut -d "_" -f3-)
+done
+ls *.1.fq > names1
+##############################Start#####################################################
+DB=/30days/uqakaraw/chicken_genome/chicken
+
+for sample in `cat names1`
+do
+        conda activate hisat2
+        base=$(basename $sample ".1.fq")
+
+        #Run hisat2
+        hisat2 -q -x $DB --known-splicesite-infile chicken.txt --dta -p 24 -1 ${base}.1.fq -2 ${base}.2.fq -S ${base}.sam >${base}.hisat2.out 2>&1
+
+        conda activate samtools
+        samtools view -bS ${base}.sam > ${base}.bam 
+        samtools sort ${base}.bam -o ${base}.sorted.bam
+	rm ${base}.sam ${base}.bam
+done
+find . -type f -size 0 -delete
+rm *.fq
+cd ..
+#############################End of Hisat2##############################################
+#############################Starting htseq#############################################
+conda activate htseq
+
+mkdir -p $PROJECT
+mkdir -p $FINAL_DIR
+cd $FINAL_DIR
+
+GTF1=/30days/uqakaraw/chicken_genome/chicken.gtf
+GTF2=
+GTF3=
+
+if [ "$2" == "chicken" ]; then
+
+cat GTF1 > GTF
+
+elif [ "$2" == "duck" ]; then
+
+cat GTF2 > GTF
+
+elif [ "$2" == "swan" ]; then
+
+cat GTF3 > GTF
+
+else
+
+echo "no valid species provided"
+
+fi
+
+#######This is only for naming the files################################################
+ln -s $PBS_O_WORKDIR/trimgalore/paired_unaligned* .
+###change the names to make them hande easily in downstream#############################
+
+ls *.fq > names
+
+for i in `cat names`; do
+mv $i $(echo "$i" | cut -d "_" -f3-)
+done
+
+ls *.1.fq > names9
+for sample in `cat names9`
+do
+        base=$(basename $sample ".1.fq")
+        BAM=$PBS_O_WORKDIR/hisat2/${base}.sorted.bam
+
+        #Run htseq-count
+        htseq-count -f bam -r pos --nonunique=all -s no -a 10 -t exon -i gene_id -m intersection-strict $BAM $(cat GTF) > ${base}.htseq.out 2>&1
+done
+
+find . -type f -size 0 -delete
+
+##################################################################################################End of the pipeline########################################################################################################################
+
+cd $PBS_O_WORKDIR
+mkdir 5.stringtie
+cd 5.stringtie
+####################################################################################################
+conda activate stringtie
+####################################################################################################
+#This is only for naming the files################################################
+ln -s $PBS_O_WORKDIR/trimgalore/paired_unaligned* .
+###change the names to make them hande easily in downstream#############################
+
+ls *.fq > names_stringtie
+
+for i in `cat names_stringtie`; do
+mv $i $(echo "$i" | cut -d "_" -f3-)
+done
+
+ls *.1.fq > names_10
+for sample in `cat names_10`
+do
+        base=$(basename $sample ".1.fq")
+        BAM=$PBS_O_WORKDIR/hisat2/${base}.sorted.bam
+        stringtie $BAM -C ${base}ref.gtf -A ${base}.tab -p 24 -G chicken.gtf -o ${base}.out.gtf
+
+done
+####################################################################################################
+ls *.out.gtf > list.txt
+stringtie --merge -G chicken.gtf -o merged.gtf list.txt
+####################################################################################################
+for sample in `cat names_10`
+do
+        base=$(basename $sample ".1.fq")
+        mkdir ${base}.Ballgown
+        stringtie $BAM -eB -C ${base}ref2.gtf -A ${base}.tab -p 12 -G merged.gtf -o ${base}.gtf
+done
+############################################################################################################################################################################################################################################
+
+

@@ -1,0 +1,2 @@
+SyntaxError in line 178 of /gpfs1/scratch/30days/uqakaraw/76.RNAseq_Infection/duck/Snakefile:
+Colon expected after keyword message. (Snakefile, line 178)
